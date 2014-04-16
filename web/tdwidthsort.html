@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<style type="text/css">
+
+/* table {width:600px;table-layout:fixed;} 
+
+#targetTable td{
+	white-space:nowrap;
+	overflow:hidden;
+	word-break:keep-all;
+	text-overflow:ellipsis;
+} */
+</style>
+
+<script type="text/javascript">
+	var array = new Array();
+	array[0] = new Array(
+			"张三",
+			"123",
+			"123457567",
+			"呵呵呵wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww呵呵呵呵呵和和和和和和和和和和哩哩啦啦哩哩啦啦了了了了了了了了了了");
+	//alert(json[0][0]);张三
+	array[1] = new Array("张三", "123", "1234575", "简介很短");
+	array[2] = new Array("李四", "123", "1234575", "事实");
+	array[3] = new Array("李四", "123", "1234575", "我反反复复反反复复发发发发发发");
+
+	function init() {
+		for ( var i = 0; i < array.length; i++) {
+			var trObj = array[i];
+			var trstr = "<tr class='tr'>" + "<td class='jjf'>" + trObj[0]
+					+ "</td>" + "<td>" + trObj[1] + "</td>" + "<td>" + trObj[2]
+					+ "</td>" + "<td>" + trObj[3] + "</td>" + "</tr>";
+			$("#targetTable tr").last().after(trstr);
+		}
+	}
+
+	function sort() {
+		var widArray = new Array(2, 2, 5, 10);
+
+		var trs = document.getElementById('targetTable').getElementsByTagName(
+				"tr");
+		//alert(trs.children[1].innerText);
+		for ( var i = 1; i < trs.length; i++) {
+			//alert("====>"+trs[i].children[0].innerText);
+			//alert(trs[i].children.length);
+			var ctd = trs[i].children.length;
+			for ( var j = 0; j < ctd; j++) {
+				//alert(trs[i].children[j].innerText);
+				var s = trs[i].children[j].innerText;
+				if (s.length > widArray[j]) {
+					var sShow = s.substr(0, widArray[j]) + "...";
+					trs[i].children[j].innerHTML = "<td title='"+s+"'>" + sShow
+							+ "</td>";
+				}
+			}
+		}
+
+	}
+
+	function showDiv() {
+		var cityObj = $("#inputDiv");
+		var cityOffset = $("#inputDiv").offset();
+		$("#testDiv").css({
+			left : cityOffset.left + "px",
+			top : cityOffset.top + cityObj.outerHeight() + "px"
+		}).slideDown("fast");
+
+		$("body").bind("mousedown", onBodyDown);
+
+	}
+</script>
+</head>
+<body>
+
+	<input type="button" onclick="init()" value="插入数据">
+
+	<input type="button" onclick="sort()" value="点击排版">
+
+	<!-- <input type="button" onclick="clearTable()" value="清空"> -->
+	<input id="inputDiv" type="text" onclick="showDiv()">
+	<div id="testDiv"
+		style="display: none; width: 500px; background-color: red; z-index: 9999999">哈哈</div>
+	<div>有有一个有个</div>
+
+
+	<table border="1px;" id="targetTable">
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>手机</th>
+			<th>个人简介</th>
+		</tr>
+		<tr id="model" style=""></tr>
+
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.categoryManager.dao.Ta_categoryDao">
+	<resultMap type="adtec.categoryManager.model.Ta_category" id="querys">
+		<id property="ta_id" column="ta_id"></id>
+		<result property="cateName" column="cateName"></result>
+		<result property="importClass" column="importClass"></result>
+		<result property="authClass" column="authClass"></result>
+		<result property="cateDesc" column="cateDesc"></result>
+
+	</resultMap>
+	<!-- 添加方法 -->
+	<insert id="insertforTa_category" parameterType="adtec.categoryManager.model.Ta_category">
+		insert into
+		ta_category(ta_id,cateName,importClass,authClass,cateDesc)
+		values(#{ta_id},#{cateName},#{importClass},#{authClass},#{cateDesc})
+	</insert>
+
+	<!-- 查询方法 -->
+	<select id="queryAllByTa_category" parameterType="adtec.categoryManager.model.Ta_category" resultType="adtec.categoryManager.model.Ta_category">
+		select
+		a.ta_id,a.cateName,a.cateDesc,a.importClass,a.authClass,max(b.prop_index),b.propName,b.propDesc,b.propdefid
+		from Ta_category a left join Ta_extendpropdef b on a.ta_id=b.ta_id
+		where (#{cateName}='' or a.cateName like CONCAT(CONCAT('%',
+		#{cateName}), '%'))
+		and (#{cateDesc}='' or a.cateDesc like CONCAT(CONCAT('%', #{cateDesc}),
+		'%'))
+		group by a.cateName,a.importClass
+		order by b.propdefid desc
+		limit #{start},#{pageSize}
+	</select>
+
+	<!-- 修改方法 -->
+	<update id="updateTa_categoryByTa_id" parameterType="adtec.categoryManager.model.Ta_category">
+		update ta_category
+		set
+		importClass=#{importClass},authClass=#{authClass},cateDesc=#{cateDesc}
+		where ta_id=#{ta_id}
+	</update>
+
+	<!-- 根据主键删除一条数据 -->
+	<delete id="deleteTa_categoryByTa_id" parameterType="adtec.categoryManager.model.Ta_category">
+		delete from ta_category where
+		ta_id=#{ta_id}
+	</delete>
+
+
+<!-- 	<select id="queryforPropdefid" parameterType="int" resultType="java.util.HashMap">
+		select
+		a.cateName,a.cateDesc,a.importClass,a.authClass,b.propName,b.propDesc,b.propdefid
+		from Ta_category a,Ta_extendpropdef b
+		where a.ta_id=b.ta_id
+		and b.propdefid=#{propdefid }
+	</select> -->
+
+	<!-- 单一数据查询 -->
+	<select id="findAllByTa_id" parameterType="String" resultType="adtec.categoryManager.model.Ta_category">
+		select
+		a.cateName,a.cateDesc,a.importClass,a.authClass,b.propName,b.propDesc,b.propdefid,a.ta_id,b.prop_index,b.ta_id
+		from Ta_category a left join Ta_extendpropdef b on a.ta_id=b.ta_id
+		where a.ta_id=#{ta_id}
+	</select>
+
+
+	<!-- 创建 TA_Account_XXX表 -->
+	<update id="createTA_Account" parameterType="adtec.categoryManager.model.Ta_category"
+		statementType="STATEMENT">
+		CREATE TABLE TA_Account_${_parameter} (
+		`Id` int(20) NOT NULL auto_increment,
+		`accountName` varchar(30) NOT NULL,
+		`accountPwd` varchar(32),
+		`email` varchar(100) NOT NULL,
+		`orgId` int(10) NOT NULL,
+		`ta_id` varchar(32) NOT NULL,
+		`status` char(2) not null,
+		`delflag` char(2) not null,
+		FOREIGN KEY (ta_id) REFERENCES Ta_category(ta_id),
+		PRIMARY KEY (`Id`),
+		UNIQUE key idx_TA_Account_${_parameter}(accountName)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+
+	<!-- 创建accountName为索引 -->
+	<update id="createTA_Account_accountName" parameterType="adtec.categoryManager.model.Ta_category"
+		statementType="STATEMENT">
+		CREATE UNIQUE INDEX idx_TA_Account_${_parameter} ON
+		TA_Account_${_parameter}(accountName);
+	</update>
+
+	<!-- 创建TA_ExtendProp_XXX表 -->
+	<update id="createTA_ExtendProp" parameterType="adtec.categoryManager.model.Ta_category"
+		statementType="STATEMENT">
+		CREATE TABLE TA_ExtendProp_${_parameter} (
+		`Ta_extId` int(20) NOT NULL auto_increment,
+		`Id` int(20) NOT NULL,
+		`prop1` varchar(50) default NULL,
+		`prop2` varchar(50) default NULL,
+		`prop3` varchar(50) default NULL,
+		`prop4` varchar(50) default NULL,
+		`prop5` varchar(50) default NULL,
+		`prop6` varchar(50) default NULL,
+		`prop7` varchar(50) default NULL,
+		`prop8` varchar(50) default NULL,
+		`prop9` varchar(50) default NULL,
+		`prop10` varchar(50) default NULL,
+		PRIMARY KEY (`Ta_extId`),
+		FOREIGN KEY (Id) REFERENCES TA_Account_${_parameter}(Id) ON DELETE CASCADE
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	</update>
+
+	<!-- 删除TA_Account_XXX表 -->
+	<update id="delTA_Account" parameterType="adtec.categoryManager.model.Ta_category"
+		statementType="STATEMENT">
+		drop table IF EXISTS TA_Account_${_parameter};
+	</update>
+
+	<!-- 删除 TA_ExtendProp_XXX表 -->
+	<update id="delTA_ExtendProp" parameterType="adtec.categoryManager.model.Ta_category"
+		statementType="STATEMENT">
+		drop table IF EXISTS TA_ExtendProp_${_parameter};
+	</update>
+
+	<!-- 查询出所有的cateName(也就是端点名称) -->
+	<select id="queryforcateName" parameterType="adtec.categoryManager.model.Ta_category"
+		resultType="adtec.categoryManager.model.Ta_category">
+		select ta_id,cateName,cateDesc
+		from Ta_category
+	</select>
+
+	<!-- 通过端点的名称来获取端点的主键（ta_id） -->
+	<select id="queryforta_idBycateName" parameterType="adtec.categoryManager.model.Ta_category"
+		resultType="adtec.categoryManager.model.Ta_category">
+		select ta_id,cateName
+		from Ta_category
+		where cateName=#{cateName}
+	</select>
+
+	<!-- 对新添加的端点进行校验 -->
+	<select id="queryforCheckcateNameBycateName" parameterType="String" resultType="Integer">
+		select count(cateName) cate
+		from Ta_category
+		where cateName=#{cateName}
+	</select>
+
+	<!-- 通过主键获取cateName -->
+	<select id="findcateNameByta_id" parameterType="String"
+		resultType="adtec.categoryManager.model.Ta_category">
+		select cateName,ta_id
+		from Ta_category
+		where ta_id=#{ta_id}
+	</select>
+
+	<!-- 查询所有的记录数 -->
+	<select id="queryCount" parameterType="adtec.categoryManager.model.Ta_category"
+		resultType="Integer">
+		select count(*)
+		from Ta_category
+		where (#{cateName}='' or cateName like CONCAT(CONCAT('%', #{cateName}),
+		'%'))
+		and (#{cateDesc}='' or cateDesc like CONCAT(CONCAT('%', #{cateDesc}),
+		'%'))
+	</select>
+
+<!-- maojd update date:16:08 2013/12/26		通过ta_id查询终端的中文描述 -->
+	<select id="queryCateDescByTa_id" parameterType="String" resultType="String">
+		select cateDesc from Ta_category where ta_id = #{ta_id};
+	</select>
+</mapper>

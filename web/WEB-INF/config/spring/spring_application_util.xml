@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 定义要调用的任务的实现类 -->
+
+	<bean id="testQuartz" class="adtec.util.quartz.QuartzDemo">
+	</bean>
+	<!--调用实现类里面的某个方法 -->
+	<bean id="testTellTime"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="testQuartz" />
+		</property>
+		<property name="targetMethod">
+			<value>aa</value>
+		</property>
+	</bean>
+	<!--定义调用任务的时间 -->
+	<bean id="testSayTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="testTellTime" />
+		</property>
+		<property name="cronExpression">
+			<value>0 43 12 * * ?</value>
+		</property>
+	</bean>
+
+	<!--管理触发器 -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref local="testSayTrigger"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>

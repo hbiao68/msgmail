@@ -1,0 +1,190 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.organizationManager.dao.OrganizationDao">
+	<resultMap type="adtec.organizationManager.entity.Organization" id="querys">
+		<id property="orgId" column="orgid"></id>
+		<result property="orgName" column="orgname"></result>
+		<result property="level1" column="level1"></result>
+		<result property="level2" column="level2"></result>
+		<result property="level3" column="level3"></result>
+		<result property="level4" column="level4"></result>
+		<result property="level5" column="level5"></result>
+		<result property="level6" column="level6"></result>
+		<result property="level7" column="level7"></result>
+	</resultMap>
+
+	
+
+	<select id="queryOrgLevelByOrg" resultMap="querys" parameterType="adtec.organizationManager.entity.Organization">
+		select * from ta_organization
+			<if test="level1 == null ">
+				WHERE level1 is not null and level2 is null and level3 is null and level4 is null and level5 is null and level6 is null and level7 is null
+			</if>
+			<if test="level1 != null and level2 ==null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 is not null and level3 is null and level4 is null and level5 is null and level6 is null and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 is not null and level4 is null and level5 is null and level6 is null and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 is not null and level5 is null and level6 is null and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 is not null and level6 is null and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 is not null and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 =#{level6,jdbcType=VARCHAR} and  level7 is not null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 !=null ">
+				where true = false;
+			</if>
+			
+	</select>
+	
+	
+	<select id="querySubOrgListByOrg" resultMap="querys" parameterType="adtec.organizationManager.entity.Organization">
+		select * from ta_organization
+			<if test="level1 == null ">
+				WHERE true = true;
+			</if>
+			<if test="level1 != null and level2 ==null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 =#{level6,jdbcType=VARCHAR}
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 !=null ">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 =#{level6,jdbcType=VARCHAR} and level7 =#{level7,jdbcType=VARCHAR};
+			</if>
+	</select>
+	
+	
+	<select id="queryAllOrg" resultMap="querys">
+		select * from ta_organization
+	</select>
+
+	<insert id="addOrg" parameterType="adtec.organizationManager.entity.Organization">
+		INSERT INTO ta_organization(orgname,level1,level2,level3,level4,level5,level6,level7) values(#{orgName,jdbcType=VARCHAR},#{level1,jdbcType=VARCHAR},#{level2,jdbcType=VARCHAR},#{level3,jdbcType=VARCHAR},#{level4,jdbcType=VARCHAR},#{level5,jdbcType=VARCHAR},#{level6,jdbcType=VARCHAR},#{level7,jdbcType=VARCHAR})
+	</insert>
+	
+	<insert id="batchInsertOrg" parameterType="java.util.List">
+		INSERT INTO ta_organization (orgname,level1,level2,level3,level4,level5,level6,level7)
+		VALUES 
+		<foreach collection="list" item="item" index="index" separator="," >
+			(#{item.orgName},#{item.level1},#{item.level2},#{item.level3},#{item.level4},#{item.level5},#{item.level6},#{item.level7})
+		</foreach>
+	</insert> 
+	<!-- <insert id="batchInsertOrg" parameterType="java.util.List">
+		INSERT INTO ta_organization (orgId,orgName,level1,level2,level3,level4,level5,level6,level7)
+		VALUES 
+		<foreach collection="list" item="item" index="index" separator="," >
+			(#{item.orgId},#{item.orgName},#{item.level1},#{item.level2},#{item.level3},#{item.level4},#{item.level5},#{item.level6},#{item.level7})
+		</foreach>
+	</insert>-->
+	
+	<delete id="deleteOrgByOrgId" parameterType="Integer">
+		delete from ta_organization
+		where orgid=#{orgId}
+	</delete>
+	
+	<delete id="deleteAll">
+		<!-- TRUNCATE TABLE ta_organization -->
+		delete from ta_organization
+	</delete>
+	
+	<select id="queryOrgById" parameterType="Integer" resultMap="querys">
+		select * from ta_organization
+		where orgid=#{orgId}
+	</select>
+	
+	<select id="queryOrgRoot" resultMap="querys">
+		select * from ta_organization
+		WHERE level1 is null and level2 is null and level3 is null and level4 is null and level5 is null and level6 is null and level7 is null
+	</select>
+	
+	<update id="updateOrg" parameterType="adtec.organizationManager.entity.Organization">
+		update ta_organization
+		<set>
+			<if test="orgId !=null and '' ">
+				orgid=#{orgId,jdbcType=INTEGER},
+			</if>
+			<if test="orgName !=null and '' != orgName.trim()">
+				orgname=#{orgName,jdbcType=VARCHAR},
+			</if>
+			<!-- <if test="level1 !=null and '' != level1.trim()">
+				level1=#{level1,jdbcType=INTEGER},
+			</if>
+			<if test="level2 !=null and '' != level2.trim()">
+				level2=#{level2,jdbcType=INTEGER},
+			</if>
+			<if test="level3 !=null and '' != level3.trim()">
+				level3=#{level3,jdbcType=INTEGER},
+			</if>
+			<if test="level4 !=null and '' != level4.trim()">
+				level4=#{level4,jdbcType=INTEGER},
+			</if>
+			<if test="level5 !=null and '' != level5.trim()">
+				level5=#{level5,jdbcType=INTEGER},
+			</if>
+			<if test="level6 !=null and '' != level6.trim()">
+				level6=#{level6,jdbcType=INTEGER},
+			</if>
+			<if test="level7 !=null and '' != level7.trim()">
+				level7=#{level7,jdbcType=INTEGER},
+			</if> -->
+			
+		</set>
+		where orgid=#{orgId}
+	</update>
+	
+	<select id="queryOrgName" parameterType="java.util.Map" resultType="java.util.HashMap">
+	  select orgid
+	   from ta_organization
+	  where orgname=#{orgName}
+	</select>
+	
+	
+	
+	<select id="queryorgIdByLevel" parameterType="java.util.Map" resultType="String">
+		select orgId from ta_organization
+			<if test="level1 != null and level2 ==null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 == null">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 =#{level6,jdbcType=VARCHAR} and level7 is null
+			</if>
+			<if test="level1 != null and level2 != null and level3 != null and level4 != null and level5 != null and level6 != null and level7 !=null ">
+				WHERE level1 =#{level1,jdbcType=VARCHAR} and level2 =#{level2,jdbcType=VARCHAR} and level3 =#{level3,jdbcType=VARCHAR} and level4 =#{level4,jdbcType=VARCHAR} and level5 =#{level5,jdbcType=VARCHAR} and level6 =#{level6,jdbcType=VARCHAR} and level7 =#{level7,jdbcType=VARCHAR};
+			</if>
+	</select>
+	
+</mapper>

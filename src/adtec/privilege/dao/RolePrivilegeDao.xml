@@ -1,0 +1,116 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.RolePrivilegeDao">
+
+	<resultMap type="adtec.privilege.model.RolePrivilege" id="querys">
+		<id property="rolePlgId" column="roleplgid"></id>
+		<result property="roleid" column="roleid"></result>
+		<result property="privilegeid" column="privilegeid"></result>
+	</resultMap>
+
+	<!-- 查询所有角色、权限关系 -->
+	<select id="queryAllRolePrivilege" resultMap="querys" parameterType="adtec.privilege.model.RolePrivilege">
+		select * from roleprivilege
+		<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+			LEFT JOIN role ON roleprivilege.roleid = role.roleid
+		</if>
+		
+		<where>
+			<if test="rolePlgId != null and '' != rolePlgId.trim()">
+				AND roleplgid = #{rolePlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+				AND rolename LIKE CONCAT('%','${role.rolename}','%' )
+			</if>
+		</where>
+		
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 条件查询 角色权限	 -->
+	<select id="queryRolePrivilegeByObj" resultMap="querys" parameterType="adtec.privilege.model.RolePrivilege">
+		select * from roleprivilege
+		<where>
+			<if test="rolePlgId != null and '' != rolePlgId.trim()">
+				roleplgid = #{rolePlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="roleid != null and '' != roleid.trim()">
+				AND roleid = #{roleid,jdbcType=VARCHAR}
+			</if>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				AND privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 添加角色、权限数据 -->
+	<insert id="insertRolePrivilege" parameterType="adtec.privilege.model.RolePrivilege">
+		insert into roleprivilege (roleplgid,roleid,privilegeid) values (
+			#{rolePlgId,jdbcType=VARCHAR},#{roleid,jdbcType=VARCHAR},#{privilegeid,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 通过id删除 -->
+	<delete id="deleteRolePrivilege" parameterType="adtec.privilege.model.RolePrivilege">
+		delete from roleprivilege where roleplgid = #{rolePlgId,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 查询总数 包括模糊查询 -->
+	<select id="queryRolePrivlgCount" resultType="int" parameterType="adtec.privilege.model.RolePrivilege">
+		select count(*) from roleprivilege
+		<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+			LEFT JOIN role ON roleprivilege.roleid = role.roleid
+		</if>
+		
+		<where>
+			<if test="rolePlgId != null and '' != rolePlgId.trim()">
+				AND roleplgid = #{rolePlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+				AND rolename LIKE CONCAT('%','${role.rolename}','%' )
+			</if>
+		</where>
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteRolePrivlgsById" parameterType="adtec.privilege.model.RolePrivilege">
+		delete from roleprivilege where roleplgid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+			 #{item}
+	    </foreach> 
+	</delete>
+	
+	<!-- 批量添加角色 权限 -->
+	<insert id="batchInsertRolePrivlgs" parameterType="adtec.privilege.model.RolePrivilege">
+		insert into roleprivilege (roleplgid,roleid,privilegeid) values 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.rolePlgId,jdbcType=VARCHAR},#{item.roleid,jdbcType=VARCHAR},#{item.privilegeid,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+	
+	<!-- 通过对象查询数量，主要用于验证 eg:查询权限是否被角色使用 -->
+	<select id="queryCountByObj" parameterType="adtec.privilege.model.RolePrivilege" resultType="int">
+		select count(*) from roleprivilege
+		<where>
+			<if test="rolePlgId != null and '' != rolePlgId.trim()">
+				roleplgid = #{rolePlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="roleid != null and '' != roleid.trim()">
+				AND roleid = #{roleid,jdbcType=VARCHAR}
+			</if>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				AND privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+</mapper>

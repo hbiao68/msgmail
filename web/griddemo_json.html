@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Easy skinable design</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="title" content="Samples" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+
+</head>
+<body>
+
+
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/dhtmlxgrid.css">
+	<!-- 标题栏会显示图片，这样更美观 -->
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/dhtmlxgrid_dhx_skyblue.css">
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/dhtmlxgrid_dhx_black.css">
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/status_toolbar_accordion.css">
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/status_toolbar_layout.css">
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/status_toolbar_window.css">
+	<!-- 
+	<script src="dhtmlxgrid/dhtmlxcommon.js"></script>
+	<script src="dhtmlxgrid/dhtmlxgrid.js"></script>
+	<script src="dhtmlxgrid/dhtmlxgridcell.js"></script>
+	<script src="dhtmlxgrid/dhtmlxgrid_pgn.js"></script>
+	 -->
+	<script src="dhtmlxgrid/dhtmlx.js"></script>
+	
+	<!-- 如果需要给某列数据添加链接，则需要引入这个js -->
+	<script src="dhtmlxgrid/dhtmlxgrid_excell_link.js"></script>
+
+		
+	 <div id="recinfoArea"><!--页数信息--></div> 
+	<div id="gridbox" style="width:503px;height:120px;background-color:white;"></div>
+	
+	<div id="pagingArea"><!--页数区域 --></div>  
+	
+	<input type="button" value="获取选中的行" onclick="getSelectedId()" style="font-size:12px"></input><br></br>
+	<input type="button" value="改变rowID" onclick="changRowid()" style="font-size:12px"></input><br></br>
+	<input type="button" value="字体变粗setRowTextBold" onclick="setRowTextBold()" style="font-size:12px"></input><br></br>
+	<input type="button" value="自己设置样式" onclick="setRowTextStyle()" style="font-size:12px"></input><br></br>
+	<input type="button" value="删除选中的列  有待解决" onclick="deleteColumn()" style="font-size:12px"></input><br></br>
+
+		<script>
+		function getSelectedId(){
+			//获取的是数据的唯一标示
+			var id = mygrid.getSelectedId();
+			alert(id);
+		}
+		
+		function changRowid(){
+			var id = mygrid.getSelectedId();
+			mygrid.changeRowId(id, id+"1");
+			alert(mygrid.getSelectedId())
+		}
+		
+		function setRowTextBold(){
+			var id = mygrid.getSelectedId();
+			mygrid.setRowTextBold(id);
+		}
+		
+		function setRowTextStyle(){
+			var id = mygrid.getSelectedId();
+			mygrid.setRowTextStyle(id, "color:red;border:1px solid gray");
+		}
+		
+		function deleteColumn(){
+			alert(selectedCol);
+			//mygrid.setColumnsVisibility(selectedCol);
+			mygrid.deleteColumn(selectedCol);
+		}
+		
+
+		
+		mygrid = new dhtmlXGridObject('gridbox');
+		mygrid.setImagePath("dhtmlxgrid/imgs/");
+		//标题显示内容
+		mygrid.setHeader("多选,单选,Name,Date of Birth, First Book Published");
+		//指明列的宽度，*表示是余下的宽度显示
+		mygrid.setInitWidths("*,50,50,50,50");
+		//表示内容排序位置，分别是左、中、中
+		mygrid.setColAlign("left,center,center,center,center");
+		
+		/*
+			ch ---- checkbox
+			ra ---- radio
+			ro ---- readonly
+			txt ---- 显示的是字符串
+		*/
+		mygrid.setColTypes("ch,ra,ro,link,txt");
+		//mygrid.setColTypes("ed,dhxCalendar,dhxCalendarA");
+		
+		//按照什么方式排序int,str,date 三个类型
+		mygrid.setColSorting("str,str,str,str,date");
+		
+		//指明使用什么皮肤（天蓝色）,这个和前面引用是CSS对应起来
+		mygrid.setSkin("dhx_skyblue");
+		//mygrid.setSkin("dhx_black");
+		
+		//初始化数据
+		mygrid.init();
+		//mygrid.loadXML("../common/grid_dates.xml");
+		
+		//备注：数据列一定要和标题栏对应起来，否则会显示前面的数据
+		//上面每个配置项都需要一一对应，否则会出现意想不到的错误，很难发现，即对每一列样式的设置
+		 var js={
+				    rows:[
+				        { id:1001,
+				     data:[
+				           "0",//0表示checkbox没有被选中
+				           "ra1",//非0表示radio被选中
+				          "100",
+				          //^后面显示的是链接地址，一定要指明这列数据类型是link
+				          "A Time to Kill^http://www.baidu.com",
+				          "05/01/1998"] },
+				       { id:1002,
+				     data:[
+				           "1",//非0表示checkbox被选中
+				           "0",//非0表示radio被选中
+				          "1000",
+				          "Blood and Smoke",
+				          "01/01/2000"] }
+				    ]}
+		 
+		 //指明导入数据的回调函数
+		 mygrid.parse(js,function(){
+			 //alert(1);
+		 },"json");
+		
+		 //允许分页 
+		 /*
+		grid.enablePaging(mode,pageSize,pagesInGrp,pagingControlsContainer,showRecInfo,pagingStateContainer);
+		 
+		mode(true|false) - enable|disable paging mode;
+		pageSize - set count of rows per page;
+		pagesInGrp - set count of visible page selectors;
+		pagingControlsContainer - id or container that will be used for showing paging controls;
+		showRecInfo(true|false) - enable|disable showing of additional information about paging state;
+		pagingStateContainer - id or container that will be used for showing paging state.
+		 */
+		 
+		 mygrid.enablePaging(true, 1, 5, "pagingArea", true, "recinfoArea"); 
+		 //mygrid.enablePaging(true, 10, 3, "pagingArea");
+		 //mygrid.setPagingSkin("toolbar", "dhx_skyblue");
+		 mygrid.setPagingSkin("bricks");
+		
+		/*
+			mygrid.cells(row_id, col) -- 通过行ID，列下标 确定cell对象 
+
+  			mygrid.cells2(rowIndex,col) --  通过行、列下标 确定cell对象
+		*/
+		//从第0行0列开始计算，弹出信息是05/01/1998
+		//alert(mygrid.cells2(0,4).getValue());
+		//弹出信息是05/01/1998
+		//alert(mygrid.cells(1001,4).getValue());
+		
+		//给指定的单元格赋值
+		//mygrid.cells(1001,4).setValue("05/01/1997");
+		 
+		//绑定checkbox和radio事件
+		/*
+		 	rId - id or the row; 弹出的是行ID
+			cInd - index of the cell;
+			state- state of the checkbox/radiobutton.
+		 */
+		/*
+		 mygrid.attachEvent("onCheckbox", function(rId,cInd,state){
+			 
+			 alert(rId);//
+			 alert(cInd);
+			 alert(state);
+		 }); 
+		*/
+		
+		//对一行绑定双击事件
+		/*
+		 	rId - id or the row; 弹出的是行ID
+			cInd - index of the cell; 双击的列，从第0项开始
+		 */
+		 /*
+		mygrid.attachEvent("onRowDblClicked", function(rId,cInd){
+			alert(rId);
+			alert(cInd);
+		});  
+		*/
+		
+		//选中某一行触发的事件
+		/*
+		 	rId - id or the row; 弹出的是行ID
+			cInd - index of the cell; 双击的列，从第0项开始
+		 */
+		 
+		 var selectedRow;
+		 var selectedCol;
+		mygrid.attachEvent("onRowSelect", function(id,ind){
+			//alert(id);
+			//alert(ind);
+			selectedRow = id;
+			selectedCol = ind;
+		});
+		
+		
+		//通过行ID 删除一行
+		// mygrid.deleteRow(1001);
+		/*
+			new_id - id of the new row;
+			text - array|string of row's labels, may be a comma separated list or an array;
+			ind - position of the row (optional), row is added to the last position by default.
+		*/
+		mygrid.addRow(123,"0,0,555,huangbiao,1988/11/30",0);//放在第一行
+		
+		//将rowid那行上/下移动一位或者是
+		//mygrid.moveRowDown(123);
+		//mygrid.moveRowUp(123);
+
+		//清除表格里面的全部数据
+		//mygrid.clearAll(); //只删除数据，不删除header
+		//mygrid.clearAll(true);//数据和header全部删除 
+		
+		//得到总共的行数
+		//alert(mygrid.getRowsNum());
+		
+
+
+	</script>
+</body>
+</html>

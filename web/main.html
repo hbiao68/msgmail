@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>消息邮局</title>
+<link href="./ui/css/common.css" rel="stylesheet" type="text/css">
+<link href="./ui/css/skin.css" rel="stylesheet" type="text/css">
+<link href="./tipswindow/tipswindown.css" rel="stylesheet" type="text/css">
+
+
+<style type="text/css">
+html,body {padding:0;margin:0;overflow:auto;overflow-x:hidden;}
+html {height:100%;}
+.myclass {background:#e0ecf9;text-decoration:none;}
+</style>
+<script language="javascript" src="./js/util/jquery-1.4.4.js"></script>
+<script language="javascript" src="./ui/js/main.js"></script>
+<script type="text/javascript" src="./tipswindow/tipswindown.js"></script>				
+</head>
+<body class="frame_class">
+	<div id="msgBoxDIVTop" style="position: absolute; width: 100%; padding-top: 2px; height: 24px; top: 43px; text-align: center; display: none;">
+		<span class="msg" id="msgBoxAecp"></span>
+	</div>
+	<!--顶部内容-->
+	<div class="getuserdata" id="topDataTd" style="position: absolute;top:0px;width:100%;">
+		<div class="topdata">
+			<div class="topbg" style="height:66px">
+				<div class="setinfo addrtitle" id="SetInfo">
+							
+					<div class="right">
+						<a onclick="return onLogout();" href="javascript:void(0);" target="_parent" class="toptitle" >注销</a>									
+					</div>
+					<a   onFocus="this.blur()" onClick="switchFolder(this.id);changeContent('user/findUserInfo.do');" href="javascript:void(0);" target="mainFrame"></a>
+					<div>
+					<a class="right LoginUser" style="margin-right:60px;" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame" onClick="switchFolder(this.id);changeContent('login/findUserInfo.do');"></a>
+					</div>
+					<div id="minimize_container" class="right"></div>
+					<div id="gplayer_container" class="right"></div>
+				</div>
+			</div>
+			<div class="lgoo" id="logotips">
+				<a class="imglogo pointer skinlogo" style="margin-left:5px;width:180px; margin-top:5px;" href="javascript:void(0);" target="mainFrame" onFocus="this.blur();">
+					<img t="3" e="imglogo" logotitle="" stylenum="0" id="imglogo" src="./ui/images/logoAdtecEnter.gif"  />
+				</a>
+				<div class="switch" style="margin-left:120px;_margin-left:30px;">
+					<!-- <div class="left" style="margin-top:1px;"><b id="useralias">管理员</b>
+						<br/>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="msgBoxDIV" style="position: absolute; width: 100%; padding-top: 2px; height: 24px; top: 43px; text-align: center; display:none">
+		<span class="msg" id="msg"></span>
+	</div>
+	<div class="topline_height" id="sepLineTd">
+		<div class="topline">
+			<div class="toplineimg left" id="imgLine" ></div>
+		</div>
+	</div>
+
+	<!--左边菜单-->
+	<div class="fdbody bodybgbt"></div>
+	<div class="newskinbody" id="leftPanel">
+		<div id="navBarDiv">
+			<ul class="navbar fdul" id="navBarTd">
+				<li class="composepart fs">
+					<a href="javascript:void(0);" hidefocus target="mainFrame" onFocus="this.blur()" onClick="changeTopMenuCss(this);changeContent('plugin/pluginAdd.do');">企业通讯录</a>
+					<input type="button" class="checkbtn" disabled/>
+				</li>
+				<!-- <li class="checkpart fs" id="composebtn_td">
+					<a id="composebtn" hidefocus onFocus="this.blur()" href="javascript:void(0);" target="mainFrame" onClick="changeTopMenuCss(this);" >个人通讯录</a>
+					<input type="button" class="addrbtn" disabled/>
+				</li> -->
+				
+				<!-- <li class="checkpart fs" id="composebtn_td">
+					<a id="composebtn" target="_blank" hidefocus onFocus="this.blur()" href="privilege/privilegeManagerList.do" target="mainFrame" >个人通讯录</a>
+					<input type="button" class="addrbtn" disabled/>
+				</li> -->
+				
+				<!-- <li class="addrpart fs">
+					<a onFocus="this.blur()" hidefocus href="javascript:void(0);" target="mainFrame" onClick="changeTopMenuCss(this);changeContent('user/list.do');">用户管理</a>
+					<input type="button" class="composebtn" disabled/>
+				</li> -->
+			</ul>
+		</div>
+
+		<div id="navMidBar" class="listbg listflow">
+			<div id="folder" class="folderDiv">
+				<a id="detechFL"></a>
+				<div id="OutFolder">
+				<!-- 	<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_9_td" class="fs" style="">
+								<a id="folder_9" onClick="switchFolder(this.id);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">系统参数<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_10_td" class="fs" style="">
+								<a id="folder_10" onClick="switchFolder(this.id);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">个人信息<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div>
+				<div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_11_td" class="fs" style="">
+								<a id="folder_11" onClick="switchFolder(this.id);changeContent('function1/user/add.do');" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">demo<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->
+					
+					<!-- 终端分类管理-->	
+				    <!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_12_td" class="fs" style="">
+								<a id="folder_12" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('category/cateList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">终端分类管理<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div>	 -->
+
+					
+					<!-- 账号管理-->	
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_14_td" class="fs" style="">
+								<a id="folder_14" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('accountManager/accountList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">账号管理<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->	
+					
+					
+					<!-- 业务管理 -->					
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_15_td" class="fs" style="">
+								<a id="folder_15" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('appManager/appList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">业务管理<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->	
+					
+					<!-- 业务开通 -->					
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_16_td" class="fs" style="">
+								<a id="folder_16" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('relation/relationList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">业务开通<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->	
+					
+					
+					<!-- 机构业务开通 -->					
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_17_td" class="fs" style="">
+								<a id="folder_17" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('ta_org_relation/orgRelationList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">机构业务开通<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div>	 -->
+					
+					
+					<!-- 机构分级设置 -->
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_21_td" class="fs" style="">
+								<a id="folder_21" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('organizationDefManager/queryAllOrgDef.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">机构分级设置<span id="count_rss" style="display:"></span></a>
+								
+							</li>
+						</ul>
+					</div> -->
+					
+					<!-- 机构导入 -->
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_13_td" class="fs" style="">
+								<a id="folder_13" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('organizationManager/orgList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">机构导入<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->
+
+					<!-- 帐号管理（发送消息所用帐号） -->
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_23_td" class="fs" style="">
+								<a id="folder_23" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('account/accList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">发送消息所用帐号<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->
+					
+					<!-- 机构帐号管理 -->
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul">
+							<li id="folder_24_td" class="fs">
+								<a id="folder_24" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('accorgrelation/accorgList.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">机构帐号管理</a>
+							</li>
+						</ul>
+					</div> -->
+
+					
+					<!-- 发送消息 -->
+					<!-- <div class="sepline" style="margin-top:4px;"></div>
+					<div id="ScrollFolder">
+						<ul class="fdul" id="popfolderss" style="display:none;overflow:hidden;"></ul>
+						<ul class="fdul">
+							<li id="folder_22_td" class="fs" style="">
+								<a id="folder_22" onClick="removeTopMenuCss();switchFolder(this.id);changeContent('adtec_message/imjwchat.do',this);" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">发送消息<span id="count_rss" style="display:"></span></a>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<div id="navBottomTd" class="navbottom"></div>
+	</div>
+
+	<div id="mainFrameContainer">
+		<iframe src="about:blank" name="mainFrame" id="mainFrame" frameborder="no" scrolling="auto" hidefocus></iframe>
+	</div>
+</form>
+</body>
+</html>
+
+
+<script>
+
+$(function(){
+	$.ajax({
+		type : "POST",
+		url : "/myspring/login/getUserName.do",
+		dataType : "json",
+		success : function(msg) {
+			//document.getElementById('LoginUser').innerHTML = msg;
+			$(".LoginUser").html(msg);
+		}
+	});
+	
+	
+	/* $.ajax({
+		type : "POST",
+		url : "/myspring/column/queryAllColumnActionNoPage.do",
+		dataType : "json",
+		success : function(msg) {
+			//console.info(msg.rows[0].resid);
+			//console.info(msg.rows.length);
+			console.info(msg.rows);
+			/* for(var i=0;i<msg.rows.length;i++){
+				var column = msg.rows[i];
+				var str = 	'<div class="sepline" style="margin-top:4px;"></div>'+
+							'<div>'+
+								'<ul class="fdul">'+
+									'<li id="folder_'+ i+25 +'_td" class="fs">'+
+										'<a id="folder_'+ i+25 +'" onClick="removeTopMenuCss();switchFolder(this.id);changeContent(\''+column.columnUrl+'\',\' '+column.resid+' \');" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">'+column.columnName+'</a>'+
+									'</li>'+
+								'</ul>'+
+							'</div>';
+				//console.info(str);
+				$('#OutFolder').append(str);
+			} 
+		}		
+	}); */
+	
+	//动态的添加栏位
+	$.ajax({
+		type : "POST",
+		url : "/myspring/column/queryColumnPrivlgMap.do",
+		dataType : "json",
+		success : function(msg) {
+			//msg map转化的json类型。里面其实是一个三个map. 
+			var wholePrivlg = msg.wholePrivlg;//boolean 全局的是否开启权限管理
+			var columnMap = msg.columnMap;	// 所有的栏位
+			var oneUserAllPrivlgMap = msg.oneUserAllPrivlgMap;//用户所有权限。通过栏位获取到resid  ,resid + 操作类型，查看是否有此权限
+			var i = 0;
+			for(var key in columnMap){
+				i=i+1;
+				var column = columnMap[key];//栏位实体
+				//console.info(column.resid);
+				var viewKey = column.resid + "1001";//查看的key resid+actionTypeId
+				var privlg = oneUserAllPrivlgMap[viewKey];
+				var viewPrivlg = false;
+				if(privlg == undefined || privlg == "" || privlg == null){
+					//没有权限实体
+					//viewPrivlg = false;
+				}else{
+					viewPrivlg = oneUserAllPrivlgMap[viewKey].actionValue;//是否有这个权限
+				}
+				//console.info("viewPrivlg+"+viewPrivlg + "wholePrivlg+"+wholePrivlg+column.columnName + "---resid--"+column.resid);
+				if(viewPrivlg || wholePrivlg){
+					//全局是true .表示权限管理关闭。viewPrivlg 不管是true 还是false 还是 undefined 都显示
+					//全局是false.表示权限管理开启。viewPrivlg true显示、 false不显示、undefined不显示 
+					
+					if(column.columnUrl == "user/list.do"){
+						//用户管理
+						var str = '<li class="addrpart fs">'+
+									'<a onFocus="this.blur()" hidefocus href="javascript:void(0);" target="mainFrame" onClick="changeTopMenuCss(this);changeContent(\''+column.columnUrl+'\',\' '+column.resid+' \');">'+column.columnName+'</a>'+
+									'<input type="button" class="composebtn" disabled/>'+
+								'</li>';
+
+						$('#navBarTd').append(str);
+					}else if(column.columnUrl == "privilege/privilegeManagerList.do"){
+						//权限管理
+						var str = '<li class="checkpart fs" id="composebtn_td">'+
+									  '<a id="composebtn" target="_blank" hidefocus onFocus="this.blur()" href="privilege/privilegeManagerList.do?resid='+column.resid+'" target="mainFrame" >'+column.columnName+'</a>'+
+									  '<input type="button" class="addrbtn" disabled/>'+	
+								  '</li>';
+						$('#navBarTd').append(str);
+					}else{
+						var str = 	'<div class="sepline" style="margin-top:4px;"></div>'+
+						'<div>'+
+							'<ul class="fdul">'+
+								'<li id="folder_'+ (i+25) +'_td" class="fs">'+
+									'<a id="folder_'+ (i+25) +'" onClick="switchFolder(this.id);changeContent(\''+column.columnUrl+'\',\' '+column.resid+' \');" onFocus="this.blur()" href="javascript:void(0);" target="mainFrame">'+column.columnName+'</a>'+
+								'</li>'+
+							'</ul>'+
+						'</div>';
+						//console.info(str);
+						$('#OutFolder').append(str);
+					}
+				}
+				
+			}
+			
+		}		
+	});
+	
+});
+
+function changeContent(uri,resid){
+//	alert(uri);
+	//document.getElementById("mainFrame").src=uri+"?resname="+resname;
+	resid = $.trim(resid);
+	document.getElementById("mainFrame").src=uri+"?resid="+resid;
+}
+
+//注销
+function onLogout(){
+	$.ajax({
+		type : "POST",
+		url : "/myspring/login/onLogout.do",
+		dataType : "json",
+		success : function(msg) {
+			top.location.reload();
+		}
+	});
+}
+
+//点击左上方选项时，被选中的改变颜色样式
+function changeTopMenuCss(obj){
+	$("#navBarDiv li").removeClass("myclass");
+	$(obj).closest("li").addClass("myclass");
+}
+
+//点击下方选项时，上方被选中的样式去除掉
+function removeTopMenuCss(){
+	$("#navBarDiv li").removeClass("myclass");
+}
+
+</script>

@@ -1,0 +1,150 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.appManager.dao.Ta_AppDao">
+	<resultMap type="adtec.appManager.model.Ta_App" id="querys">
+		<id property="appid" column="appid"></id>
+		<result property="appName" column="appName"></result>
+		<result property="appDomain" column="appDomain"></result>
+		<result property="ta_id" column="ta_id"></result>
+	</resultMap>
+
+	<!-- 添加业务 -->
+	<insert id="insertApp" parameterType="adtec.appManager.model.Ta_App">
+		insert into ta_app(appName,appDomain,ta_id)
+		values(#{appName},#{appDomain},#{ta_id})
+	</insert>
+
+	<!-- 分页查询所有业务 -->
+	<select id="queryAppByTaApp" parameterType="adtec.appManager.model.Ta_App" resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or appName like CONCAT(CONCAT('%', #{appName}), '%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+		order by a.appid desc
+		limit #{start},#{pageSize}
+	</select>
+
+	<!-- 分页查询所有已经有帐号开通的业务 -->
+	<select id="queryOpenAppByTaApp" parameterType="adtec.appManager.model.Ta_App" resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or a.appName like CONCAT(CONCAT('%', #{appName}),
+		'%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+		and (a.appid in(select appid from ta_app_relation)
+		 or a.appid in(select appid from ta_org_relation))
+		 order by a.appid desc
+		limit #{start},#{pageSize}
+	</select>
+
+	<!-- 分页查询所有没有有帐号开通的业务 -->
+	<select id="queryUnOpenAppByTaApp" parameterType="adtec.appManager.model.Ta_App"
+		resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or a.appName like CONCAT(CONCAT('%', #{appName}),
+		'%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+		and a.appid not in(select appid from ta_app_relation)
+		order by a.appid desc
+		limit #{start},#{pageSize}
+	</select>
+
+	<!-- 单一业务查询 -->
+	<select id="findAppById" parameterType="int" resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and a.appid=#{appid}
+	</select>
+
+	<!-- 删除业务 -->
+	<delete id="deleteAppById" parameterType="adtec.appManager.model.Ta_App">
+		delete from ta_app where appid=#{appid}
+	</delete>
+
+	<!-- 修改业务 -->
+	<update id="updateAppById" parameterType="adtec.appManager.model.Ta_App">
+		update ta_app
+		set appName=#{appName},appDomain=#{appDomain},ta_id=#{ta_id}
+		where appid=#{appid}
+	</update>
+
+	<!-- 查询业务为业务开通使用 -->
+	<select id="queryforRelation" parameterType="String" resultType="adtec.appManager.model.Ta_App">
+		select appid,appName
+		from ta_app
+		where ta_id=#{ta_id}
+	</select>
+
+	<!-- 为检查新添加业务检验 -->
+	<select id="queryforcheckNewAppName" parameterType="adtec.appManager.model.Ta_App" resultType="Integer">
+		select count(appName) app
+		from ta_app
+		where appName=#{appName}
+		 and ta_id=#{ta_id}
+	</select>
+
+	<!-- 批量删除数据 -->
+	<delete id="batchdelete" parameterType="java.util.List">
+		delete from ta_app where appid in
+		<foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<!-- 查询所有业务 -->
+	<select id="queryAPPforCountByTaApp" parameterType="adtec.appManager.model.Ta_App" resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or appName like CONCAT(CONCAT('%', #{appName}), '%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+	</select>
+
+
+	<!-- 查询所有已经有帐号开通的业务 -->
+	<select id="queryOpenAppforCountByTaApp" parameterType="adtec.appManager.model.Ta_App"
+		resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or a.appName like CONCAT(CONCAT('%', #{appName}),
+		'%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+		and a.appid in(select appid from ta_app_relation)
+	</select>
+
+	<!-- 查询所有没有有帐号开通的业务 -->
+	<select id="queryUnOpenAppforCountByTaApp" parameterType="adtec.appManager.model.Ta_App"
+		resultType="adtec.appManager.model.Ta_App">
+		select a.appid,a.appName,a.appDomain,a.ta_id,b.cateDesc
+		from ta_app a,ta_category b
+		where a.ta_id=b.ta_id
+		and (#{appName}='' or a.appName like CONCAT(CONCAT('%', #{appName}),
+		'%'))
+		and (#{ta_id}='' or a.ta_id = #{ta_id})
+		and a.appid not in(select appid from ta_app_relation)
+	</select>
+
+    	<!-- 查询所有的业务的名称 -->
+	<select id="queryAllAppNameByTa_id" parameterType="String" resultType="adtec.appManager.model.Ta_App">
+		select appid,appName
+		  from ta_app
+	     where ta_id=#{ta_id}
+	</select>
+
+		<!--查询某一终端下是否有业务  -->
+    <select id="queryAppforTa_idCount" parameterType="String" resultType="Integer">
+        select count(ta_id) ta_id
+          from ta_app
+         where ta_id=#{ta_id}
+    </select>
+</mapper>

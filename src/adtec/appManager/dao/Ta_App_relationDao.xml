@@ -1,0 +1,156 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.appManager.dao.Ta_App_relationDao">
+	<resultMap type="adtec.appManager.model.Ta_App_relation" id="querys">
+		<id property="relationid" column="relationid"></id>
+		<result property="accountName" column="accountName"></result>
+		<result property="appid" column="appid"></result>
+		<result property="ta_id" column="ta_id"></result>
+	</resultMap>
+
+	<!-- 添加端点开通的业务 -->
+	<insert id="insertforTa_App_relation" parameterType="adtec.appManager.model.Ta_App_relation">
+		insert into ta_app_relation(accountName,appid,ta_id)
+		values(#{accountName},#{appid},#{ta_id})
+	</insert>
+
+	<!-- 分页查询某一端点下所有帐号开通业务的情况 -->
+	<select id="queryforTa_App_relation" parameterType="java.util.Map" resultType="adtec.appManager.model.Ta_App_relation"
+		statementType="STATEMENT">
+		select
+		a.relationid,a.accountName,a.appid,a.ta_id,replace(GROUP_CONCAT(b.appName),',','/')
+		appName
+		from ta_App_relation a,ta_app b,ta_account_${cateName} c
+		where a.appid=b.appid
+		and a.accountName=c.accountName
+		and a.ta_id='${ta_App_relation.ta_id}'
+		and ('${ta_App_relation.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_App_relation.accountName}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or c.orgId =
+		'${ta_Account_cateName.orgId}')
+		group by a.accountName
+		limit ${ta_App_relation.start},${ta_App_relation.pageSize}
+	</select>
+
+	<!-- 单一实例查询 -->
+	<select id="findTa_App_relationbyTa_App_relation" parameterType="adtec.appManager.model.Ta_App_relation" resultType="adtec.appManager.model.Ta_App_relation">
+		select a.relationid,a.accountName,a.appid,a.ta_id,b.appName
+		from ta_app_relation a,ta_app b
+		where a.appid=b.appid
+		and a.ta_id=#{ta_id}
+		and a.accountName=#{accountName}
+	</select>
+
+	<!-- 删除单一数据 -->
+	<delete id="deleteTa_App_relationByaccountName" parameterType="adtec.appManager.model.Ta_App_relation">
+		delete from ta_app_relation
+		where accountName=#{accountName}
+	</delete>
+
+	<!-- <update id="update" parameterType="adtec.appManager.model.Ta_App_relation"> 
+		update ta_app_relation set accountName=#{accountName},appid=#{appid},ta_id=#{ta_id} 
+		where accountName=#{accountName} </update> -->
+
+	<!-- 校验新开通业务的帐号是否重复 -->
+	<select id="queryforCheckNewAccoutNameByAccountName" parameterType="adtec.appManager.model.Ta_App_relation" resultType="Integer">
+		select count(accountName) acco
+		from ta_app_relation
+		where accountName=#{accountName}
+		  and ta_id=#{ta_id}
+	</select>
+
+	<!-- 删除某个机构下面已经开通业务帐号的信息 -->
+	<delete id="deleteforOrg" parameterType="java.util.Map"
+		statementType="STATEMENT">
+		delete from ta_app_relation where appid in(select appid
+		from ta_app where appid='${appid}')
+		and accountName in(select
+		accountName from ta_account_${cateName} where orgid='${orgId}')
+	</delete>
+
+	<!-- 为某个机构下面所有的帐号开通业务 -->
+	<insert id="insertforOrg" parameterType="java.util.List">
+		insert into ta_app_relation(accountName,appid,ta_id)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.accountName},#{item.appid},#{item.ta_id})
+		</foreach>
+	</insert>
+
+	<!-- 批量删除数据 -->
+	<delete id="batchdelete" parameterType="java.util.Map"
+		statementType="STATEMENT">
+		delete from ta_app_relation where accountName in(select accountName from
+		ta_account_${cateName})
+		and accountName='${accountName}'
+	</delete>
+
+	<!-- 通过appid查询ta_app_relation 表中的appid是否存在 -->
+	<select id="queryForCheckAppid" parameterType="int"
+		resultType="Integer">
+		select count(appid) appi
+		from ta_app_relation
+		where appid=#{appid}
+	</select>
+
+	<!-- 通过accountName和ta_id来查询accountName是否存在 -->
+	<select id="queryForCheckAccountName" parameterType="java.util.Map"
+		resultType="adtec.appManager.model.Ta_App_relation">
+		select count(accountName) accountName
+		from ta_app_relation
+		where accountName=#{accountName}
+		and ta_id=#{ta_id}
+	</select>
+
+	<!-- 查询某一端点下所有帐号开通业务的情况 -->
+	<select id="queryTa_App_relationforCount" parameterType="java.util.Map" resultType="adtec.appManager.model.Ta_App_relation"
+		statementType="STATEMENT">
+		select
+		a.relationid,a.accountName,a.appid,a.ta_id,replace(GROUP_CONCAT(b.appName),',','/')
+		appName
+		from ta_App_relation a,ta_app b,ta_account_${cateName} c
+		where a.appid=b.appid
+		and a.accountName=c.accountName
+		and a.ta_id='${ta_App_relation.ta_id}'
+		and ('${ta_App_relation.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_App_relation.accountName}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or c.orgId =
+		'${ta_Account_cateName.orgId}')
+		group by a.accountName
+	</select>
+
+	<!-- 通过accountName(账号)查询开通业务数量   	  maojd update   date:11:24 2013/12/25 -->
+	<select id="queryAppNumByAccountName" parameterType="java.util.Map" resultType="Integer">
+		select count(*) from ta_app_relation where accountName = '${accountName}'
+	</select>
+	
+	<!-- 查询开通账号是否存在		maojd update   date:17:57 2013/12/26 -->
+	<select id="queryAccExist" parameterType="adtec.appManager.model.Ta_App_relation" resultType="Integer">
+		select count(*) from ta_app_relation where accountName = #{accountName} and ta_id=#{ta_id}
+	</select>
+	
+	<!-- 批量开通业务 -->
+	<insert id="batchInsert">
+		insert into ta_app_relation(accountName,appid,ta_id)
+	values
+	<foreach collection="list" item="item" index="index" separator="," >
+		(#{item.accountName},#{item.appid},#{item.ta_id})
+	</foreach>
+	</insert>
+	
+	<select id="getAccByAccApp" parameterType="java.util.Map" resultType="String">
+		Select a.accountName username
+		  from ta_app_relation a,ta_app b
+		 where a.appid = b.appid
+		   and b.appName=#{appName}
+		   and a.accountName in 
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+	</select>
+	
+</mapper>

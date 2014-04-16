@@ -1,0 +1,100 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.privilege.dao.ResourceDao">
+
+	<resultMap type="adtec.privilege.model.Resource" id="querys">
+		<id property="resid" column="resid"></id>
+		<result property="resname" column="resname"></result>
+		<result property="commen" column="commen"></result>
+	</resultMap>
+
+	<!-- 查询所有 -->
+	<select id="queryAllResource" resultMap="querys" parameterType="adtec.privilege.model.Resource">
+		select * from resource
+		
+		<where>
+			<if test="resid != null and '' != resid.trim()">
+				resid = #{resid,jdbcType=VARCHAR}
+			</if>
+			<if test="resname != null and '' != resname.trim()">
+				AND resname like CONCAT('%','${resname}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 查询资源数量 -->
+	<select id="queryResourceCount" resultType="int" parameterType="adtec.privilege.model.Resource">
+		select count(*) from resource
+		<where>
+			<if test="resid != null and '' != resid.trim()">
+				resid = #{resid,jdbcType=VARCHAR}
+			</if>
+			<if test="resname != null and '' != resname.trim()">
+				AND resname like CONCAT('%','${resname}','%' )
+			</if>
+		</where>
+	</select>
+	
+	
+	<!-- 添加资源 -->
+	<insert id="insertRes" parameterType="adtec.privilege.model.Resource">
+		insert into resource (resid,resname,commen) 
+		values (#{resid,jdbcType=VARCHAR},#{resname,jdbcType=VARCHAR},#{commen,jdbcType=VARCHAR})
+	</insert>
+	
+	<!-- 通过id查询 -->
+	<select id="queryResByResid" resultMap="querys" parameterType="String">
+		select * from resource where resid = #{resid,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryResByObj" resultMap="querys" parameterType="adtec.privilege.model.Resource">
+		select * from resource
+		<where>
+			<if test="resid != null and '' != resid.trim()">
+				resid = #{resid,jdbcType=VARCHAR}
+			</if>
+			<if test="resname != null and '' != resname.trim()">
+				AND resname = #{resname,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改用户 -->
+	<update id="updateRes" parameterType="adtec.privilege.model.Resource">
+		update resource
+		<set>
+			<if test="resname != null and ''!= resname.trim()">
+				resname = #{resname,jdbcType=VARCHAR},
+			</if>
+			<if test="commen != null and ''!= commen.trim()">
+				commen = #{commen,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where resid=#{resid,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteRes" parameterType="adtec.privilege.model.Resource">
+		delete from resource where resid=#{resid,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 通过id批量删除 -->
+	<delete id="deleteRessById" parameterType="adtec.privilege.model.Resource">
+		delete from resource where resid in
+		 <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+	</delete>
+	
+</mapper>

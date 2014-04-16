@@ -1,0 +1,34 @@
+/*.addr_right .addr_line {font:bold 14px Verdana;margin:0 2px 10px 2px;padding:8px 0 3px 2px;}*/
+.toolbg {}
+ul.grouplist {margin:0;padding:0;list-style:none;}
+ul.grouplist li {height:20px;padding:5px 12px 0 12px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:140px;margin-bottom:2px}
+.title_left {padding:0 0 3px 2px;margin-bottom:6px;border-width:0 0 2px 0}
+.title_top {margin-top:12px;}
+.O,.M {min-width:0;margin:0;clear:both;}
+.O {height:22px;min-width:550px;}
+.M {min-width:550px;border-bottom:1px solid #e3e6eb;height:25px;overflow:hidden;zoom:1;}
+.M p,.M label,.M {display:block;margin:0;padding:0;}
+.M .M_c {float:left;height:100%;width:28px;padding:2px 0 0;cursor:default;text-align:center;}
+.M_l {height:24px;cursor:pointer;margin-left:10px;}
+.M .M_l .L_n {width:125px;float:left;margin:5px 0 0 10px;_margin-left:4px;diplay:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.M .M_l .L_e {margin:5px 16px 0 15px;width:140px;_width:20%;float:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.M .M_l .L_d { margin:5px 0 0 0;float:left;}
+.M .M_l .L_r {margin:5px 0 0 0;width:60px;float:left;}
+.M .M_l .L_t {margin:5px 0 0 0;float:right;width:110px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.M .M_l .L_q {position:absolute;margin-left:-10px;margin-top:4px;}
+.span2 {padding:0;}
+.O .a_title  {background:url(../images/sep_title.gif) no-repeat;padding-left:15px;height:19px;}
+.O .t_c {float:left;width:28px;text-align:center;}
+.O .t_n {width:120px;float:left;padding-top:3px;}
+.O .t_e {width:140px;float:left;padding-top:3px;}
+.O .t_r {width:60px;float:left;padding-top:3px;}
+.O .t_t {width:121px;float:right;padding-top:3px;}
+.card {width:49%;padding:0 0 6px 0;margin:0 1% 0 0}
+.card .draw {background:#eee;padding:0 2px 2px 0;height:102px!important;height:100px;}
+.card .qqshowbd,.card .bd_upload {background:#fff;height:100px;padding:10px;cursor:pointer}
+.card ul li.nickname {font:bold 14px Verdana;}
+.card ul li.nickname img {vertical-align:middle;}
+.exp_total {display:expression(document.body.clientWidth<748?'none':'');}
+.icon_qqfriend {width:16px; height:16px; background:url(../images/lianxiren.gif) no-repeat 0 0; margin:0 3px -2px 0;}
+.icon_phonefriend {width:14px; height:16px; background:url(../images/lianxiren.gif) no-repeat -17px 0; margin:0 3px -2px 0;}
+table.M, table.F { clear:left; }

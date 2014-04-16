@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+	<link rel="stylesheet" href="zTree/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="zTree/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.excheck-3.5.js"></script>
+	
+
+	<script type="text/javascript">
+		var setting = {
+				/* check: {
+					enable: true,
+					chkStyle: "radio",
+					radioType: "all"
+				}, */
+				view: {
+					dblClickExpand: false
+				},
+				data: {
+					simpleData: {
+						enable: true
+					}
+				} ,
+				callback: {
+					onClick: onClick,
+					//onCheck: onCheck
+				} 
+			};
+		
+		
+		  /* var zNodes =[
+		 			{id:'01', pId:'0', name:"北京"},
+		 			{id:'02', pId:'0', name:"天津"},
+		 			{id:'03', pId:'0', name:"上海"},
+		 			{id:'06', pId:'0', name:"重庆"},
+		 			{id:'04', pId:'0', name:"河北省", open:true, nocheck:true},
+		 			{id:'0401', pId:"04", name:"石家庄"},
+		 			{id:'0402', pId:'04', name:"保定"},
+		 			{id:'0403', pId:'04', name:"邯郸"},
+		 			{id:'0404', pId:'04', name:"承德"},
+		 			{id:05, pId:0, name:"广东省", open:true, nocheck:true},
+		 			{id:0401, pId:05, name:"广州"},
+		 			{id:5020, pId:05, name:"深圳"}
+		 			//这里id用 字符串形式，不然回掉onclick方法的时候，获取到id不正确。最前面不能有0
+		 		 ]; */
+
+		function onClick(e,treeId, treeNode){
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			/* zTree.checkNode(treeNode, !treeNode.checked, null, true);
+			//zTreeObj.checkNode(treeNode, checked, checkTypeFlag, callbackFlag)	
+			//checked			true表示勾选节点，false取消勾选
+			//checkTypeFlag		true表示父节点也选中 
+			//callbackFlag = 	true 表示执行此方法时触发 beforeCheck & onCheck 事件回调函数
+			return false; */
+			nodes = zTree.getSelectedNodes(),
+			v = "";
+			for (var i=0, l=nodes.length; i<l; i++) {
+				v += nodes[i].name + ",";
+			}
+			if (v.length > 0 ) v = v.substring(0, v.length-1);
+		
+			var cityObj = $("#citySel");		
+			cityObj.attr("value", v);	//给文本框 赋值
+			//alert(treeNode.id+","+treeNode.pId+","+treeNode.name);
+			
+		}
+		
+		
+		function onCheck(e, treeId, treeNode){
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			nodes = zTree.getCheckedNodes(true),
+			v = "";
+			/* for (var i=0, l=nodes.length; i<l; i++) {
+				v += nodes[i].name + ",";
+			}
+			if (v.length > 0 ) v = v.substring(0, v.length-1); */
+			v+=nodes[0].name;
+			//alert(v);
+			var cityObj = $("#citySel");		
+			cityObj.attr("value", v);	//给文本框 赋值
+		}
+	
+		function clearCitySel(){
+			var cityObj = $("#citySel");	
+			cityObj.attr("value","");	//清楚文本框
+		}
+	
+		function showMenu(){
+			//点击文本框，以后，把div的样式设置到input的下面
+			var cityObj = $("#citySel");
+			var cityOffset = $("#citySel").offset();
+			$("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+			$("body").bind("mousedown", onBodyDown);	//	为body元素的 鼠标点击  绑定onBodyDown处理函数。
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+				hideMenu();
+			}//onBodyDown让div 那个tree隐藏
+		}
+		function hideMenu() {
+			$("#menuContent").fadeOut("fast");//fadeOut([speed],[easing],[fn])通过不透明度的变化来实现所有匹配元素的淡出效果
+											//speed:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值
+			$("body").unbind("mousedown", onBodyDown);	//unbind 从每一个匹配的元素中删除绑定的事件
+		}
+		
+		/* $(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		}); */
+		var zNodes = new Array();
+		function onloadAjax(){
+			//alert(123);
+			//发送ajax，并获取到 jsonList赋值给zNodes,初始化
+			$.ajax({ 
+				type:"POST",
+				url:"http://localhost:8080/myspring/organizationManager/queryAllOrg.do",
+				success:function(msg){
+					//alert(msg);
+					//alert(msg[0]);
+					var jsonDate = eval('(' + msg + ')');
+					//alert(jsonData);
+					//zNodes = jsonDate;
+					for(var i=0;i<jsonDate.length;i++){
+						var obj = jsonDate[i];
+						var levelText = "";
+					    if (obj.level1 != null) {
+					        //alert(obj.level1);
+					        levelText = levelText + obj.level1;
+					    }
+					    if (obj.level2 != null && obj.level2 != undefined && obj.level2 != "") {
+					        levelText = levelText + obj.level2;
+					    }
+					    if (obj.level3 != null && obj.level3 != undefined && obj.level3 != ""){
+					        levelText = levelText + obj.level3;
+					    }
+					    if (obj.level4 != null && obj.level4 != undefined && obj.level4 != "") {
+					        levelText = levelText + obj.level4;
+					    }
+					    if (obj.level5 != null && obj.level5 != undefined && obj.level5 != "") {
+					        levelText = levelText + obj.level5;
+					    }
+					    if (obj.level6 != null && obj.level6 != undefined && obj.level6 != "") {
+					        levelText = levelText + obj.level6;
+					    }
+					    if (obj.level7 != null && obj.level7 != undefined && obj.level7 != "") {
+					        levelText = levelText + obj.level7;
+					    }
+					    var pLevelText = "0";
+					    if(levelText.length>=4){
+					    	pLevelText = levelText.substring(0,levelText.length-2);
+					    }
+			
+					    zNodes[i] = {id:levelText,pId:pLevelText,"name":obj.orgName};
+					}
+					//zNodes = msg;
+					//initTree2();
+					$.fn.zTree.init($("#treeDemo"),setting,zNodes);
+				}
+			});
+		}
+		
+		/*  function initTree2(){
+			 alert(zNodes);
+			 $.fn.zTree.init($("#treeDemo"),setting,zNodes);
+		} */
+		
+		 
+	</script>
+
+
+</head>
+<body onload="onloadAjax()">
+
+<!-- <input type="button" value="初始化数据" onclick="initTree2()"> -->
+
+
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul class="list">
+			<li class="title">&nbsp;&nbsp;<span class="highlight_red">勾选 radio 或者 点击节点 进行选择</span></li>
+			<li class="title">&nbsp;&nbsp;Test: <input id="citySel" type="text" readonly="true" value="" style="width:120px;" onclick="showMenu();" />&nbsp;
+				<a id="menuBtn" href="#" onclick="showMenu(); return false;">select</a>&nbsp;
+				<a href="#" onclick="clearCitySel()">clear</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+	<ul id="treeDemo" class="ztree" style="margin-top:0; width:180px; height: 300px;"></ul>
+	<div style="float: inherit;">
+	<a>我试试</a> <a>我在试试</a>
+	</div>
+</div>
+
+<!-- <div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+</div> -->
+
+</body>
+</html>

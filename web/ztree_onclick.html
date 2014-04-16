@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="zTree/css/demo.css" type="text/css">
+	<link rel="stylesheet" href="zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="zTree/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="zTree/js/jquery.ztree.core-3.5.js"></script>
+	
+	
+<script type="text/javascript">
+		var setting = {
+				data:{
+					simpleData:{
+						enable:true
+					}
+				},
+		
+				callback: {
+					onClick: treeOnclick
+				} 
+		}
+		
+
+		var tree;
+		function initTree(){
+		//	var rootNode = [{name:"全国",isParent:true}];
+			tree = $.fn.zTree.init($("#treeDemo"), setting,null);
+			var rootNode = {id:"0_quanguo",name:"全国"};
+			rootNode = tree.addNodes(null,rootNode);
+			
+		}
+		function treeOnclick(event,treeId,treeNode,clickFlag){
+		
+			alert("ajax传值-------。treeNode.id是："+treeNode.id+"。treeNode.name是："+treeNode.name); 
+			var nodeLevel1 = {id:38,name:"河南"};
+			tree.addNodes(treeNode,nodeLevel1);
+			
+		}
+
+</script>	
+	
+
+</head>
+<body onload="initTree()">
+
+<div class="content_wrap">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+</div>
+
+</body>
+</html>

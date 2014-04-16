@@ -1,0 +1,102 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.TypeDao">
+
+	<resultMap type="adtec.privilege.model.Type" id="querys">
+		<id property="typeid" column="typeid"></id>
+		<result property="typename" column="typename"></result>
+		<result property="common" column="common"></result>
+	</resultMap>
+
+	<!-- 查询所有操作类型 -->
+	<select id="queryAllType" resultMap="querys" parameterType="adtec.privilege.model.Type">
+		select * from type
+		<where>
+			<if test="typeid != null and '' != typeid.trim()">
+				AND typeid = #{typeid,jdbcType=VARCHAR}
+			</if>
+			<if test="typename != null and '' != typename.trim()">
+				AND typename like CONCAT('%','${typename}','%' ) 
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 查询总数量 -->
+	<select id="queryTypeCount" resultType="int" parameterType="adtec.privilege.model.Type">
+		select count(*) from type
+		<where>
+			<if test="typeid != null and '' != typeid.trim()">
+				AND typeid = #{typeid,jdbcType=VARCHAR}
+			</if>
+			<if test="typename != null and '' != typename.trim()">
+				AND typename like CONCAT('%','${typename}','%' ) 
+			</if>
+		</where>
+	</select>
+	
+	<!-- 添加操作类型 -->
+	<insert id="insertType" parameterType="adtec.privilege.model.Type">
+		insert into type (typeid,typename,common)  values(
+			#{typeid,jdbcType=VARCHAR},
+			#{typename,jdbcType=VARCHAR},
+			#{common,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<!-- 通过id查询 -->
+	<select id="queryTypeById" resultMap="querys" parameterType="String">
+		select * from type where typeid = #{typeid,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 修改操作类型 -->
+	<update id="updateType" parameterType="adtec.privilege.model.Type">
+		update type 
+		<set>
+			<if test="typename != null and '' != typename.trim()">
+				typename = #{typename,jdbcType=VARCHAR},
+			</if>
+			<if test="common != null and '' != common.trim()">
+				common = #{common,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where typeid = #{typeid,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除操作类型 -->
+	<delete id="deleteType" parameterType="adtec.privilege.model.Type">
+		delete from type where typeid = #{typeid,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteUsersById" parameterType="adtec.privilege.model.Type">
+		delete from type where typeid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+	         #{item}
+	    </foreach> 
+	</delete>
+	
+	<select id="queryTypeByObj" resultMap="querys" parameterType="adtec.privilege.model.Type">
+		select * from type
+		<where>
+			<if test="typeid != null and '' != typeid.trim()">
+				typeid = #{typeid,jdbcType=VARCHAR}
+			</if>
+			<if test="typename != null and '' != typename.trim()">
+				AND typename = #{typename,jdbcType=VARCHAR}
+			</if>
+			<if test="common != null and '' != common.trim()">
+				AND common = #{common,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

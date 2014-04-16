@@ -1,0 +1,115 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.UserPrivilegeDao">
+
+	<resultMap type="adtec.privilege.model.UserPrivilege" id="querys">
+		<id property="userPlgId" column="userplgid"></id>
+		<result property="userid" column="userid"></result>
+		<result property="privilegeid" column="privilegeid"></result>
+	</resultMap>
+
+	<!-- 查询所有用户权限关系 -->
+	<select id="queryAllUserPrivilege" resultMap="querys">
+		select * from userprivilege
+		
+		<if test="user != null and user.username != null and '' != user.username.trim()">
+			LEFT JOIN user ON userprivilege.userid = user.userid
+		</if>
+		
+		<where>
+			<if test="userPlgId != null and '' != userPlgId.trim()">
+				AND userplgid = #{userPlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="user != null and user.username != null and '' != user.username.trim()">
+				AND username like CONCAT('%','${user.username}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+
+	</select>
+
+	<!-- 删除一条用户、权限关系 -->
+	<delete id="deleteUserPrivilege" parameterType="adtec.privilege.model.UserPrivilege">
+		delete from userprivilege where userplgid = #{userPlgId,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- 插入一条用户、权限关系数据 -->
+	<insert id="insertUserPrivilege" parameterType="adtec.privilege.model.UserPrivilege">
+		insert into userprivilege (userplgid,userid,privilegeid) values (
+		#{userPlgId,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR},#{privilegeid,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	
+	<!-- 查询用户权限总数 -->
+	<select id="queryUserPrivCount" resultType="int" parameterType="adtec.privilege.model.UserPrivilege">
+		select count(*) from userprivilege
+		<if test="user != null and user.username != null and '' != user.username.trim()">
+			LEFT JOIN user ON userprivilege.userid = user.userid
+		</if>
+		
+		<where>
+			<if test="userPlgId != null and '' != userPlgId.trim()">
+				AND userplgid = #{userPlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="user != null and user.username != null and '' != user.username.trim()">
+				AND username like CONCAT('%','${user.username}','%' )
+			</if>
+		</where>
+	</select>
+	
+	<!-- 通过对象查询数量 -->
+	<select id="queryCountByObj" resultType="int" parameterType="adtec.privilege.model.UserPrivilege">
+		select count(*) from userprivilege
+		<where>
+			<if test="userPlgId != null and '' != userPlgId.trim()">
+				userplgid = #{userPlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="userid != null and '' != userid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test=" privilegeid != null and '' != privilegeid.trim()">
+				AND privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查询是否存在 -->
+	<select id="queryUserPrivlgIfExists" resultMap="querys" parameterType="adtec.privilege.model.UserPrivilege">
+		select * from userprivilege	
+		<where>
+			<if test="userPlgId != null and '' != userPlgId.trim()">
+				userplgid = #{userPlgId,jdbcType=VARCHAR}
+			</if>
+			<if test="userid != null and '' != userid.trim() and privilegeid != null and '' != privilegeid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR} and privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 批量添加 -->
+	<insert id="batchInsertUserPrivlgs" parameterType="adtec.privilege.model.UserPrivilege">
+		insert into userprivilege (userplgid,userid,privilegeid) values 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+				#{item.userPlgId,jdbcType=VARCHAR},#{item.userid,jdbcType=VARCHAR},#{item.privilegeid,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteUserPrivlgsById" parameterType="adtec.privilege.model.UserPrivilege">
+		delete from userprivilege where userplgid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+			 #{item}   
+	    </foreach> 
+	</delete>
+</mapper>

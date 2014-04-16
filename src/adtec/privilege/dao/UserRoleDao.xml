@@ -1,0 +1,153 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.UserRoleDao">
+
+	<resultMap type="adtec.privilege.model.UserRole" id="querys">
+		<id property="userRoleId" column="userroleid"></id>
+		<result property="userid" column="userid"></result>
+		<result property="roleid" column="roleid"></result>
+		<!-- <result property="role.roleid" column="role_roleid"></result> -->
+	</resultMap>
+
+	<!-- 查询所有用户角色 -->
+	<select id="queryAllUserRole" resultMap="querys" parameterType="adtec.privilege.model.UserRole">
+		select * from userrole
+		<if test="user != null and user.username != null and '' != user.username.trim()">
+			LEFT JOIN user ON userrole.userid = user.userid
+		</if>
+		<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+			LEFT JOIN role ON userrole.roleid = role.roleid
+		</if>
+		<where>
+			<if test="userRoleId != null and '' != userRoleId.trim()">
+				AND userroleid = #{userRoleId,jdbcType=VARCHAR}
+			</if>
+			<if test="user != null and user.username != null and '' != user.username.trim()">
+				AND username like CONCAT('%','${user.username}','%' )
+			</if>
+			<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+				AND rolename like CONCAT('%','${role.rolename}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order}
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 添加用户角色 -->
+	<insert id="insertUserRole" parameterType="adtec.privilege.model.UserRole">
+		insert into userrole (userroleid,userid,roleid) 
+		values (#{userRoleId,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR},#{roleid,jdbcType=VARCHAR})
+	</insert>
+	
+	<!-- 条件查询 -->
+	<select id="queryUserRoleByObj" resultMap="querys" parameterType="adtec.privilege.model.UserRole">
+		select * from userrole
+		<where>
+			<if test="userRoleId != null and '' != userRoleId.trim()">
+				userroleid = #{userRoleId,jdbcType=VARCHAR}
+			</if>
+			<if test="userid != null and '' != userid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test="roleid != null and '' != roleid.trim()">
+				AND roleid = #{roleid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改用户 -->
+	<update id="updateUserRole" parameterType="adtec.privilege.model.UserRole">
+		update user
+		<set>
+			<if test="username != null and ''!= username.trim()">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null and ''!= password.trim()">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where userid = #{userid,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除用户角色 -->
+	<delete id="deleteUserRole" parameterType="adtec.privilege.model.UserRole">
+		delete from userrole where userroleid=#{userRoleId,jdbcType=VARCHAR} 
+	</delete>
+	
+	<!-- 通过id集合（List）批量删除用户角色对象  -->
+	<delete id="deleteUserRolesById" parameterType="adtec.privilege.model.UserRole">
+		delete from userrole where userroleid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+			 #{item}   
+	    </foreach>
+	</delete>
+	
+	
+	<!-- 批量添加用户角色 -->
+	<insert id="batchInsertUserRoles" parameterType="adtec.privilege.model.UserRole">
+		insert into userrole (userroleid,userid,roleid) 
+		values 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.userRoleId,jdbcType=VARCHAR},#{item.userid,jdbcType=VARCHAR},#{item.roleid,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<!-- 查询用是否存在 通过主键验证，或者 userid roleid综合验证  -->
+	<select id="queryUserRoleIfExists" resultMap="querys" parameterType="adtec.privilege.model.UserRole">
+		select * from userrole
+		<where>
+			<if test="userRoleId != null and '' != userRoleId.trim()">
+				userroleid = #{userRoleId,jdbcType=VARCHAR}
+			</if>
+			<if test="userid != null and '' != userid.trim() and roleid != null and '' != roleid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR} and roleid = #{roleid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查询用户角色总数 （包括模糊查询） -->
+	<select id="queryUserRoleCount" resultType="int" parameterType="adtec.privilege.model.UserRole">
+		select count(*) from userrole
+		<if test="user != null and user.username != null and '' != user.username.trim()">
+			LEFT JOIN user ON userrole.userid = user.userid
+		</if>
+		<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+			LEFT JOIN role ON userrole.roleid = role.roleid
+		</if>
+		<where>
+			<if test="userRoleId != null and '' != userRoleId.trim()">
+				AND userroleid = #{userRoleId,jdbcType=VARCHAR}
+			</if>
+			<if test="user != null and user.username != null and '' != user.username.trim()">
+				AND username like CONCAT('%','${user.username}','%' )
+			</if>
+			<if test="role != null and role.rolename != null and '' != role.rolename.trim()">
+				AND rolename like CONCAT('%','${role.rolename}','%' )
+			</if>
+		</where>
+	</select>
+	
+	
+	<!-- 通过对象查询数量（主要用于验证  用户是否开通角色等） -->
+	<select id="queryCountByObj" resultType="int" parameterType="adtec.privilege.model.UserRole">
+		select count(*) from userrole
+		<where>
+			<if test="userRoleId != null and '' != userRoleId.trim()">
+				userroleid = #{userRoleId,jdbcType=VARCHAR}
+			</if>
+			<if test="userid != null and '' != userid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test="roleid != null and '' != roleid.trim()">
+				AND roleid = #{roleid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+</mapper>

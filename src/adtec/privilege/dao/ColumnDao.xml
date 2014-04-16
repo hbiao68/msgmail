@@ -1,0 +1,143 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.ColumnDao">
+
+	<resultMap type="adtec.privilege.model.Column" id="querys">
+		<id property="columnId" column="columnid"></id>
+		<result property="columnName" column="columnname"></result>
+		<result property="columnUrl" column="columnurl"></result>
+		<result property="resid" column="resid"></result>
+	</resultMap>
+	<!-- 查询栏位总数 -->
+	<select id="queryColumnCount" resultType="int" parameterType="adtec.privilege.model.Column">
+		select count(*) from menucolumn
+		<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+			LEFT JOIN resource ON menucolumn.resid = resource.resid
+		</if>
+		<where>
+			<if test="columnId != null and '' != columnId.trim()">
+				columnid = #{columnId,jdbcType=VARCHAR}
+			</if>
+			<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+				AND resname like CONCAT('%','${resource.resname}','%' )
+			</if>
+			<if test="columnName != null and '' != columnName.trim()">
+				AND columnname like CONCAT('%','${columnName}','%' )
+			</if>
+			<if test="columnUrl != null and '' != columnUrl.trim()">
+				AND columnurl like CONCAT('%','${columnUrl}','%' )
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查询所有栏位 -->
+	<select id="queryAllColumn" resultMap="querys" parameterType="adtec.privilege.model.Column">
+		select * from menucolumn
+		<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+			LEFT JOIN resource ON menucolumn.resid = resource.resid
+		</if>
+		<where>
+			<if test="columnId != null and '' != columnId.trim()">
+				AND columnid = #{columnId,jdbcType=VARCHAR}
+			</if>
+			<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+				AND resname like CONCAT('%','${resource.resname}','%' )
+			</if>
+			<if test="columnName != null and '' != columnName.trim()">
+				AND columnname like CONCAT('%','${columnName}','%' )
+			</if>
+			<if test="columnUrl != null and '' != columnUrl.trim()">
+				AND columnurl like CONCAT('%','${columnUrl}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 添加栏位 -->
+	<insert id="insertColumn" parameterType="adtec.privilege.model.Column">
+		insert into menucolumn (columnid,columnname,columnurl,resid) 
+		values (#{columnId,jdbcType=VARCHAR},#{columnName,jdbcType=VARCHAR},#{columnUrl,jdbcType=VARCHAR},#{resid,jdbcType=VARCHAR})
+	</insert>
+	
+	<!-- 通过id查询一条 -->
+	<select id="queryColumnByColumnId" resultMap="querys" parameterType="String">
+		select * from menucolumn where columnid = #{columnId,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryColumnByObj" resultMap="querys" parameterType="adtec.privilege.model.Column">
+		select * from menucolumn
+		<where>
+			<if test="columnId != null and '' != columnId.trim()">
+				columnid = #{columnId,jdbcType=VARCHAR}
+			</if>
+			<if test="columnName != null and '' != columnName.trim()">
+				AND columnname = #{columnName,jdbcType=VARCHAR}
+			</if>
+			<if test="columnUrl != null and '' != columnUrl.trim()">
+				AND columnurl = #{columnUrl,jdbcType=VARCHAR}
+			</if>
+			<if test="resid != null and '' != resid.trim()">
+				AND resid = #{resid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改用户 -->
+	<update id="updateColumn" parameterType="adtec.privilege.model.Column">
+		update menucolumn
+		<set>
+			<if test="columnName != null and ''!= columnName.trim()">
+				columnname = #{columnName,jdbcType=VARCHAR},
+			</if>
+			<if test="columnUrl != null and ''!= columnUrl.trim()">
+				columnurl = #{columnUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="resid != null and ''!= resid.trim()">
+				resid = #{resid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where columnid=#{columnId,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteColumn" parameterType="adtec.privilege.model.Column">
+		delete from menucolumn where columnid=#{columnId,jdbcType=VARCHAR} 
+	</delete>
+	
+	<!-- 批量删除用户 -->
+	<delete id="deleteColumnsById" parameterType="adtec.privilege.model.Column">
+		delete from menucolumn where columnid in
+		 <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		 	#{item}
+		 </foreach> 
+	</delete>
+	
+	<!-- 通过对象查询数量 -->
+	<select id="queryCountByObj" resultType="int" parameterType="adtec.privilege.model.Column">
+		select count(*) from menucolumn
+		<where>
+			<if test="columnId != null and '' != columnId.trim()">
+				columnid = #{columnId,jdbcType=VARCHAR}
+			</if>
+			<if test="columnName != null and '' != columnName.trim()">
+				AND columnname = #{columnName,jdbcType=VARCHAR}
+			</if>
+			<if test="columnUrl != null and '' != columnUrl.trim()">
+				AND columnurl = #{columnUrl,jdbcType=VARCHAR}
+			</if>
+			<if test="resid != null and '' != resid.trim()">
+				AND resid = #{resid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+</mapper>

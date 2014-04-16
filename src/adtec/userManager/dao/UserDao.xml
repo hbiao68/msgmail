@@ -1,0 +1,94 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.userManager.dao.UserDao">
+	<resultMap type="adtec.userManager.model.User"
+		id="querys">
+		<id property="uid" column="uidid"></id>
+		<result property="userName" column="userName"></result>
+		<result property="userPassword" column="userPassword"></result>
+	</resultMap>
+
+
+	<!-- 添加新用户 -->
+	<insert id="insert" parameterType="adtec.userManager.model.User">
+		insert into user(userName,userPassword)
+		values(#{userName},#{userPassword})
+	</insert>
+	
+	<!-- 登陆校验 -->
+	<select id="loginCheck" parameterType="adtec.userManager.model.User" resultType="Integer">
+	   select count(*) count
+	     from user
+	    where userName=#{userName}
+	      and userPassword=#{userPassword}
+	</select>
+	
+	<!-- 校验用户名是否重复 -->
+	<select id="checkUserIsExistsByName" parameterType="String" resultType="Integer">
+	    select count(userName) userName
+	      from user
+	     where userName=#{userName}
+	</select>
+	
+	<!-- 用户查询页面 -->
+	<select id="query" parameterType="adtec.userManager.model.User" resultType="adtec.userManager.model.User">
+	   select uid,userName,userPassword 
+	     from user 
+	    where (#{userName}='' or userName like CONCAT(CONCAT('%',#{userName}), '%'))
+	    order by uid asc
+	    limit #{start},#{pageSize}
+	</select>
+	
+	<!-- 单一实例查询页面 -->
+	<select id="findUserById" parameterType="Integer"  resultMap="querys">
+	    select uid,userName
+	      from user
+	     where uid=#{uid}
+	</select>
+	
+	<!-- 修改页面 -->
+	<update id="updateUserByUser" parameterType="adtec.userManager.model.User">
+	    update user
+	      set userName=#{userName}
+	     where uid=#{uid}
+	</update>
+	
+	<!-- 删除页面 -->
+	<delete id="deleteUserById" parameterType="Integer">
+	    delete from user
+	     where uid=#{uid}
+	</delete>
+
+	<!-- 查询所有的记录数 -->
+	<select id="queryCount" parameterType="adtec.userManager.model.User"
+		resultType="Integer">
+		select count(*)
+		from user
+		where (#{userName}='' or userName like CONCAT(CONCAT('%',#{userName}), '%'))
+	</select>
+	
+	<!-- 修改密码 -->
+	<update id="UpdatePwd" parameterType="Integer">
+	    update user
+	      set userPassword=#{userPassword}
+	     where uid=#{uid}
+	</update>
+	
+	<!-- 校验原有密码 -->
+	<select id="queryPwd" parameterType="java.util.Map" resultType="Integer">
+	    select count(*) userPwd
+	     from user
+	    where uid=#{uid}
+	      and userPassword=#{userPassword}
+	</select>
+	
+	<select id="findUserByName" parameterType="String" resultMap="querys">
+		 select uid,userName
+		      from user
+		     where userName=#{userName}
+	</select>
+
+</mapper>

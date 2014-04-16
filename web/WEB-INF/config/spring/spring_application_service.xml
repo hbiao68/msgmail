@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="orgDefServiceBean"
+		class="adtec.organizationManager.service.impl.OrganizationDefServiceImpl">
+		<property name="orgDefDao" ref="orgDefDaoBean"></property>
+	</bean>
+
+	<bean id="categoryManagerService"
+		class="adtec.categoryManager.service.imp.CategoryManagerServiceImpl">
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+		<property name="ta_extendpropdefDao" ref="ta_extendpropdefDao"></property>
+		<property name="ta_Account_cateNameDao" ref="ta_Account_cateNameDao"></property>
+		<property name="ta_AppDao" ref="ta_AppDao"></property>
+	</bean>
+
+	<bean id="ta_Account_cateNameService"
+		class="adtec.accountManager.service.imp.Ta_Account_cateNameServiceImpl">
+		<property name="ta_Account_cateNameDao" ref="ta_Account_cateNameDao"></property>
+		<property name="ta_ExtendProp_cateNameDao" ref="ta_ExtendProp_cateNameDao"></property>
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+		<property name="ta_App_relationDao" ref="ta_App_relationDao"></property>
+		<property name="orgDao" ref="orgDaoBean"></property>
+	</bean>
+
+	<bean id="appManagerService" class="adtec.appManager.service.imp.AppManagerServiceImpl">
+		<property name="ta_AppDao" ref="ta_AppDao"></property>
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+		<property name="ta_App_relationDao" ref="ta_App_relationDao"></property>
+		<property name="ta_org_relationDao" ref="ta_org_relationDao"></property>
+		<!-- <property name="orgDao" ref="orgDaoBean"></property> -->
+	</bean>
+
+	<bean id="ta_App_relationService" class="adtec.appManager.service.imp.Ta_App_relationServiceImpl">
+		<property name="ta_AppDao" ref="ta_AppDao"></property>
+		<property name="ta_App_relationDao" ref="ta_App_relationDao"></property>
+		<property name="ta_Account_cateNameDao" ref="ta_Account_cateNameDao"></property>
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+		<property name="orgDao" ref="orgDaoBean"></property>
+		<property name="ta_org_relationDao" ref="ta_org_relationDao"></property>
+	</bean>
+
+	<bean id="ta_org_relationService"
+		class="adtec.ta_org_relationManager.service.imp.Ta_org_relationServiceImpl">
+		<property name="ta_org_relationDao" ref="ta_org_relationDao"></property>
+		<property name="ta_AppDao" ref="ta_AppDao"></property>
+		<property name="orgDao" ref="orgDaoBean"></property>
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+	</bean>
+<!--  maojd update date: 12:39 2014/3/21      user表冲突。以权限管理的user表为准    -->
+<!-- 	<bean id="userService" class="adtec.userManager.service.imp.UserManagerServiceImpl">
+		<property name="userdao" ref="userDao"></property>
+	</bean> -->
+
+	<bean name="orgServiceBean"
+		class="adtec.organizationManager.service.impl.OrganizationServiceImpl">
+		<property name="orgDao" ref="orgDaoBean"></property>
+		<property name="ta_categoryDao" ref="ta_categoryDao"></property>
+		<property name="ta_Account_cateNameDao" ref="ta_Account_cateNameDao"></property>
+	</bean>
+
+	<!-- 该service中切换不同的实现类 -->
+	<bean id="adtec_messageService"
+		class="adtec.adtec_message.service.impl.Adtec_messageServiceImpl">
+		<property name="msgservice" ref="localsetmsgService"></property>
+	</bean>
+
+
+	<!--本地数据库的发送消息所用service  -->
+	<bean id="localsetmsgService" class="adtec.adtec_message.service.impl.LocalServiceImpl">
+		<property name="orgDao" ref="orgDaoBean"></property>
+		<property name="accountorgrelationDao" ref="accountorgrelationDao"></property>
+		<property name="ta_App_relationDao" ref="ta_App_relationDao"></property>
+	</bean>
+	
+	<!-- 该service中切换不同的实现类 -->
+	<bean id="accountService" class="adtec.account.service.impl.AccountServiceImpl">
+		<property name="accservice" ref="localaccService"></property>
+	</bean>
+	
+	<!-- 本地数据库发送消息的帐号管理所用service -->
+	<bean id="localaccService" class="adtec.account.service.impl.LocalAccServiceImpl">
+		<property name="accountDao" ref="accountDao"></property>
+	</bean>
+	
+	<!-- 该service中切换不同的实现类 -->
+	<bean id="accountorgrelationService" class="adtec.accorgrelation.service.impl.AccountorgrelationServiceImpl">
+		<property name="accorgservice" ref="localaccorgService"></property>
+	</bean>
+	
+	<!-- 本地数据库发送消息的帐号与机构所用service -->
+	<bean id="localaccorgService" class="adtec.accorgrelation.service.impl.LocalAccOrgRelServiceImpl">
+			<property name="accountorgrelationDao" ref="accountorgrelationDao"></property>
+			<property name="orgDao" ref="orgDaoBean"></property>
+	</bean>
+	
+	<!-- 将发送消息、发送消息用帐号、帐号机构关系三个service注入到一个service中 -->
+	<bean id="swtservice" class="adtec.util.switchInterface.impl.LocalInterfaceServiceImpl">
+		<property name="localaccorgService" ref="localaccorgService"></property>
+		<property name="localaccService" ref="localaccService"></property>
+		<property name="localsetmsgService" ref="localsetmsgService"></property>
+	</bean>
+	
+	
+		<!-- 该service中切换不同的实现类 -->
+	<bean id="accorgsetxmlservice" class="adtec.util.switchInterface.impl.AccOrgSetXmlServiceImpl">
+		<property name="swtservice" ref="swtservice"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 权限管理 -->
+	<bean name="resourceService" class="adtec.privilege.service.imp.ResourceServiceImp">
+		<property name="resourceDao" ref="resourceDao"></property>
+	</bean>
+
+	
+	<bean name="userService" class="adtec.privilege.service.imp.UserServiceImp">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean name="roleService" class="adtec.privilege.service.imp.RoleServiceImp">
+		<property name="roleDao" ref="roleDao"></property>
+	</bean>
+	
+	<bean name="privilegeService" class="adtec.privilege.service.imp.PrivilegeServiceImp">
+		<property name="privilegeDao" ref="privilegeDao"></property>
+		<property name="resourceService" ref="resourceService"></property>
+		<property name="typeService" ref="typeService"></property>
+	</bean>
+	
+	<bean name="userRoleService" class="adtec.privilege.service.imp.UserRoleServiceImp">
+		<property name="userRoleDao" ref="userRoleDao"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="roleService" ref="roleService"></property>
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+	</bean>
+	
+	<bean name="userPrivilegeService" class="adtec.privilege.service.imp.UserPrivilegeServiceImp">
+		<property name="userPrivilegeDao" ref="userPrivilegeDao"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="privilegeService" ref="privilegeService"></property>
+		<property name="userRoleService" ref="userRoleService"></property>
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+	</bean>
+	
+	<bean name="rolePrivilegeService" class="adtec.privilege.service.imp.RolePrivilegeServiceImp">
+		<property name="rolePrivilegeDao" ref="rolePrivilegeDao"></property>
+		 <property name="roleService" ref="roleService"></property>
+		 <property name="privilegeService" ref="privilegeService"></property>
+		 <property name="userRoleService" ref="userRoleService"></property>
+	</bean>
+	
+	<bean name="typeService" class="adtec.privilege.service.imp.TypeServiceImp">
+		<property name="typeDao" ref="typeDao"></property>
+	</bean>
+	
+	<bean name="columnService" class="adtec.privilege.service.imp.ColumnServiceImp">
+		<property name="columnDao" ref="columnDao"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+</beans>

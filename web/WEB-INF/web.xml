@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>myspring</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+	
+	
+
+
+	<!-- 开启spring的监听功能 -->
+	<listener>
+	<!--  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->  
+		<listener-class>adtec.initdatabase.Initdata</listener-class>
+	</listener>
+	
+	<!-- spring cxf整合文件 -->
+	<listener>
+	    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	
+	<servlet>
+	    <servlet-name>CXFService</servlet-name>
+	    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+	 
+	<servlet-mapping>
+	    <servlet-name>CXFService</servlet-name>
+	    <url-pattern>/webservice/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- POST中文乱码过滤器 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+
+
+<!-- 使用spring 的MVC来管理 -->
+	<servlet>
+		<servlet-name>myspring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myspring</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+          /WEB-INF/config/spring/spring_application_*.xml,
+       	  /WEB-INF/myspring-servlet.xml
+      </param-value>
+	</context-param>
+	
+	<!-- 用spring来管理日志 -->
+	<context-param>
+      <param-name>log4jConfigLocation</param-name>
+      <param-value>/WEB-INF/classes/log4j.properties</param-value>
+   </context-param>
+   <!-- 
+    <context-param>
+  <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:log4j.properties</param-value>
+ </context-param>
+ 
+  -->
+   <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>webApp.root</param-value>
+  </context-param>
+   
+   <context-param>
+      <param-name>log4jRefreshInterval</param-name>
+      <param-value>6000</param-value>
+   </context-param>
+   
+
+    <listener>
+      <listener-class>
+        org.springframework.web.util.Log4jConfigListener
+      </listener-class>
+   </listener>
+   
+   <!-- 根据错误类型跳转到指定页面 -->
+   <error-page>
+   		<error-code>500</error-code>
+   		<location>/WEB-INF/errorPage/error500.jsp</location>
+   </error-page>
+   
+   <error-page>
+   		<error-code>404</error-code>
+   		<location>/WEB-INF/errorPage/error404.jsp</location>
+   </error-page>
+   
+   <!-- 登陆过滤器 -->
+  <filter>  
+    <filter-name>sessionFilter</filter-name>  
+    <filter-class>adtec.util.filter.SessionFilter</filter-class>
+   </filter>  
+	<filter-mapping>  
+	    <filter-name>sessionFilter</filter-name> 
+	    <url-pattern>*.do</url-pattern>  
+	    <url-pattern>*.jsp</url-pattern>  
+	    <url-pattern>*.html</url-pattern>  
+	</filter-mapping>
+	
+	<!-- JSP缓存过滤器 --> 
+   <filter>  
+    <filter-name>jspCacheFilter</filter-name>  
+    <filter-class>adtec.util.filter.JspCacheFilter</filter-class>
+   </filter>  
+   <filter-mapping>  
+	    <filter-name>jspCacheFilter</filter-name> 
+	    <url-pattern>*.do</url-pattern>  
+	</filter-mapping> 
+	
+	
+	<!-- plugin 插件模块处理  
+	--> 
+   <filter>  
+    <filter-name>MessageInteceptorFilter</filter-name>  
+    <filter-class>adtec.plugin.MessageInteceptorFilter</filter-class>
+   </filter>  
+   <filter-mapping>  
+	    <filter-name>MessageInteceptorFilter</filter-name> 
+	    <url-pattern>*.do</url-pattern>  
+	</filter-mapping> 
+	<listener>
+		<listener-class>adtec.plugin.MessageInteceptorFilter</listener-class>
+	</listener>
+	
+	<!-- 添加一个监听器，初始化系统相关的数据 -->
+	<listener>
+		<listener-class>adtec.init.IninProjectListener</listener-class>
+	</listener> 
+	
+	<!-- 使用自定义标签 -->
+	<jsp-config>
+	    <taglib>
+	        <taglib-uri>http://www.adtec.com.cn</taglib-uri>
+	        <!-- tld文件所在的位置-->
+	        <taglib-location>/WEB-INF/adtec.tld</taglib-location>
+	    </taglib>
+	</jsp-config>
+
+</web-app>

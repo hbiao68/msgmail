@@ -1,0 +1,947 @@
+10:59:11,578  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+10:59:11,578  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+10:59:12,109  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Thu Oct 10 10:59:12 CST 2013]; root of context hierarchy
+10:59:12,109  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Thu Oct 10 10:59:12 CST 2013]; root of context hierarchy
+10:59:12,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+10:59:12,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+10:59:13,265  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+10:59:13,265  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+10:59:13,296  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+10:59:13,296  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+10:59:13,359  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+10:59:13,359  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+10:59:13,375  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+10:59:13,375  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+10:59:14,140  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de: defining beans [userServiceBean,adtec.function1.controller.UserController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,userDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+10:59:14,140  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de: defining beans [userServiceBean,adtec.function1.controller.UserController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,userDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+10:59:14,515  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+10:59:14,531  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+10:59:14,531  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+10:59:17,203  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+10:59:17,203  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+10:59:17,234  INFO RAMJobStore:139 - RAMJobStore initialized.
+10:59:17,234  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+10:59:17,234  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+10:59:17,234  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@1af028b
+10:59:17,296  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+10:59:17,296  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+10:59:17,296  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+10:59:17,296  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+10:59:17,296  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+10:59:17,296  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 5687 ms
+10:59:17,296  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 5687 ms
+10:59:17,468  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+10:59:17,468  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+10:59:17,468  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 10:59:17 CST 2013]; parent: Root WebApplicationContext
+10:59:17,468  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 10:59:17 CST 2013]; parent: Root WebApplicationContext
+10:59:17,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+10:59:17,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+10:59:20,000  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e7357e: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de
+10:59:20,000  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e7357e: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de
+10:59:20,546  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 3078 ms
+10:59:20,546  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 3078 ms
+10:59:24,421  INFO UpdateChecker:86 - New update(s) found: 1.8.5 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+11:01:24,187  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 10:59:17 CST 2013]; parent: Root WebApplicationContext
+11:01:24,187  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 10:59:17 CST 2013]; parent: Root WebApplicationContext
+11:01:24,187  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e7357e: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de
+11:01:24,187  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e7357e: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1db3de
+11:03:09,984  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+11:03:09,984  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+11:03:10,187  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Thu Oct 10 11:03:10 CST 2013]; root of context hierarchy
+11:03:10,187  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Thu Oct 10 11:03:10 CST 2013]; root of context hierarchy
+11:03:10,312  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+11:03:10,312  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+11:03:10,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+11:03:10,484  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+11:03:10,515  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+11:03:10,515  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+11:03:10,531  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+11:03:10,531  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+11:03:10,546  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+11:03:10,546  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+11:03:10,765  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@158c28: defining beans [userServiceBean,adtec.function1.controller.UserController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,userDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+11:03:10,765  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@158c28: defining beans [userServiceBean,adtec.function1.controller.UserController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,userDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+11:03:10,890  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+11:03:10,906  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+11:03:10,906  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+11:03:10,906  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+11:03:10,906  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+11:03:11,453  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+11:03:11,453  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+11:03:11,453  INFO RAMJobStore:139 - RAMJobStore initialized.
+11:03:11,453  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+11:03:11,453  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+11:03:11,453  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@42806c
+11:03:11,468  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+11:03:11,468  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+11:03:11,468  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+11:03:11,468  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+11:03:11,468  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+11:03:11,484  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1500 ms
+11:03:11,484  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1500 ms
+11:03:11,546  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+11:03:11,546  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+11:03:11,562  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 11:03:11 CST 2013]; parent: Root WebApplicationContext
+11:03:11,562  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Thu Oct 10 11:03:11 CST 2013]; parent: Root WebApplicationContext
+11:03:11,562  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+11:03:11,562  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+11:03:12,453  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5ccfb: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@158c28
+11:03:12,453  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5ccfb: defining beans [orderServiceImpl,userServiceImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,dataSource,sqlSessionFactory,org.mybatis.spring.mapper.MapperScannerConfigurer#0,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0,orderDao,userDao]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@158c28
+11:03:12,734  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 1188 ms
+11:03:12,734  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 1188 ms
+11:03:19,312  INFO UpdateChecker:86 - New update(s) found: 1.8.5 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+15:57:54,267  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+15:57:54,267  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+15:57:54,362  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 15:57:54 CST 2013]; root of context hierarchy
+15:57:54,362  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 15:57:54 CST 2013]; root of context hierarchy
+15:57:54,434  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+15:57:54,434  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+15:57:54,533  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+15:57:54,533  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+15:57:54,566  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+15:57:54,566  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+15:57:54,634  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+15:57:54,634  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+15:57:54,655  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+15:57:54,655  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+15:57:54,680  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:57:54,680  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:57:54,963  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a: defining beans [userServiceBean,k_userService,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+15:57:54,963  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a: defining beans [userServiceBean,k_userService,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+15:57:55,695  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+15:57:55,695  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+15:57:55,695  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+15:57:55,695  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+15:57:55,696  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:57:55,696  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:57:55,697  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:57:55,697  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:57:55,697  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+15:57:55,697  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+15:57:55,699  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+15:57:55,699  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+15:57:55,700  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+15:57:55,700  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+15:57:55,951  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+15:57:55,952  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+15:57:55,954  INFO RAMJobStore:139 - RAMJobStore initialized.
+15:57:55,954  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+15:57:55,954  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+15:57:55,957  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@21b60bad
+15:57:55,966  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+15:57:55,966  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+15:57:55,967  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+15:57:55,967  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+15:57:55,967  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+15:57:55,969  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1699 ms
+15:57:55,969  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1699 ms
+15:57:56,005  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+15:57:56,005  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+15:57:56,009  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:57:56 CST 2013]; parent: Root WebApplicationContext
+15:57:56,009  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:57:56 CST 2013]; parent: Root WebApplicationContext
+15:57:56,011  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:57:56,011  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:57:56,027  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f0d8c26: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:57:56,027  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f0d8c26: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:57:56,044  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+15:57:56,044  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+15:58:16,050  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:57:56 CST 2013]; parent: Root WebApplicationContext
+15:58:16,050  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:57:56 CST 2013]; parent: Root WebApplicationContext
+15:58:16,051  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f0d8c26: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:58:16,051  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f0d8c26: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:59:39,480  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+15:59:39,480  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+15:59:39,574  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 15:59:39 CST 2013]; root of context hierarchy
+15:59:39,574  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 15:59:39 CST 2013]; root of context hierarchy
+15:59:39,650  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+15:59:39,650  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+15:59:39,727  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+15:59:39,727  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+15:59:39,753  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+15:59:39,753  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+15:59:39,831  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+15:59:39,831  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+15:59:39,854  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+15:59:39,854  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+15:59:39,878  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:59:39,878  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:59:40,137  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a: defining beans [userServiceBean,k_userService,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+15:59:40,137  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a: defining beans [userServiceBean,k_userService,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+15:59:40,881  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+15:59:40,881  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+15:59:40,882  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+15:59:40,882  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+15:59:40,883  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:59:40,883  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:59:40,883  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+15:59:40,883  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+15:59:40,884  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:59:40,884  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+15:59:40,885  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+15:59:40,885  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+15:59:40,886  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+15:59:40,886  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+15:59:41,152  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+15:59:41,153  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+15:59:41,154  INFO RAMJobStore:139 - RAMJobStore initialized.
+15:59:41,154  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+15:59:41,155  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+15:59:41,157  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@4786b9ce
+15:59:41,166  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+15:59:41,166  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+15:59:41,167  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+15:59:41,167  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+15:59:41,167  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+15:59:41,169  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1686 ms
+15:59:41,169  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1686 ms
+15:59:41,205  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+15:59:41,205  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+15:59:41,209  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:59:41 CST 2013]; parent: Root WebApplicationContext
+15:59:41,209  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 15:59:41 CST 2013]; parent: Root WebApplicationContext
+15:59:41,212  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:59:41,212  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+15:59:41,227  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6f31dddc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:59:41,227  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6f31dddc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ce6bd1a
+15:59:41,244  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+15:59:41,244  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+16:04:11,734  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:04:11,734  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:04:11,824  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:04:11 CST 2013]; root of context hierarchy
+16:04:11,824  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:04:11 CST 2013]; root of context hierarchy
+16:04:11,899  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:04:11,899  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:04:11,994  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:04:11,994  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:04:12,020  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:04:12,020  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:04:12,094  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:04:12,094  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:04:12,117  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:04:12,117  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:04:12,143  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:04:12,143  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:04:12,458  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:04:12,458  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:04:12,795  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:04:12,795  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:04:12,797 ERROR ContextLoader:308 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userService' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]: Cannot resolve reference to bean 'k_userDao' while setting bean property 'k_userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4206)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4705)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:840)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:754)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 30 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:430)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 47 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:424)
+	... 50 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:317)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:104)
+	... 52 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:69)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 55 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:114)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 59 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:110)
+	... 61 more
+16:04:12,797 ERROR ContextLoader:308 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userService' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]: Cannot resolve reference to bean 'k_userDao' while setting bean property 'k_userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4206)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4705)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:840)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:754)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 30 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:430)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 47 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:424)
+	... 50 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:317)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:104)
+	... 52 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:69)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 55 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:114)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 59 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:110)
+	... 61 more
+16:07:03,894  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:07:03,894  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:07:03,983  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:07:03 CST 2013]; root of context hierarchy
+16:07:03,983  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:07:03 CST 2013]; root of context hierarchy
+16:07:04,053  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:07:04,053  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:07:04,136  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:07:04,136  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:07:04,171  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:07:04,171  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:07:04,251  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:07:04,251  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:07:04,269  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:07:04,269  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:07:04,293  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:07:04,293  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:07:04,584  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@295f918a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:07:04,584  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@295f918a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:07:04,945  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@295f918a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:07:04,945  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@295f918a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:07:04,947 ERROR ContextLoader:308 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userService' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]: Cannot resolve reference to bean 'k_userDao' while setting bean property 'k_userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4206)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4705)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:840)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:754)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 30 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:430)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 47 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:424)
+	... 50 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:317)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:104)
+	... 52 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:69)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 55 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:114)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 59 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:110)
+	... 61 more
+16:07:04,947 ERROR ContextLoader:308 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userService' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]: Cannot resolve reference to bean 'k_userDao' while setting bean property 'k_userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:585)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4206)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4705)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:840)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1057)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:463)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:525)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:754)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:595)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'k_userDao' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1360)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1118)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 30 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [../config/mybatis/MyBatis-Configuration.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:430)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 47 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:424)
+	... 50 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.mapperElement(XMLConfigBuilder.java:317)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:104)
+	... 52 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:69)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 55 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'querys'.  Cause: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:114)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 59 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: querys
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:110)
+	... 61 more
+16:11:21,188  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:11:21,188  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:11:21,277  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:11:21 CST 2013]; root of context hierarchy
+16:11:21,277  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:11:21 CST 2013]; root of context hierarchy
+16:11:21,350  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:11:21,350  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:11:21,433  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:11:21,433  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:11:21,456  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:11:21,456  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:11:21,537  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:11:21,537  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:11:21,556  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:11:21,556  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:11:21,587  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:11:21,587  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:11:21,867  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:11:21,867  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:11:22,631  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:11:22,631  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:11:22,632  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:11:22,632  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:11:22,633  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:11:22,633  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:11:22,633  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:11:22,633  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:11:22,634  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:11:22,634  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:11:22,635  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:11:22,635  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:11:22,636  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:11:22,636  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:11:22,638  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:11:22,638  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:11:22,904  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:11:22,905  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+16:11:22,907  INFO RAMJobStore:139 - RAMJobStore initialized.
+16:11:22,907  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+16:11:22,907  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+16:11:22,910  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@6d8611d5
+16:11:22,920  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:11:22,920  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:11:22,920  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:11:22,920  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:11:22,921  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+16:11:22,923  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1732 ms
+16:11:22,923  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1732 ms
+16:11:22,958  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:11:22,958  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:11:22,963  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:11:22 CST 2013]; parent: Root WebApplicationContext
+16:11:22,963  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:11:22 CST 2013]; parent: Root WebApplicationContext
+16:11:22,965  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:11:22,965  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:11:22,980  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43649898: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98
+16:11:22,980  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43649898: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98
+16:11:22,997  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+16:11:22,997  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+16:13:19,740  WARN PageNotFound:183 - Request method 'GET' not supported
+16:13:19,740  WARN PageNotFound:183 - Request method 'GET' not supported
+16:14:21,227  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:11:22 CST 2013]; parent: Root WebApplicationContext
+16:14:21,227  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:11:22 CST 2013]; parent: Root WebApplicationContext
+16:14:21,228  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43649898: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98
+16:14:21,228  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43649898: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5e552a98
+16:34:10,374  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:34:10,374  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:34:10,464  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:34:10 CST 2013]; root of context hierarchy
+16:34:10,464  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:34:10 CST 2013]; root of context hierarchy
+16:34:10,535  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:34:10,535  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:34:10,617  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:34:10,617  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:34:10,642  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:34:10,642  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:34:10,723  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:34:10,723  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:34:10,745  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:34:10,745  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:34:10,768  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:34:10,768  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:34:11,063  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:34:11,063  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:34:11,813  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:34:11,813  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:34:11,814  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:34:11,814  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:34:11,814  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:34:11,814  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:34:11,815  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:34:11,815  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:34:11,816  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:34:11,816  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:34:11,817  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:34:11,817  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:34:11,818  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:34:11,818  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:34:11,820  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:34:11,820  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:34:11,820  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:34:11,820  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:34:12,078  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:34:12,078  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+16:34:12,080  INFO RAMJobStore:139 - RAMJobStore initialized.
+16:34:12,080  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+16:34:12,081  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+16:34:12,084  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@6d8b745f
+16:34:12,093  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:34:12,093  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:34:12,093  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:34:12,093  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:34:12,094  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+16:34:12,095  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1718 ms
+16:34:12,095  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1718 ms
+16:34:12,132  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:34:12,132  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:34:12,136  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:34:12 CST 2013]; parent: Root WebApplicationContext
+16:34:12,136  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:34:12 CST 2013]; parent: Root WebApplicationContext
+16:34:12,138  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:34:12,138  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:34:12,155  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1ca30cfc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a
+16:34:12,155  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1ca30cfc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a
+16:34:12,173  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 41 ms
+16:34:12,173  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 41 ms
+16:34:15,495  INFO UpdateChecker:86 - New update(s) found: 1.8.5 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+16:34:24,918  WARN PageNotFound:183 - Request method 'GET' not supported
+16:34:24,918  WARN PageNotFound:183 - Request method 'GET' not supported
+16:34:51,265  WARN PageNotFound:183 - Request method 'GET' not supported
+16:34:51,265  WARN PageNotFound:183 - Request method 'GET' not supported
+16:35:08,687  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:34:12 CST 2013]; parent: Root WebApplicationContext
+16:35:08,687  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:34:12 CST 2013]; parent: Root WebApplicationContext
+16:35:08,688  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1ca30cfc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a
+16:35:08,688  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1ca30cfc: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@69e9764a
+16:35:26,908  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:35:26,908  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:35:27,019  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:35:27 CST 2013]; root of context hierarchy
+16:35:27,019  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:35:27 CST 2013]; root of context hierarchy
+16:35:27,100  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:35:27,100  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:35:27,222  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:35:27,222  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:35:27,257  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:35:27,257  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:35:27,383  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:35:27,383  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:35:27,414  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:35:27,414  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:35:27,445  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:35:27,445  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:35:27,840  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39736dd4: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:35:27,840  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39736dd4: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:35:28,895  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:35:28,895  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:35:28,896  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:35:28,896  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:35:28,897  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:35:28,897  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:35:28,898  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:35:28,898  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:35:28,899  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:35:28,899  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:35:28,901  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:35:28,901  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:35:28,902  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:35:28,902  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:35:28,904  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:35:28,904  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:35:28,905  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:35:28,905  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:35:29,325  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:35:29,326  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+16:35:29,329  INFO RAMJobStore:139 - RAMJobStore initialized.
+16:35:29,329  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+16:35:29,330  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+16:35:29,333  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@5f04d7f5
+16:35:29,345  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:35:29,345  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:35:29,345  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:35:29,345  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:35:29,346  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+16:35:29,348  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 2436 ms
+16:35:29,348  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 2436 ms
+16:35:29,392  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:35:29,392  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:35:29,396  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:35:29 CST 2013]; parent: Root WebApplicationContext
+16:35:29,396  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:35:29 CST 2013]; parent: Root WebApplicationContext
+16:35:29,399  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:35:29,399  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:35:29,416  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2fdb4cbe: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@39736dd4
+16:35:29,416  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2fdb4cbe: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@39736dd4
+16:35:29,442  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 49 ms
+16:35:29,442  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 49 ms
+16:35:32,396  INFO UpdateChecker:86 - New update(s) found: 1.8.5 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+16:35:48,886  WARN PageNotFound:183 - Request method 'GET' not supported
+16:35:48,886  WARN PageNotFound:183 - Request method 'GET' not supported
+16:37:50,868  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:37:50,868  INFO ContextLoader:273 - Root WebApplicationContext: initialization started
+16:37:50,956  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:37:50 CST 2013]; root of context hierarchy
+16:37:50,956  INFO XmlWebApplicationContext:495 - Refreshing Root WebApplicationContext: startup date [Sat Oct 12 16:37:50 CST 2013]; root of context hierarchy
+16:37:51,030  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:37:51,030  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_service.xml]
+16:37:51,107  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:37:51,107  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_controller.xml]
+16:37:51,135  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:37:51,135  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_web.xml]
+16:37:51,222  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:37:51,222  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_dao.xml]
+16:37:51,248  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:37:51,248  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/config/spring/spring_application_util.xml]
+16:37:51,269  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:37:51,269  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:37:51,560  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:37:51,560  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e: defining beans [userServiceBean,k_userService,orgDefServiceBean,adtec.function1.controller.UserController#0,adtec.dbtest.controller.DBTestController#0,adtec.organizationManager.controller.OrganizationDefController#0,messageSource,localeResolver,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,dataSource,sqlSessionFactory,tm,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,userDaoBean,k_userDao,orgDefDaoBean,testQuartz,testTellTime,testSayTrigger,org.springframework.scheduling.quartz.SchedulerFactoryBean#0]; root of factory hierarchy
+16:37:52,298  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:37:52,298  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/delUserAction],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.delUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:37:52,299  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:37:52,299  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/addAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.function1.controller.UserController.addUserAction(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,adtec.function1.model.User)
+16:37:52,300  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:37:52,300  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserUpdate()
+16:37:52,301  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:37:52,301  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/add],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserAdd()
+16:37:52,301  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:37:52,301  INFO RequestMappingHandlerMapping:190 - Mapped "{[/function1/user/list],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView adtec.function1.controller.UserController.showUserList()
+16:37:52,302  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:37:52,302  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insertAction],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.dbtest.controller.DBTestController.insertDBAction(adtec.dbtest.model.K_user)
+16:37:52,303  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:37:52,303  INFO RequestMappingHandlerMapping:190 - Mapped "{[/dbtest/insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String adtec.dbtest.controller.DBTestController.insertDB(adtec.dbtest.model.K_user)
+16:37:52,305  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:37:52,305  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/addOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void adtec.organizationManager.controller.OrganizationDefController.addOrgDef(adtec.organizationManager.entity.OrganizationDef)
+16:37:52,306  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:37:52,306  INFO RequestMappingHandlerMapping:190 - Mapped "{[/organizationDefManager/queryOrgDef],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List adtec.organizationManager.controller.OrganizationDefController.queryOrgDef()
+16:37:52,575  INFO SchedulerSignalerImpl:60 - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:37:52,576  INFO QuartzScheduler:220 - Quartz Scheduler v.1.7.3 created.
+16:37:52,578  INFO RAMJobStore:139 - RAMJobStore initialized.
+16:37:52,578  INFO StdSchedulerFactory:1240 - Quartz scheduler 'org.springframework.scheduling.quartz.SchedulerFactoryBean#0' initialized from an externally provided properties instance.
+16:37:52,578  INFO StdSchedulerFactory:1244 - Quartz scheduler version: 1.7.3
+16:37:52,581  INFO QuartzScheduler:2075 - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@25f9ffaf
+16:37:52,591  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:37:52,591  INFO DefaultLifecycleProcessor:334 - Starting beans in phase 2147483647
+16:37:52,592  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:37:52,592  INFO SchedulerFactoryBean:648 - Starting Quartz Scheduler now
+16:37:52,592  INFO QuartzScheduler:472 - Scheduler org.springframework.scheduling.quartz.SchedulerFactoryBean#0_$_NON_CLUSTERED started.
+16:37:52,594  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1724 ms
+16:37:52,594  INFO ContextLoader:302 - Root WebApplicationContext: initialization completed in 1724 ms
+16:37:52,631  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:37:52,631  INFO DispatcherServlet:444 - FrameworkServlet 'myspring': initialization started
+16:37:52,635  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:37:52 CST 2013]; parent: Root WebApplicationContext
+16:37:52,635  INFO XmlWebApplicationContext:495 - Refreshing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:37:52 CST 2013]; parent: Root WebApplicationContext
+16:37:52,637  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:37:52,637  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from ServletContext resource [/WEB-INF/myspring-servlet.xml]
+16:37:52,652  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9df04e: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e
+16:37:52,652  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9df04e: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e
+16:37:52,669  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+16:37:52,669  INFO DispatcherServlet:463 - FrameworkServlet 'myspring': initialization completed in 38 ms
+16:37:58,644  INFO UpdateChecker:86 - New update(s) found: 1.8.5 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+16:38:22,822  WARN PageNotFound:183 - Request method 'GET' not supported
+16:38:22,822  WARN PageNotFound:183 - Request method 'GET' not supported
+16:40:20,770  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:40:20 CST 2013]; root of context hierarchy
+16:40:20,770  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:40:20 CST 2013]; root of context hierarchy
+16:40:20,825  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:40:20,825  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:41:16,556  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:37:52 CST 2013]; parent: Root WebApplicationContext
+16:41:16,556  INFO XmlWebApplicationContext:1020 - Closing WebApplicationContext for namespace 'myspring-servlet': startup date [Sat Oct 12 16:37:52 CST 2013]; parent: Root WebApplicationContext
+16:41:16,556  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9df04e: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e
+16:41:16,556  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9df04e: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@414c103e
+16:41:33,952  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:41:33 CST 2013]; root of context hierarchy
+16:41:33,952  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:41:33 CST 2013]; root of context hierarchy
+16:41:34,014  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:41:34,014  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:42:43,387  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:42:43 CST 2013]; root of context hierarchy
+16:42:43,387  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3d205adc: startup date [Sat Oct 12 16:42:43 CST 2013]; root of context hierarchy
+16:42:43,451  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:42:43,451  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:53:00,280  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 16:53:00 CST 2013]; root of context hierarchy
+16:53:00,280  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 16:53:00 CST 2013]; root of context hierarchy
+16:53:00,346  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:53:00,346  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:53:52,420  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@28c2e890: startup date [Sat Oct 12 16:53:52 CST 2013]; root of context hierarchy
+16:53:52,420  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@28c2e890: startup date [Sat Oct 12 16:53:52 CST 2013]; root of context hierarchy
+16:53:52,482  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:53:52,482  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:54:35,918  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@75ea2543: startup date [Sat Oct 12 16:54:35 CST 2013]; root of context hierarchy
+16:54:35,918  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@75ea2543: startup date [Sat Oct 12 16:54:35 CST 2013]; root of context hierarchy
+16:54:35,977  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [MyBatis-Configuration.xml]
+16:54:35,977  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [MyBatis-Configuration.xml]
+16:54:36,895  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:54:36,895  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:57:27,856  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7362e07d: startup date [Sat Oct 12 16:57:27 CST 2013]; root of context hierarchy
+16:57:27,856  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7362e07d: startup date [Sat Oct 12 16:57:27 CST 2013]; root of context hierarchy
+16:57:27,913  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:57:27,913  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+16:58:51,324  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 16:58:51 CST 2013]; root of context hierarchy
+16:58:51,324  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 16:58:51 CST 2013]; root of context hierarchy
+16:58:51,377  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [web/WEB-INF/spring/spring_application_service.xml]
+16:58:51,377  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [web/WEB-INF/spring/spring_application_service.xml]
+17:00:23,310  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@75ea2543: startup date [Sat Oct 12 17:00:23 CST 2013]; root of context hierarchy
+17:00:23,310  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@75ea2543: startup date [Sat Oct 12 17:00:23 CST 2013]; root of context hierarchy
+17:00:23,365  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+17:00:23,365  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [spring_application_service.xml]
+17:00:23,532  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@27edf4be: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:00:23,532  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@27edf4be: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:00:23,557  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@27edf4be: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:00:23,557  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@27edf4be: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:02:25,383  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 17:02:25 CST 2013]; root of context hierarchy
+17:02:25,383  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 17:02:25 CST 2013]; root of context hierarchy
+17:02:25,443  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [WEB-INF/config/spring/spring_application_service.xml]
+17:02:25,443  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [WEB-INF/config/spring/spring_application_service.xml]
+17:03:00,792  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 17:03:00 CST 2013]; root of context hierarchy
+17:03:00,792  INFO ClassPathXmlApplicationContext:495 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14325ad8: startup date [Sat Oct 12 17:03:00 CST 2013]; root of context hierarchy
+17:03:00,853  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [web/WEB-INF/config/spring/spring_application_service.xml]
+17:03:00,853  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from class path resource [web/WEB-INF/config/spring/spring_application_service.xml]
+17:04:07,981  INFO FileSystemXmlApplicationContext:495 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@67099f71: startup date [Sat Oct 12 17:04:07 CST 2013]; root of context hierarchy
+17:04:07,981  INFO FileSystemXmlApplicationContext:495 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@67099f71: startup date [Sat Oct 12 17:04:07 CST 2013]; root of context hierarchy
+17:04:08,045  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from file [D:\JavaProject\myspring\web\WEB-INF\config\spring\spring_application_service.xml]
+17:04:08,045  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from file [D:\JavaProject\myspring\web\WEB-INF\config\spring\spring_application_service.xml]
+17:04:08,238  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@55672f52: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:04:08,238  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@55672f52: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:04:08,283  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@55672f52: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:04:08,283  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@55672f52: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:05:38,898  INFO FileSystemXmlApplicationContext:495 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@476e0993: startup date [Sat Oct 12 17:05:38 CST 2013]; root of context hierarchy
+17:05:38,898  INFO FileSystemXmlApplicationContext:495 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@476e0993: startup date [Sat Oct 12 17:05:38 CST 2013]; root of context hierarchy
+17:05:38,959  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from file [D:\JavaProject\myspring\web\WEB-INF\config\spring\spring_application_service.xml]
+17:05:38,959  INFO XmlBeanDefinitionReader:315 - Loading XML bean definitions from file [D:\JavaProject\myspring\web\WEB-INF\config\spring\spring_application_service.xml]
+17:05:39,131  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@a3f5f3: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:05:39,131  INFO DefaultListableBeanFactory:557 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@a3f5f3: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:05:39,157  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@a3f5f3: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy
+17:05:39,157  INFO DefaultListableBeanFactory:433 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@a3f5f3: defining beans [userServiceBean,k_userService,orgDefServiceBean]; root of factory hierarchy

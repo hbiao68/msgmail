@@ -1,0 +1,79 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.ta_org_relationManager.dao.Ta_org_relationDao">
+	<resultMap type="adtec.ta_org_relationManager.model.Ta_org_relation" id="querys">
+		<id property="orgRelationId" column="orgRelationId"></id>
+		<result property="orgId" column="orgId"></result>
+		<result property="appid" column="appid"></result>
+		<result property="ta_id" column="ta_id"></result>
+
+	</resultMap>
+	<!-- 添加方法,为机构开通业务 -->
+	<insert id="batchInsert" parameterType="java.util.List">
+        insert into ta_org_relation(orgId,appid,ta_id)
+	    values
+	    <foreach collection="list" item="item" index="index" separator="," >  
+           (#{item.orgId},#{item.appid},#{item.ta_id})
+   		</foreach>  
+    </insert>	
+	
+	<!-- 分页通过业务查询所有的机构 -->
+	<select id="queryOrgByApp" parameterType="java.util.Map" resultType="adtec.ta_org_relationManager.model.Ta_org_relation">
+		select a.orgRelationId,a.appid,a.ta_id,a.orgId,c.orgName,b.appName
+		  from ta_org_relation a,ta_app b,ta_organization c
+		 where a.appid = b.appid
+		   and a.orgId = c.orgId
+		   and a.appid=#{appid}
+		   <if test="orgId !=null">
+		   and a.orgId in   
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+		   </if>
+		 limit #{start},#{pageSize}
+	</select>
+	
+	<!-- 根据主键删除数据 -->
+	<delete id="batchDelete" parameterType="java.util.Map">
+		DELETE FROM ta_org_relation 
+		 WHERE appid=#{appid} 
+		   and ta_id=#{ta_id}
+		   and orgId IN
+		<foreach collection="orgList" index="index" item="item" open="(" separator="," close=")"> 
+			#{item} 
+		</foreach>
+	</delete>	
+	
+		<!-- 通过业务查询所有的机构 -->
+	<select id="queryAllByApp" parameterType="java.util.Map" resultType="adtec.ta_org_relationManager.model.Ta_org_relation">
+		select a.orgRelationId,a.appid,a.ta_id,a.orgId,c.orgName,b.appName
+		  from ta_org_relation a,ta_app b,ta_organization c
+		 where a.appid = b.appid
+		   and a.orgId = c.orgId
+		   and a.appid=#{appid}
+		   <if test="orgId !=null">
+		   and a.orgId in   
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+		   </if>
+	</select>
+	
+	
+	<!-- 通过appid查询该业务下的机构数量（业务被多少机构使用）  maojd update   data:2013-12-25 15:34  -->
+	<select id="queryOrgNumByAppid" parameterType="Integer" resultType="Integer">
+		select count(*) from ta_org_relation where appid = #{appid}
+	</select>
+	
+	<!-- 查询该银行下是否开通了某些业务 -->
+	<select id="queryAppCountByOrgRelation" parameterType="adtec.ta_org_relationManager.model.Ta_org_relation" resultType="Integer">
+	    select count(*)
+	      from ta_org_relation
+	     where ta_id=#{ta_id}
+	       and appid=#{appid}
+	       and orgId=#{orgId}
+	</select>
+</mapper>

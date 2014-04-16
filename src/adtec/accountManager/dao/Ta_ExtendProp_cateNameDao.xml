@@ -1,0 +1,44 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.accountManager.dao.Ta_ExtendProp_cateNameDao">
+	<resultMap type="adtec.accountManager.model.Ta_ExtendProp_cateName"
+		id="querys">
+		<id property="Ta_extId" column="Ta_extId"></id>
+		<result property="Id" column="Id"></result>
+		<result property="prop1" column="prop1"></result>
+		<result property="prop2" column="prop2"></result>
+		<result property="prop3" column="prop3"></result>
+		<result property="prop4" column="prop4"></result>
+		<result property="prop5" column="prop5"></result>
+		<result property="prop6" column="prop6"></result>
+		<result property="prop7" column="prop7"></result>
+		<result property="prop8" column="prop8"></result>
+		<result property="prop9" column="prop9"></result>
+		<result property="prop10" column="prop10"></result>
+
+	</resultMap>
+
+	<!-- 添加帐号的扩张属性 -->
+	<insert id="insertforTa_ExtendProp_cateName" parameterType="java.util.Map" statementType="STATEMENT">
+		insert into
+		Ta_ExtendProp_${cateName}(Id,prop1,prop2,prop3,prop4,prop5,prop6,prop7,prop8,prop9,prop10)
+		values('${ta_ExtendProp_cateName.Id}','${ta_ExtendProp_cateName.prop1}','${ta_ExtendProp_cateName.prop2}','${ta_ExtendProp_cateName.prop3}',
+		'${ta_ExtendProp_cateName.prop4}','${ta_ExtendProp_cateName.prop5}','${ta_ExtendProp_cateName.prop6}','${ta_ExtendProp_cateName.prop7}',
+		'${ta_ExtendProp_cateName.prop8}','${ta_ExtendProp_cateName.prop9}','${ta_ExtendProp_cateName.prop10}')
+	</insert>
+
+	<!-- 修改帐号的扩张属性 -->
+	<update id="updateforTa_ExtendProp_cateName" parameterType="java.util.Map" statementType="STATEMENT">
+		update Ta_ExtendProp_${cateName}
+		set
+		prop1='${ta_ExtendProp_cateName.prop1}',prop2='${ta_ExtendProp_cateName.prop2}',prop3='${ta_ExtendProp_cateName.prop3}',
+		prop4='${ta_ExtendProp_cateName.prop4}',prop5='${ta_ExtendProp_cateName.prop5}',prop6='${ta_ExtendProp_cateName.prop6}',prop7='${ta_ExtendProp_cateName.prop7}',
+		prop8='${ta_ExtendProp_cateName.prop8}',prop9='${ta_ExtendProp_cateName.prop9}',prop10='${ta_ExtendProp_cateName.prop10}'
+		where id=${ta_ExtendProp_cateName.id}
+	</update>
+
+
+</mapper>

@@ -1,0 +1,167 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.PrivilegeDao">
+
+	<resultMap type="adtec.privilege.model.Privilege" id="querys">
+		<id property="privilegeid" column="privilegeid" javaType="String"></id>
+		<result property="resid" column="resid" javaType="String"></result>
+		<result property="actionType" column="actiontype" javaType="String"></result>
+		<result property="actionValue" column="actionvalue" javaType="boolean"></result>
+		<result property="resource.name" column="resource_name"></result>
+	</resultMap>
+
+	<!-- 查询所有权限 -->
+	<select id="queryAllPrivilege" resultMap="querys" parameterType="adtec.privilege.model.Privilege">
+		select * from privilege
+		<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+			LEFT JOIN resource ON privilege.resid = resource.resid
+		</if>
+		<if test="type != null and type.typename != null and '' != type.typename.trim()">
+			LEFT JOIN type ON privilege.actiontype = type.typeid
+		</if>
+		<where>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+			<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+				AND resname like CONCAT('%','${resource.resname}','%' )
+			</if>
+			<if test="type != null and type.typename != null and '' != type.typename.trim()">
+				AND typename like CONCAT('%','${type.typename}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order}
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 添加权限 -->
+	<insert id="insertPrivilege" parameterType="adtec.privilege.model.Privilege">
+		insert into privilege (privilegeid,resid,actiontype,actionvalue) 
+		values (#{privilegeid,jdbcType=VARCHAR},#{resid,jdbcType=VARCHAR},#{actionType,jdbcType=VARCHAR},#{actionValue,jdbcType=BOOLEAN})
+	</insert>
+	
+	<!-- 通过主键id查询 -->
+	<select id="queryPrivilegeById" resultMap="querys" parameterType="String">
+		select * from privilege where privilegeid = #{privilegeid,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryPrivilegeByObj" resultMap="querys" parameterType="adtec.privilege.model.Privilege">
+		select * from privilege
+		<where>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+			<if test="resid != null and '' != resid.trim()">
+				AND resid = #{resid,jdbcType=VARCHAR}
+			</if>
+			<if test="actionType != null and '' != actionType.trim()">
+				AND actiontype = #{actionType,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改权限 -->
+	<update id="updatePrivilege" parameterType="adtec.privilege.model.Privilege">
+		update privilege
+		<set>
+			<if test="resid != null and '' != resid.trim()">
+				resid = #{resid,jdbcType=VARCHAR},
+			</if>
+			<if test="actionType != null and '' != actionType.trim()">
+				actiontype = #{actionType,jdbcType=VARCHAR},
+			</if>
+			<if test="actionValue != null">
+				actionvalue = #{actionValue,jdbcType=BOOLEAN}
+			</if>
+			
+		</set>
+		where privilegeid=#{privilegeid,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除权限-->
+	<delete id="deletePrivilege" parameterType="adtec.privilege.model.Privilege">
+		delete from privilege where privilegeid = #{privilegeid,jdbcType=VARCHAR} 
+	</delete>
+	
+	<!-- 查询权限总数量（包括模糊查询） -->
+	<select id="queryPrivlgCount" resultType="int" parameterType="adtec.privilege.model.Privilege">
+		select count(*) from privilege
+		<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+			LEFT JOIN resource ON privilege.resid = resource.resid
+		</if>
+		<if test="type != null and type.typename != null and '' != type.typename.trim()">
+			LEFT JOIN type ON privilege.actiontype = type.typeid
+		</if>
+		<where>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+			<if test="resource != null and resource.resname != null and '' != resource.resname.trim()">
+				AND resname like CONCAT('%','${resource.resname}','%' )
+			</if>
+			<if test="type != null and type.typename != null and '' != type.typename.trim()">
+				AND typename like CONCAT('%','${type.typename}','%' )
+			</if>
+		</where>
+	</select>
+	
+	<select id="queryCountByObj" resultType="int" parameterType="adtec.privilege.model.Privilege">
+		select count(*) from privilege
+		<where>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+			<if test="resid != null and '' != resid.trim()">
+				AND resid = #{resid,jdbcType=VARCHAR}
+			</if>
+			<if test="actionType != null and '' != actionType.trim()">
+				AND actiontype = #{actionType,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 批量添加权限 -->
+	<insert id="batchInsertPrivilege" parameterType="adtec.privilege.model.Privilege">
+		insert into privilege (privilegeid,resid,actiontype,actionvalue) 
+		values 
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.privilegeid,jdbcType=VARCHAR},
+			#{item.resid,jdbcType=VARCHAR},
+			#{item.actionType,jdbcType=VARCHAR},
+			#{item.actionValue,jdbcType=BOOLEAN}
+			)
+		</foreach>
+	</insert>
+	
+	
+	<!-- 通过主键  或者资源id 操作类型id查询（验证是否存在） -->
+	<select id="queryPrivlgIfExists" resultMap="querys" parameterType="adtec.privilege.model.Privilege">
+		select * from privilege
+		<where>
+			<if test="privilegeid != null and '' != privilegeid.trim()">
+				privilegeid = #{privilegeid,jdbcType=VARCHAR}
+			</if>
+			<if test="resid != null and '' != resid.trim() and actionType != null and '' != actionType.trim()">
+				AND resid = #{resid,jdbcType=VARCHAR} and actiontype = #{actionType,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	
+	<!-- 批量删除 -->
+	<delete id="deletePrivilegesById" parameterType="adtec.privilege.model.Privilege">
+		delete from privilege where privilegeid in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+			 #{item}
+	    </foreach> 
+	</delete>
+</mapper>

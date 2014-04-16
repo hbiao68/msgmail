@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+
+<!--版本号-->
+<tlib-version>1.0</tlib-version>
+<jsp-version>2.0</jsp-version>
+<short-name>adtec</short-name>
+<uri>http://www.adtec.com.cn</uri>
+	<tag>
+		<!-- 指定标签名 -->
+		<name>localFileName</name>
+		<!-- 指定标签类文件的全路径 -->
+		<tag-class>adtec.tag.LocalFileName</tag-class>
+		<!--如果不需要标签体则设置empty，反之设定jsp -->
+		<body-content>jsp</body-content>
+		<!--  设定属性(如果有的话) -->
+		<attribute>
+			<!-- 指定标签名 -->
+		   	<name>isShow</name>
+			<!--  是否是必须，如果非必须没设置则为空 -->
+			<required>false</required>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<!-- 指定标签名 -->
+		<name>page</name>
+		<!-- 指定标签类文件的全路径 -->
+		<tag-class>adtec.tag.PageTag</tag-class>
+		<!--如果不需要标签体则设置empty，反之设定jsp -->
+		<body-content>jsp</body-content>
+		<!--  设定属性(如果有的话) -->
+		<attribute>
+			<!-- 指定标签名 -->
+		   	<name>url</name>
+			<!--  是否是必须，如果非必须没设置则为空 -->
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<!-- 指定标签名 -->
+		   	<name>curpage</name>
+			<!--  是否是必须，如果非必须没设置则为空 -->
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 指定标签名 -->
+		   	<name>pagesize</name>
+			<!--  是否是必须，如果非必须没设置则为空 -->
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 指定标签名 -->
+		   	<name>totalLines</name>
+			<!--  是否是必须，如果非必须没设置则为空 -->
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

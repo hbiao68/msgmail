@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+	<!-- 处理器 -->
+	<bean class="adtec.organizationManager.controller.OrganizationDefController">
+		<property name="orgDefService" ref="orgDefServiceBean"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+
+	<bean class="adtec.categoryManager.controller.CategoryManagerController">
+		<property name="categoryManagerService" ref="categoryManagerService"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+
+
+	<bean class="adtec.accountManager.controller.AccountController">
+		<property name="ta_Account_cateNameService" ref="ta_Account_cateNameService"></property>
+		<property name="orgService" ref="orgServiceBean"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+
+	<bean class="adtec.appManager.controller.AppManagerController">
+		<property name="appManagerService" ref="appManagerService"></property>
+		<property name="resourceService" ref="resourceService"></property>
+
+	</bean>
+
+	<bean class="adtec.appManager.controller.Ta_App_relationController">
+		<property name="ta_App_relationService" ref="ta_App_relationService"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+
+	<bean
+		class="adtec.ta_org_relationManager.controller.Ta_org_relationController">
+		<property name="ta_org_relationService" ref="ta_org_relationService"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+
+	<bean class="adtec.userManager.controller.LoginController">
+		<!-- maojd update date: 12:39 2014/3/21        登陆功能暂时去掉。所有在control中暂时不验证登陆 -->
+		<!-- <property name="userService" ref="userService"></property> -->
+
+		<property name="userPrivilegeService" ref="userPrivilegeService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+
+	<bean class="adtec.organizationManager.controller.OrganizationController">
+		<property name="orgService" ref="orgServiceBean"></property>
+		<property name="resourceService" ref="resourceService"></property>
+	</bean>
+	
+	<bean class="adtec.userManager.controller.UserManagerController">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean class="adtec.adtec_message.controller.Adtec_messageControl">
+		<!-- <property name="userService" ref="userService"></property> -->
+		 <property name="adtec_messageService" ref="adtec_messageService"></property> 
+		 <property name="resourceService" ref="resourceService"></property> 
+	</bean>
+	
+	<bean class="adtec.account.controller.AccountController">
+		<!-- <property name="userService" ref="userService"></property> -->
+		<!-- <property name="accountService" ref="accountService"></property> -->
+		<property name="accorgsetxmlservice" ref="accorgsetxmlservice"></property>
+	</bean>
+
+	<bean class="adtec.accorgrelation.controller.AccountorgrelationController">
+		<!-- <property name="userService" ref="userService"></property> -->
+		<!-- <property name="accountorgrelationService" ref="accountorgrelationService"></property> -->
+		<property name="accorgsetxmlservice" ref="accorgsetxmlservice"></property>
+	</bean>
+
+	<!-- 权限管理 -->
+	
+	<bean class="adtec.privilege.controller.ResourceController">
+		<property name="resourceService" ref="resourceService"></property>
+		<property name="privilegeService" ref="privilegeService"></property>
+		<property name="columnService" ref="columnService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.UserController">
+		<property name="userService" ref="userService"></property>
+		<property name="userPrivilegeService" ref="userPrivilegeService"></property>
+		<property name="userRoleService" ref="userRoleService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.RoleController">
+		<property name="roleService" ref="roleService"></property>
+		<property name="userRoleService" ref="userRoleService"></property>
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.PrivilegeController">
+		<property name="privilegeService" ref="privilegeService"></property>
+		<property name="userPrivilegeService" ref="userPrivilegeService"></property>
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.UserRoleController">
+		<property name="userRoleService" ref="userRoleService"></property>
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.UserPrivilegeController">
+		<property name="userPrivilegeService" ref="userPrivilegeService"></property>
+		<property name="privilegeService" ref="privilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.RolePrivilegeController">
+		<property name="rolePrivilegeService" ref="rolePrivilegeService"></property>
+		<property name="privilegeService" ref="privilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.TypeController">
+		<property name="typeService" ref="typeService"></property>
+		<property name="privilegeService" ref="privilegeService"></property>
+	</bean>
+	
+	<bean class="adtec.privilege.controller.ColumnController">
+		<property name="columnService" ref="columnService"></property>
+	</bean>
+
+
+	<!-- 需要jar包 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸为1MB -->
+		<property name="maxUploadSize">
+			<value>1048576</value>
+		</property>
+	</bean>
+	
+	<!-- 插件处理器 -->
+	<bean id="pluginController" class="adtec.plugin.controller.PluginController">
+	</bean>
+
+</beans>

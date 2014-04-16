@@ -1,0 +1,257 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.accountManager.dao.Ta_Account_cateNameDao">
+	<resultMap type="adtec.accountManager.model.Ta_Account_cateName"
+		id="querys">
+		<id property="Id" column="Id"></id>
+		<result property="orgId" column="orgId"></result>
+		<result property="accountName" column="accountName"></result>
+		<result property="accountPwd" column="accountPwd"></result>
+		<result property="email" column="email"></result>
+		<result property="ta_id" column="ta_id"></result>
+		<result property="status" column="status"></result>
+		<result property="delflag" column="delflag"></result>
+
+	</resultMap>
+
+
+	<!-- 添加新帐号 -->
+	<insert id="insertforTa_Account_cateName" parameterType="java.util.Map" statementType="STATEMENT">
+		insert into
+		Ta_Account_${cateName}(accountName,orgId,accountPwd,email,ta_id,status,delflag)
+		values('${ta_Account_cateName.accountName}','${ta_Account_cateName.orgId}','${ta_Account_cateName.accountPwd}','${ta_Account_cateName.email}','${ta_Account_cateName.ta_id}','${ta_Account_cateName.status}','${ta_Account_cateName.delflag}')
+	</insert>
+
+	<!-- 分页查询所有帐号的信息 -->
+	<select id="queryTa_Account_cateName" parameterType="java.util.Map" resultType="adtec.accountManager.model.Ta_Account_cateName"
+		statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_ExtendProp_${cateName} d on
+		a.Id=d.Id,ta_organization c,ta_category b
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.ta_id=b.ta_id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		order by a.Id desc
+		limit ${ta_Account_cateName.start},${ta_Account_cateName.pageSize}
+	</select>
+
+	<!-- 分页查询所有已经开通业务的帐号 -->
+	<select id="queryOpenAppTa_Account_cateName" parameterType="java.util.Map" resultType="adtec.accountManager.model.Ta_Account_cateName"
+		statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_category b on
+		a.ta_id=b.ta_id,ta_organization c,ta_ExtendProp_${cateName} d
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.Id=d.Id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		and a.accountName in(select accountName from ta_app_relation)
+		order by a.Id desc
+		limit ${ta_Account_cateName.start},${ta_Account_cateName.pageSize}
+	</select>
+
+	<!-- 分页查询所有尚未开通业务的帐号 -->
+	<select id="queryUnOpenAppTa_Account_cateName" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_category b on
+		a.ta_id=b.ta_id,ta_organization c,ta_ExtendProp_${cateName} d
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.Id=d.Id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		and a.accountName not in(select accountName from ta_app_relation)
+		order by a.Id desc
+		limit ${ta_Account_cateName.start},${ta_Account_cateName.pageSize}
+	</select>
+
+	<!-- 查询单一帐号的详细信息 -->
+	<select id="findById" parameterType="java.util.Map" resultType="adtec.accountManager.model.Ta_Account_cateName"
+		statementType="STATEMENT">
+		select
+		a.Id,a.accountName,a.email,a.accountPwd,a.status,b.cateName,c.orgName,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a,ta_category b,ta_organization
+		c,ta_ExtendProp_${cateName} d
+		where a.ta_id=b.ta_id
+		and a.orgId=c.orgId
+		and a.id=d.id
+		and a.id=${id}
+	</select>
+
+	<!-- 修改帐号状态 -->
+	<update id="updatefordelflagByAccountName" parameterType="java.util.Map"
+		statementType="STATEMENT">
+		update ta_account_${cateName}
+		set delflag='${ta_Account_cateName.delflag}'
+		where accountName='${ta_Account_cateName.accountName}'
+	</update>
+
+	<!-- 修改帐号信息 -->
+	<update id="updateTa_Account_cateNameById" parameterType="java.util.Map" statementType="STATEMENT">
+		update ta_account_${cateName}
+		set
+		accountName='${ta_Account_cateName.accountName}',email='${ta_Account_cateName.email}'
+		where id=${ta_Account_cateName.id}
+	</update>
+
+
+	<!-- 查询出端点分类扩展属性 -->
+	<select id="queryforTa_extendpropdef" parameterType="String"
+		resultType="adtec.categoryManager.model.Ta_category">
+		select b.propdefid,a.ta_id,b.propName,b.propDesc
+		from ta_category a,ta_extendpropdef b
+		where a.ta_id=b.ta_id
+		and a.cateName=#{cateName}
+	</select>
+
+	<!-- 对新添加的帐号进行校验 -->
+	<select id="queryforcheckaccountNameByaccountName" parameterType="java.util.Map"
+		resultType="Integer" statementType="STATEMENT">
+		select count(accountName) acc
+		from ta_account_${cateName}
+		where accountName='${ta_Account_cateName.accountName}'
+		and delflag='1'
+	</select>
+
+	<!-- 查询某一机构下面所有的帐号 -->
+	<!-- maojd update date:11:56 2013/12/26 		加上 delfalg = '1'   数据库中状态1表示该账号没有被删除，2表示删除 -->
+	<select id="queryforOrg" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select accountName
+		from ta_account_${cateName}
+		where orgId=${orgId} and delflag = '1'
+	</select>
+
+	<!-- 批量修改状态 -->
+	<update id="batchupdate" parameterType="java.util.List"
+		statementType="STATEMENT">
+		update ta_account_${cateName} set delflag=${delflag} where Id in
+		<foreach collection="list" item="item" index="index" open="("
+			separator="," close=")">
+			${item}
+		</foreach>
+	</update>
+
+	<!-- 查询某一表（ta_account_XXX）是否有数据 -->
+	<select id="queryForTa_idCountBycateName" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select count(ta_id) ta_id
+		from ta_account_${cateName}
+		where delflag = '1'
+	</select>
+
+	<!-- 删除重复添加的并且delflag值为2的数据 -->
+	<delete id="deleteForDelflagById" parameterType="java.util.Map"
+		statementType="STATEMENT">
+		delete from ta_account_${cateName} where id='${ta_Account_cateName.id}'
+	</delete>
+
+	<!-- 通过accountName查询id -->
+	<select id="queyrforDelflag" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select id
+		from ta_account_${cateName}
+		where accountName='${ta_Account_cateName.accountName}'
+	</select>
+
+
+	<!-- 查询所有帐号的信息 -->
+	<select id="queryTa_Account_cateNameforCount" parameterType="java.util.Map" resultType="adtec.accountManager.model.Ta_Account_cateName"
+		statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_ExtendProp_${cateName} d on
+		a.Id=d.Id,ta_organization c,ta_category b
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.ta_id=b.ta_id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		order by a.Id desc
+	</select>
+
+	<!-- 查询所有已经开通业务的帐号 -->
+	<select id="queryOpenAppTa_Account_cateNameforCount" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_category b on
+		a.ta_id=b.ta_id,ta_organization c,ta_ExtendProp_${cateName} d
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.Id=d.Id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		and a.accountName in(select accountName from ta_app_relation)
+		order by a.Id desc
+	</select>
+
+	<!-- 查询所有尚未开通业务的帐号 -->
+	<select id="queryUnOpenAppTa_Account_cateNameforCount" parameterType="java.util.Map"
+		resultType="adtec.accountManager.model.Ta_Account_cateName" statementType="STATEMENT">
+		select
+		a.accountName,a.email,b.cateName,c.orgName,a.orgId,a.Id,a.delflag,d.prop1,d.prop2,d.prop3,d.prop4,d.prop5,d.prop6,d.prop7,d.prop8,d.prop9,d.prop10
+		from ta_account_${cateName} a left join ta_category b on
+		a.ta_id=b.ta_id,ta_organization c,ta_ExtendProp_${cateName} d
+		where a.delflag=${ta_Account_cateName.delflag}
+		and a.Id=d.Id
+		and a.orgId=c.orgId
+		and ('${ta_Account_cateName.accountName}'='' or a.accountName like
+		CONCAT(CONCAT('%', '${ta_Account_cateName.accountName}'), '%'))
+		and ('${ta_Account_cateName.email}'='' or a.email like CONCAT(CONCAT('%',
+		'${ta_Account_cateName.email}'), '%'))
+		and ('${ta_Account_cateName.orgId}'='' or a.orgId
+		='${ta_Account_cateName.orgId}')
+		and a.accountName not in(select accountName from ta_app_relation)
+		order by a.Id desc
+	</select>
+	
+	<!-- 获取新增主键 -->
+	<select id="findNewKeyId" parameterType="String" resultType="int"
+		statementType="STATEMENT">
+		select max(id) from ta_account_${cateName}
+	</select>
+
+	<!-- 通过orgId查询表中账号数量  maojd update   data:2013-12-24 11:00  -->
+	<select id="queryCountByOrgId" parameterType="java.util.Map" resultType="Integer"
+		statementType="STATEMENT">
+		select count(*) from ta_account_${cateName} a where a.orgId ='${orgId}' and a.delflag = '1';
+	</select>
+	
+	<!-- 通过帐号来查询该帐号所属机构 -->
+	<select id="findOrgIdByAccount" parameterType="String" resultType="String" statementType="STATEMENT">
+	    select a.orgId
+	      from ta_account_${cateName} a
+	     where accountName='${accountName}'
+	</select>
+</mapper>

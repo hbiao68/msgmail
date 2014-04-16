@@ -1,0 +1,90 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.accorgrelation.dao.AccountorgrelationDao">
+
+	<!-- 将帐号添入到机构下 -->
+    <insert id="insertAccountorgrelation" parameterType="adtec.accorgrelation.model.Accountorgrelation">
+         insert into accountorgrelation(username,orgId)
+            values(#{username},#{orgId})
+    </insert>
+    
+    <!-- 删除帐号和机构的关系 -->
+    <delete id="deleteAccountorgrelation" parameterType="Integer">
+        delete from accountorgrelation
+         where relationid=#{relationid}
+    </delete>
+    
+    <!-- 修改帐号所在机构 -->
+    <update id="updateAccountorgrelation" parameterType="adtec.accorgrelation.model.Accountorgrelation">
+        update accountorgrelation
+           set orgId=#{orgId}
+         where relationid=#{relationid}
+    </update>
+
+	<!-- 分页查询所有数据 -->
+    <select id="queryAccOrgRelByAccOrgRel" parameterType="adtec.accorgrelation.model.Accountorgrelation" resultType="adtec.accorgrelation.model.Accountorgrelation">
+       select a.relationid,a.orgId,a.username,b.orgName
+         from accountorgrelation a,ta_organization b
+        where a.orgId=b.orgId
+          and (#{username}='' or a.username like CONCAT(CONCAT('%', #{username}), '%')) 
+          <if test="orgId !=0">
+		   and b.orgId in   
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+		   </if>
+          limit #{start},#{pageSize}
+    </select>
+    
+    <!-- 查询所有数据 -->
+    <select id="queryAccOrgRelforCountByAccOrgRel" parameterType="adtec.accorgrelation.model.Accountorgrelation" resultType="adtec.accorgrelation.model.Accountorgrelation">
+       select a.relationid,a.orgId,a.username,b.orgName
+         from accountorgrelation a,ta_organization b
+        where a.orgId=b.orgId
+          and (#{username}='' or a.username like CONCAT(CONCAT('%', #{username}), '%')) 
+          <if test="orgId !=0">
+		   and b.orgId in   
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+		   </if>
+    </select>
+    
+    	<!-- 单一帐号信息查询 -->
+	<select id="findAccOrgRelByRelationid" parameterType="Integer" resultType="adtec.accorgrelation.model.Accountorgrelation">
+	      <!-- select a.relationid,a.username,a.orgId,b.orgName
+	        from accountorgrelation a,ta_organization b
+	       where a.orgId = b.orgId
+	         and a.relationid=#{relationid} -->
+	         	      select accountorgrelation.relationid,accountorgrelation.username,accountorgrelation.orgId,organization.orgName
+	        from accountorgrelation,ta_organization organization
+	       where accountorgrelation.orgId = organization.orgId
+	         and accountorgrelation.relationid=#{relationid}
+	       
+	</select>
+
+	<!-- 批量删除数据 -->
+	<delete id="batchdelete" parameterType="adtec.accorgrelation.model.Accountorgrelation">
+	    delete from accountorgrelation
+         where relationid in 
+         	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}   
+		   </foreach> 
+	</delete>
+
+	<!-- 通过orgId来获取帐号 -->
+	<select id="queryAccountByorgIdList" parameterType="java.util.List" resultType="java.util.HashMap">
+	  select username from accountorgrelation where orgId in 
+		     <foreach item="item" index="index" collection="list" 
+
+                    open="(" separator="," close=")"> 
+
+                   #{item} 
+
+            </foreach> 
+	</select>
+	
+</mapper>

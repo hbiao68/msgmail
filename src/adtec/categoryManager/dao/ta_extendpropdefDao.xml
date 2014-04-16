@@ -1,0 +1,27 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.categoryManager.dao.Ta_extendpropdefDao">
+	<resultMap type="adtec.categoryManager.model.Ta_extendpropdef"
+		id="querys">
+		<id property="propdefid" column="propdefid"></id>
+		<result property="ta_id" column="ta_id"></result>
+		<result property="prop_index" column="prop_index"></result>
+		<result property="propName" column="propName"></result>
+		<result property="propDesc" column="propDesc"></result>
+
+	<!-- 添加终端分类扩展属性的数据 -->
+	</resultMap>
+	<insert id="insertforTa_extendpropdef" parameterType="adtec.categoryManager.model.Ta_extendpropdef">
+		insert into
+		ta_extendpropdef(ta_id,prop_index,propName,propDesc)
+		values(#{ta_id},#{prop_index},#{propName},#{propDesc})
+	</insert>
+
+	<!-- 根据端点分类的主键（ta_id）,删除某些数据 -->
+	<delete id="deleteTa_extendpropdefByTa_id" parameterType="String">
+		delete from ta_extendpropdef where ta_id=#{ta_id}
+	</delete>
+
+</mapper>

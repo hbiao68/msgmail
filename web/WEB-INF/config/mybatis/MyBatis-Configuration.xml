@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+		<mapper resource="adtec/organizationManager/dao/organizationDefDao.xml" />
+		<mapper resource="adtec/categoryManager/dao/ta_categoryDao.xml"></mapper>
+		<mapper resource="adtec/categoryManager/dao/ta_extendpropdefDao.xml"></mapper>
+
+    	<mapper resource="adtec/accountManager/dao/Ta_Account_cateNameDao.xml"></mapper>
+    	<mapper resource="adtec/accountManager/dao/Ta_ExtendProp_cateNameDao.xml"></mapper>
+    	
+    	<mapper resource="adtec/appManager/dao/Ta_AppDao.xml"/>
+    	<mapper resource="adtec/appManager/dao/Ta_App_relationDao.xml"/>
+    	
+    	<mapper resource="adtec/userManager/dao/UserDao.xml"/>
+    	
+    	<mapper resource="adtec/ta_org_relationManager/dao/Ta_org_relationDao.xml"/>
+    	
+                                                   
+    	<mapper resource="adtec/organizationManager/dao/organizationDao.xml"/>
+    <!-- 	<mapper resource="adtec/organizationManager/dao/organizationDao.xml"/> -->
+    
+   		 <mapper resource="adtec/account/dao/AccountDao.xml"/>
+   		 <mapper resource="adtec/accorgrelation/dao/AccountorgrelationDao.xml"/>
+   		 
+   		 <!-- 权限管理 -->
+   		<mapper resource="adtec/privilege/dao/UserDao.xml"/>
+        <mapper resource="adtec/privilege/dao/ResourceDao.xml"/>
+        <mapper resource="adtec/privilege/dao/RoleDao.xml"/>
+        <mapper resource="adtec/privilege/dao/PrivilegeDao.xml"/>
+        <mapper resource="adtec/privilege/dao/UserRoleDao.xml"/>
+        <mapper resource="adtec/privilege/dao/UserPrivilegeDao.xml"/>
+        <mapper resource="adtec/privilege/dao/RolePrivilegeDao.xml"/>
+        <mapper resource="adtec/privilege/dao/TypeDao.xml"/>
+        <mapper resource="adtec/privilege/dao/ColumnDao.xml"/>
+	</mappers>
+</configuration>

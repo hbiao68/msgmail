@@ -1,0 +1,73 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adtec.account.dao.AccountDao">
+
+	<!-- 添加帐号信息 -->
+	<insert id="insertAccount" parameterType="adtec.account.model.Account">
+	    insert into account(username,plainpassword,encryptedpassword,name,email,creationdate,modificationdate)
+	      values(#{username},#{plainpassword},#{encryptedpassword},#{name},#{email},#{creationdate},#{modificationdate})
+	</insert>
+	
+	<!-- 删除帐号 -->
+	<delete id="deleteAccount" parameterType="String">
+	    delete from account where username=#{username}
+	</delete>
+	
+	<!-- 修改帐号 -->
+	<update id="updateAccount" parameterType="adtec.account.model.Account">
+	    update account 
+	       set name=#{name},email=#{email}
+	     where username=#{username}
+	</update>
+	
+	<!-- 修改帐号密码 -->
+	<update id="updateAccountPwd" parameterType="adtec.account.model.Account">
+	    update account
+	       set encryptedpassword=#{encryptedpassword}
+	     where username=#{username}
+	</update>
+	
+	<!-- 分页查询所有帐号 -->
+	<select id="queryAccountByAccount" parameterType="adtec.account.model.Account" resultType="adtec.account.model.Account">
+	    select username,plainpassword,encryptedpassword,name,email,creationdate,modificationdate
+	      from account
+	     where (#{username}='' or username like CONCAT(CONCAT('%', #{username}), '%'))
+	       and (#{name}='' or username like CONCAT(CONCAT('%', #{name}), '%'))
+	       and (#{email}='' or username like CONCAT(CONCAT('%', #{email}), '%'))
+	       limit #{start},#{pageSize}
+	</select>
+	
+	<!-- 查询所有帐号 -->
+	<select id="queryAccountforCountByAccount" parameterType="adtec.account.model.Account" resultType="adtec.account.model.Account">
+		  select username,plainpassword,encryptedpassword,name,email,creationdate,modificationdate
+	        from account
+	       where (#{username}='' or username like CONCAT(CONCAT('%', #{username}), '%'))
+	         and (#{name}='' or username like CONCAT(CONCAT('%', #{name}), '%'))
+	         and (#{email}='' or username like CONCAT(CONCAT('%', #{email}), '%'))
+	</select>
+	
+	<!-- 单一帐号信息查询 -->
+	<select id="findAccountByUsername" parameterType="String" resultType="adtec.account.model.Account">
+	      select username,plainpassword,encryptedpassword,name,email,creationdate,modificationdate
+	        from account
+	       where username=#{username}
+	</select>
+	
+	<!-- 通过username校验该帐号名是否存在 -->
+	<select id="checkusernameCountByusername" parameterType="String" resultType="Integer">
+	      select count(*)
+	        from account
+	       where username=#{username}
+	</select>
+
+	<select id="checkEncryptedPassword" parameterType="adtec.account.model.Account" resultType="Integer">
+	      select count(*)
+	        from account
+	       where username=#{username}
+	         and encryptedpassword=#{encryptedpassword}
+	</select>
+	
+</mapper>

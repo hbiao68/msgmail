@@ -1,0 +1,102 @@
+<?x ml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="adtec.privilege.dao.UserDao">
+
+	<resultMap type="adtec.privilege.model.User" id="querys">
+		<id property="userid" column="userid"></id>
+		<result property="username" column="username"></result>
+		<result property="password" column="password"></result>
+		<result property="page.page" column="page"></result>
+		<result property="page.rows" column="rows"></result>
+	</resultMap>
+	<!-- 查询用户总数 -->
+	<select id="queryUserCount" resultType="int"  parameterType="adtec.privilege.model.User">
+		select count(*) from user
+		<where>
+			<if test="userid != null and '' != userid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test="username != null and '' != username.trim()">
+				AND username like CONCAT('%','${username}','%' )
+			</if>
+		</where>
+	</select>
+	
+	<!-- 查询所有用户 -->
+	<select id="queryAllUser" resultMap="querys" parameterType="adtec.privilege.model.User">
+		select * from user 
+		<where>
+			<if test="userid != null and '' != userid.trim()">
+				AND userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test="username != null and '' != username.trim()">
+				AND username like CONCAT('%','${username}','%' )
+			</if>
+		</where>
+		
+		<if test="sort != null and '' != sort.trim() and order !=null and '' != order.trim() ">
+			order by ${sort} ${order} 
+		</if>
+		<if test="start != null and rows != null">
+			limit #{start},#{rows}
+		</if>
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="insertUser" parameterType="adtec.privilege.model.User">
+		insert into user (userid,username,password) 
+		values (#{userid,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})
+	</insert>
+	
+	<!-- 通过id查询一条 -->
+	<select id="queryUserByUserid" resultMap="querys" parameterType="String">
+		select * from user where userid = #{userid,jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 条件查询 -->
+	<select id="queryUserByObj" resultMap="querys" parameterType="adtec.privilege.model.User">
+		select * from user
+		<where>
+			<if test="userid != null and '' != userid.trim()">
+				userid = #{userid,jdbcType=VARCHAR}
+			</if>
+			<if test="username != null and '' != username.trim()">
+				AND username = #{username,jdbcType=VARCHAR}
+			</if>
+			<if test="password != null and '' != password.trim()">
+				AND password = #{password,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 修改用户 -->
+	<update id="updateUser" parameterType="adtec.privilege.model.User">
+		update user
+		<set>
+			<if test="username != null and ''!= username.trim()">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null and ''!= password.trim()">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where userid=#{userid,jdbcType=VARCHAR}
+	</update>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteUser" parameterType="adtec.privilege.model.User">
+		delete from user where userid=#{userid,jdbcType=VARCHAR} 
+	</delete>
+	
+	<!-- 批量删除用户 -->
+	<delete id="deleteUsersById" parameterType="adtec.privilege.model.User">
+		delete from user where userid in
+		 <foreach item="item" index="index" collection="list" open="(" separator="," close=")">   
+		         #{item}
+		   </foreach> 
+	</delete>
+	
+	
+</mapper>

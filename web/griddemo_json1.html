@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Easy skinable design</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="title" content="Samples" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+
+</head>
+<body>
+
+
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/dhtmlxgrid.css">
+	<!-- 标题栏会显示图片，这样更美观 -->
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/dhtmlxgrid_dhx_skyblue.css">
+	<link rel="STYLESHEET" type="text/css" href="dhtmlxgrid/skins/dhtmlxgrid_dhx_black.css">
+	<script src="dhtmlxgrid/dhtmlxcommon.js"></script>
+	<script src="dhtmlxgrid/dhtmlxgrid.js"></script>
+	<script src="dhtmlxgrid/dhtmlxgridcell.js"></script>
+	
+	<!-- 如果需要给某列数据添加链接，则需要引入这个js -->
+	<script src="dhtmlxgrid/dhtmlxgrid_excell_link.js"></script>
+
+		
+	<div id="gridbox" style="width:503px;height:120px;background-color:white;"></div>
+
+		<script>
+		mygrid = new dhtmlXGridObject('gridbox');
+		mygrid.setImagePath("dhtmlxgrid/imgs/");
+		//标题显示内容
+		mygrid.setHeader("Name,Date of Birth, First Book Published");
+		//指明列的宽度，*表示是余下的宽度显示
+		mygrid.setInitWidths("*,100,100");
+		//表示内容排序位置，分别是左、中、中
+		mygrid.setColAlign("left,center,center");
+		
+		/*
+			ch ---- checkbox
+			ra ---- radio
+			ro ---- readonly
+			txt ---- 显示的是字符串
+		*/
+		mygrid.setColTypes("ro,link,txt");
+		//mygrid.setColTypes("ed,dhxCalendar,dhxCalendarA");
+		
+		//按照什么方式排序int,str,date 三个类型
+		mygrid.setColSorting("str,str,date");
+		
+		//指明使用什么皮肤（天蓝色）,这个和前面引用是CSS对应起来
+		mygrid.setSkin("dhx_skyblue");
+		//mygrid.setSkin("dhx_black");
+		
+		//初始化数据
+		mygrid.init();
+		//mygrid.loadXML("../common/grid_dates.xml");
+		
+		//备注：数据列一定要和标题栏对应起来，否则会显示前面的数据
+		 var js={
+				    rows:[
+				        { id:1001,
+				     data:[
+				          "100",
+				          //^后面显示的是链接地址，一定要指明这列数据类型是link
+				          "A Time to Kill^http://www.baidu.com",
+				          "05/01/1998"] },
+				       { id:1002,
+				     data:[
+				          "1000",
+				          "Blood and Smoke",
+				          "01/01/2000"] }
+				    ]};
+		
+		 
+		 //指明导入数据的回调函数
+		 mygrid.parse(js,function(){
+			 //alert(1);
+		 },"json");
+			
+	</script>
+</body>
+</html>

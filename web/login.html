@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>消息邮局</title>
+<script language="javascript" src="./js/util/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="./js/util/jquery.validate.min.js"></script>
+
+<link href="./ui/css/login.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.msg {
+color: #FFFFFF;
+background: #68af02;
+font-size: 12px;
+padding: 3px 24px 3px;
+z-index: 1;
+position:absolute;
+}
+</style>
+
+</head>
+<body>
+<form action="/myspring/login/insert.do" method="post">
+<center>
+	<div class="wd" style="height:50px;">
+		<div><img style="margin:0;" src="./ui/images/logoAdtec.gif" class="qqmaillogo" alt="ECCS"/></div>
+		<div class="top rounded"></div>
+	</div>
+	<br>
+	<div class="wd main">
+		<div class="loginplan_bg rounded">
+			<div class="loginplan rounded">
+				<div class="loginname">登录消息邮局管理系统</div>
+				<div style="margin: 5px 0pt; padding: 4px 0pt 0pt 2px;">
+					<div id="msgContainer" style="margin-top: -4px;"></div>
+				</div>
+				<div style="height: 25px;">
+					<label for="uin" class="column">账&nbsp;&nbsp;号：</label>
+					<input maxlength="30" id="username" name="username" tabindex="1" style="ime-mode: disabled;" class="text" type="text" width="90">
+				</div>
+				<div style="height: 25px; margin: 15px 0pt 0pt 0pt; clear: left; position: relative;">
+					<label for="pp" class="column">密&nbsp;&nbsp;码：</label>
+					<input maxlength="30" id="pwd" name="pwd" tabindex="2" class="text" type="password">
+				</div>
+<!-- 				<div style="padding: 12px 0pt 0pt 60px; clear: both; height: 27px ! important;">
+					<input class="btn" style="font: bold 12px Verdana; padding-top: 2px ! important;margin-right: 5px" value="登  录" id="btlogin" name="btlogin" tabindex="4" type="button" onclick="return check();">
+					<input class="btn" style="font: bold 12px Verdana; padding-top: 2px ! important;margin-left: 5px" value="注  册" id="btlogin" name="btlogin" tabindex="4" type="button" onclick="return onInsert();">
+
+				</div> -->
+				<div style="padding: 12px 0pt 0pt 60px; clear: both; height: 27px ! important;">
+					<input class="btn" style="font: bold 12px Verdana; padding-top: 2px ! important;" value="登  录" id="btlogin" name="btlogin" tabindex="4" type="button" onclick="return check();">
+				</div>
+			</div>
+		</div>
+		<div class="adplan">
+			<img src="./ui/images/login_bigtip.png" class="adimg" style="width: 255px; height: 180px;" border="0"/>
+		</div>
+	</div>
+	<div class="wd" style="border: 1px solid rgb(255, 255, 255); margin-top: 20px;">
+		<div class="navPageBottom rounded">
+			<a href="http://www.adtec.com.cn" style="border-right:0px solid;" target="_blank">www.adtec.com.cn</a>
+		</div>
+	</div>
+</center>
+</form>
+</body>
+
+<!-- 提示信息 -->
+<span style="display:none;" class="msg" id="msg">已将邮件成功删除&nbsp;</span>
+</html>
+<script type="text/javascript">
+
+
+$(function(){
+	$("html").keydown(function(event){
+		if(event.keyCode == 13){
+			check();
+		}
+	});
+});
+
+//校验登陆的帐号密码是否正确
+function check(){
+	var usernameTrim = $.trim($("#username").val());
+	var pwdTrim = $("#pwd").val();
+	if(usernameTrim == "" || usernameTrim == null){
+		$("#msg").html("请输入用户名！");
+		showMsg();
+	}else{
+		if(pwdTrim == "" || pwdTrim == null){
+			$("#msg").html("请输入密码！");
+			showMsg();
+		}
+		else{
+			$.ajax({
+				type : "POST",
+				url : "/myspring/login/check.do",
+				dataType : "json",
+				data:{"username":usernameTrim,"pwd":pwdTrim},
+				success : function(msg) {
+					if(msg == 1){
+						window.location.href="main.html";
+					}
+					else{
+						$("#msg").html("用户名或密码不对！");
+						showMsg();
+					}
+				}
+			});
+		}
+	}
+	
+	
+}
+
+ //跳转到注册页面
+function onInsert(){
+	with(document.forms[0]){
+		window.location.href="/myspring/login/insert.do";
+		submit();
+		
+	}
+} 
+
+/**
+ *  span作 alert使用的显示方法
+ */
+function showMsg(){
+		
+		//获取浏览器的宽度
+		if (window.innerWidth)
+		winWidth = window.innerWidth;
+		else if ((document.body) && (document.body.clientWidth))
+		winWidth = document.body.clientWidth;
+		//获取浏览器的高度（其实高度不用，删掉即可）
+		if (window.innerHeight)
+		winHeight = window.innerHeight;
+		else if ((document.body) && (document.body.clientHeight))
+		winHeight = document.body.clientHeight;
+		
+		//获取msg标签的长度
+		var msgWidth = $("#msg").innerWidth();
+		//alert(msgWidth);
+		
+		//alert(winWidth+"---高--"+winHeight);
+		//alert(winWidth/2);
+		var leftPx = (winWidth-msgWidth)/2;
+		var topPx = 0;
+		$("#msg").css({left:leftPx + "px", top:topPx+"px"}).slideDown("fast");
+		setTimeout("hidenMsg()",2000);		
+}
+//隐藏msg
+function hidenMsg(){
+	//alert(123);
+	$("#msg").fadeOut("slow");
+}
+
+//解决用户已经注销，在消息邮局内部跳转到登陆界面的办法
+$(function(){
+	if(window ==top){
+		//alert("window ==  top");
+	}else{
+		top.location.reload();
+	}	
+});
+
+</script>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/util/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="js/util/jquery.validate.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+<br>
+
+<form action="" id="myform">
+<fieldset>
+	必须填写：<br>
+	<input type="text" name="a" required><br>
+	<br>
+	
+	minlength="2"  maxlength="5" 必须填写，最小长度是2，最大长度是5:(汉字算一个字符)<br>
+	<input id="cname" name="name" minlength="2" minlength="2"  maxlength="5" type="text"  /><br>
+	<br>
+	
+	rangelength="5,10"   输入的内容长度必须在5-10之间：(汉字算一个字符)<br>
+	<input id="range" name="range" rangelength="5,10" /><br>
+	<br>
+	
+	min="11" max="22"  必须填写，数字最小值为11，最大值为22：<br>
+	<input id="num" name="num" min="11" max="22" type="text"  /><br>
+	<br>
+	
+	range="11,22" 必须填写，数字最小值为11，最大值为22：<br>
+	<input id="num" name="num" range="11,22" type="text"  /><br>
+	<br>
+	
+	equalTo="#mypassword" 两个密码一致校验：<br>
+	mypassword:<input id="mypassword" name="mypassword" type="password"  /><br>
+	repassword:<input id="repassword" name="repassword" type="password" equalTo="#mypassword" /><br>
+	<br>
+	
+	number="true" 必须输入合法的数字：必须输入合法的数字(负数，小数) <br>
+	<input id="number" name="number"   number="true" /><br>
+	<br>
+	
+	digits="true" 必须输入整数：<br>
+	<input type="text" digits="true" name="integer" id="integer" ><br>
+	<br>
+	
+	email="true" EMAIL：<br>
+	<input type="text" email="true" name="email" id="email" ><br>
+	<br>
+	
+	url="true"   URL：（要有http(s)://www）<br>
+	<input type="text" url="true" name="url" id="url" ><br>
+	<br>
+	
+	date="true"   DATE日期：(2003/9/9),值校验格式，不会校验里面的数据，因此详细内容还是要自己校验<br>
+	<input type="text" date="true" name="date" id="date" ><br>
+	<br>
+	
+	dateISO="true"  dateISO日期：值校验格式，不会校验里面的数据，因此详细内容还是要自己校验<br>
+	<input type="text" dateISO="true" name="dateISO" id="dateISO" ><br>
+	<br>
+	
+	<font color="red">对上传文件格式进行校验：(这个问题还等待解决)</font><br>
+	<input type="file" accept="png|txt" name="accept" id="accept" required><br>
+	<input type="text" accept=".ppp" name="accept1" id="accept1" required><br>
+	<br>
+	
+	<font color="red">备注：表单的id 和 name必须唯一，否则无法正确校验。</font>
+		
+	<input class="submit" type="submit" value="Submit" name="submit"/>
+	</fieldset>
+</form>
+
+
+
+</body>
+</html>
+<script>
+
+
+$(function(){
+	//指明校验什么表单
+	$("#myform").validate();
+	//alert(1);
+});
+</script>

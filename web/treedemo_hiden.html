@@ -1,0 +1,1313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Insert title here</title>
+
+
+
+<link href="ui/css/skin.css"
+	rel="stylesheet" type="text/css">
+
+<link href="ui/css/common.css"
+	type="text/css" rel="stylesheet">
+<link href="ui/css/getcss.css"
+	rel="stylesheet" type="text/css">
+<link href="ui/css/add.css"
+	type="text/css" rel="stylesheet">
+<link
+	href="ui/css/mail_group_add.css"
+	type="text/css" rel="stylesheet">
+	
+	<link rel="STYLESHEET" type="text/css"
+		href="dhtmlxtree/dhtmlxtree.css">
+	<script
+		src="dhtmlxtree/dhtmlxcommon.js"></script>
+	<script
+		src="dhtmlxtree/dhtmlxtree.js"></script>
+	<script
+		src="dhtmlxtree/dhtmlxtree_start.js"></script>
+	<script
+		src="dhtmlxtree/dhtmlxtree_json.js"></script>
+	<script
+		src="js/util/jquery-1.4.4.js"></script>
+
+
+<script language="javascript"
+	src="js/util/jquery-1.4.4.js"></script>
+
+
+<style type="text/css">
+.list_body {
+	min-width: 780px;
+}
+
+.myleftbar {
+	min-width: 560px;
+	margin-right: 186px;
+	margin-top: 10px;
+	_margin-top: 0px;
+	position: relative;
+	_float: left;
+	_margin-right: 0px;
+	zoom: 1;
+}
+
+.mysidebar {
+	position: relative;
+	right: 0px;
+	float: right;
+	top: 0px;
+	_top: 0px;
+	padding: 10px 8px 20px 8px;
+	/*width: 164px;*/
+	height: auto;
+}
+
+.M_l {
+	overflow: hidden;
+}
+
+.O,.M {
+	clear: left;
+}
+
+.html,.body {
+	_position: relative;
+	_overflow-x: hidden;
+}
+
+#contactTable tr {
+	border-bottom: 1px solid #e3e6eb;
+}
+
+#contactTable a:hover,a:link,a:visited {
+	color: black;
+	text-decoration: none;
+}
+#contactTable td{
+	border-bottom: 1px solid #e3e6eb;
+	height: 25px;
+	padding: 0 0 0 12px;
+}
+
+#treeButton a{
+	padding: 2px 10px 2px 10px;
+	height: 22px;
+	border: 1px solid #bebebe;
+	line-height: 22px;
+	background: #DDD url(ui/images/buttonbg.png) repeat-x 0 -96px;
+	text-align: center;
+	text-decoration:none;
+	color: #494949!important;
+}
+</style>
+
+
+</head>
+<body onload="onload()">
+
+
+
+    <div style="display:block;width:1100px;height:300px;">
+        <div class="list_body">
+            <div style="_width: 99%" class="txt_title">
+                <!-- <div class="search_subject nowrap" style="float:right;margin-top:-5px;_margin-top:0px;font:normal
+                12px Verdana;top:5px;_top:-3px;">
+                <div>
+                <div class="smartsearch" id="smartSearch"><input type="text" style="color: rgb(160, 160, 160);" value="" autocomplete="off" name="search" id="search" newattachfolder="1" fullsearch="1" class="searchinput"><span id="searchIcon" class="ss_icon ss_fronticon ss_icon_search"></span><span onclick="searchMember();return false;" id="subjectsearchLogo" class="ss_icon ss_endicon ss_icon_arrowdown" style="cursor: pointer;"></span></div>
+                </div> -->
+                机构导入&nbsp;
+                <!-- 标题 -->
+            </div>
+            <!-- <span class="f_size normal black" id="_ut"> (共 <span id="_ut_c" class="red"><b>2</b></span> 个联系人)</span> -->
+        </div>
+        
+        
+        <div style="display:block;width:900px;height:100px; float:left">
+            <div style="line-height: 24px; zoom: 1;" class="toolbg toolbgline">
+                <div class="right">
+                    <!-- 1/1 页&nbsp; -->
+                </div>
+                <!-- <input type="button" onclick="orgUpload()" value="机构导入" />
+                -->
+                <a id="submitbtn" class="button_gray_s" name="submitbtn1" onclick="javascript:orgUploadPage()" href="javascript:void(0);" style="margin-right:5px;width:80px">机构导入</a>
+                <!-- <input class="button_gray_s" name="submitbtn1" style="width:80px;background-position:0-128px;margin-right:5px;" type="button" onclick="javascript:orgUploadPage()" value="机构导入"/> -->
+            </div>
+            <div>
+                <table cellspacing="0" cellpadding="0" class="O2" style="table-layout: fixed; width: 100%; *width: auto;">
+                    <tbody>
+                        <tr style="height: 20px;">
+                            <!-- <td><input type="checkbox" id="chkfirstbox" onclick="chkfirstbox()" /> </td> -->
+                            <td class="o_title2">
+                                机构号码
+                            </td>
+                            <td class="o_title2">
+                                机构名称
+                            </td>
+                            <td style="padding-left: 25px;" class="o_title2">
+                                操作
+                            </td>
+                           <!--  <td  rowspan="5"></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div> 要table的高度随着数据的大小变化，下面有min-height的属性去掉即可 -->
+            <div style="min-height:130px;">
+                <!-- 数据显示 -->
+                <table id="contactTable" cellspacing="0" cellpadding="0" style="table-layout: fixed; width: 100%; *width: auto; border-color: gray;border-top-color: gray;border-right-color: gray;border-bottom-color: gray;border-left-color: gray;">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="list_btline">
+                <div class="f_size selbar_bt barspace2" style="height: 24px; padding-top: 3px">
+                    <!-- <span class="addrtitle">选择：</span>
+                    <a href="javascript:selectAll();">全部</a> - <a href="javascript:unselectAll();">无</a>
+                    &nbsp;&nbsp; <a href="javascript:deleteSelected();">删除</a>
+                    -->
+                    <DIV class=right>
+                        <font id="pageNow">
+                        </font>
+                        /
+                        <font id="pageCount">
+                        </font>
+                        页&nbsp;
+                        <A id="uppage" href="javascript:pageUp()">
+                            上一页
+                        </A>
+                        &nbsp;
+                        <A id="nextpage" href="javascript:pageNext()">
+                            下一页
+                        </A>
+                        &nbsp;
+                        <input type="text" style="width:20px;" id="page_jump">
+                        <A title="跳转到指定一页" href="javascript:page_jump()" name="page_jump">
+                            跳转
+                        </A>
+                    </DIV>
+                </div>
+            </div>
+            <div style="" class="list_btline">
+                <div class="f_size selbar_bt barspace2" style="height: 24px; padding-top: 4px; padding-bottom: 4px; background-color: #c1d9f3; height: 24px; padding-top: 3px">
+                    <!-- <span class="addrtitle">选择：</span>
+                    <a href="javascript:SetChecked(1);">全部</a> - <a href="javascript:SetChecked(2);">无</a>
+                    -->
+                    机构名称：
+                    <input maxlength="15" id="orgName" name="orgName" type="text" value=""
+                    onblur="nameMsg()" />
+                    <font color="red">
+                        *
+                    </font>
+                    <span id="span1">
+                    </span>
+                    <input type="button" value="添加" onclick="addOrg();">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div style="display:block;height:100px;float:right">
+        <div class="attbg mysidebar">
+            <div class="bd b_size bold title_left">
+                <div style="margin: 2px 1px 0 0" class="right f_size normal">
+                    <!-- <a href="javascript:void(0);" onclick="return addDep();">添加机构</a> -->
+                </div>
+                所有机构
+            </div>
+            <div class="bd b_size bold title_left">
+            <!-- 隐藏tree  display:none-->	
+            
+            	<input id="citySel" type="text" readonly="true" value="" style="width:120px;" onclick="showMenu();" />&nbsp;
+            	<!-- <a href="#" onclick="clearCitySel()">clear</a> -->
+                <div id="hidenDiv" style="display:none;">
+                	<div id="treeboxbox_tree" style="width: 100%; height: 300px; background-color: #f5f5f5; border: 1px solid Silver;">
+                	</div>
+                	<div id="treeButton" style="text-align:center;margin-top: 5px;">
+	                	<a href="#" onclick="putTreeName()">确定</a>
+	                	<a href="#" onclick="hideMenuClearName()">取消</a>
+                	</div>
+                </div>
+             
+            </div>
+       </div>
+        </div>
+    </div>
+
+<input type="button" value="发送ajax,获取所有终端类型" onclick="getCategrory()">
+
+<a href="accountManager/queryAppNumByAccountName.do?accountName=maojd">点击查询账号开通业务数量</a>
+</body>
+</html>
+
+<script>
+
+
+
+function getCategrory(){
+	//alert("123");
+	$.ajax({
+		//url:"${pageContext.request.contextPath}/organizationManager/queryAllAcountByOrgId.do",
+		url:"organizationManager/queryAllAcountByOrgId.do",
+		data:"id="+"0",
+		type:"POST",
+		 success:function(msg){
+			var accountNum = eval('('+msg+')');
+			alert(accountNum);
+				/* for(var i=0;i<dataObj.length;i++){
+					 var obj = dataObj[i];	//获取一个对象
+							   var orgId=obj.orgId;
+							   var orgName=obj.orgName; 
+					//对id,name进行操作即可
+				} */
+		   }
+	})
+}
+
+
+
+var dataAll="";
+var count = 0;
+var pageSize = 5;
+var pageNow =1;
+var pageCount = 1;
+
+tree = new dhtmlXTreeObject("treeboxbox_tree", "100%", "100%","root");
+
+tree.setSkin('dhx_skyblue');
+tree.setImagePath("dhtmlxtree/common/images/");
+tree.enableDragAndDrop(0);
+tree.enableTreeLines(false);
+tree.setImageArrays("plus.gif", "", "", "", "plus.gif");
+tree.setImageArrays("minus.gif", "", "", "", "minus.gif");
+tree.setStdImages("book.gif", "books_open.gif", "books_close.gif");
+
+//tree.setOnDblClickHandler(dbclickFunc);//双击事件
+tree.setOnClickHandler(clickFunc);
+function clickFunc(id) {
+	//alert(id);
+	
+	$.ajax({
+		type : "POST",
+		/* url : "${pageContext.request.contextPath}/organizationManager/queryOrgRoot.do", */
+		url : "organizationManager/querySubOrgListByOrgId.do",
+		data : "id=" + id,
+		success : function(msg) {
+			//alert(msg);
+		}
+	});
+	
+	//根据id获取内容的方法是 tree.getItemText(id)
+	//alert("dbclick "+id+" Item " + tree.getItemText(id) + " was selected");
+	//var abc = tree._getLeafCount(itemNode);判断子节点的个数
+	//alert("节点个数"+abc+"--id 是"+id); 
+
+	/* var num = tree.getAllChildless();//获取所有 未打开过的child
+	alert(num); */
+	var state = tree.getOpenState(id); //state 三种状态，0 表示全新未打开，1表示打开状态。-1，表示关闭状态
+	//alert(state);
+	if (state == 0) { //避免多次点击tree的时候，多次出现子 节点
+		//alert("ajax");
+
+		$.ajax({
+					type : "POST",
+					/*  url: "http://localhost:8080/myspring/organizationManager/queryOrgLevel.do", */
+					url : "organizationManager/queryOrgLevel.do",
+					data : "id=" + id,
+					success : function(msg) {
+						//   alert( "Data Saved: " + msg );
+						var dataObj = eval('(' + msg + ')');
+						
+						dataAll = dataObj;
+						pageFunction();//加载page的所需数据  
+						
+								//没有子机构的显示 	start		
+								if(dataObj == null || dataObj == "")
+								{
+									$.ajax({//发送Ajax请求，得到一个org
+										type:"POST",
+										url:"organizationManager/queryOrgById.do",
+										data:"id="+id,
+										success:function(msg){
+											var dataObj = eval('(' + msg + ')');
+											//alert(dataObj.length);
+											dataAll = dataObj;
+											pageFunction();//加载page的所需数据 
+											
+											pageNow = 0;	//没有子结构的话，直接展示第一页。pageNow =0;执行pageNext
+											pageNext();
+											
+											/* var obj = dataObj[0];
+											var orgId = obj.orgId;
+											var orgName = obj.orgName;
+											//alert(dataObj[0]+"123" + "orgId is "+orgId);
+											var levelText = "";
+											if (obj.level1 != null) {
+												//alert(obj.level1);
+												levelText = levelText + obj.level1;
+											}
+											if (obj.level2 != null
+													&& obj.level2 != undefined
+													&& obj.level2 != "") {
+												levelText = levelText + "|"
+														+ obj.level2;
+											}
+											if (obj.level3 != null
+													&& obj.level3 != undefined
+													&& obj.level3 != "") {
+												levelText = levelText + "|"
+														+ obj.level3;
+											}
+											if (obj.level4 != null
+													&& obj.level4 != undefined
+													&& obj.level4 != "") {
+												levelText = levelText + "|"
+														+ obj.level4;
+											}
+											if (obj.level5 != null
+													&& obj.level5 != undefined
+													&& obj.level5 != "") {
+												levelText = levelText + "|"
+														+ obj.level5;
+											}
+											if (obj.level6 != null
+													&& obj.level6 != undefined
+													&& obj.level6 != "") {
+												levelText = levelText + "|"
+														+ obj.level6;
+											}
+											if (obj.level7 != null
+													&& obj.level7 != undefined
+													&& obj.level7 != "") {
+												levelText = levelText + "|"
+														+ obj.level7;
+											}
+		
+											clearRowsSMS();
+											var table = document.getElementById("contactTable");
+											var tr = table.insertRow(table.rows.length);
+											var td1 = tr.insertCell(0);
+											var td2 = tr.insertCell(1);
+											var td3 = tr.insertCell(2);
+											
+											
+											
+											//td1.innerHTML = obj.orgId;
+											//$(td1).attr("style","width:10px;margin-right:10px;");
+											// td1.innerHTML +="<input type='checkbox' name='chkbox' value=\'"+obj.orgId+"\' />"; 
+											td1.innerHTML = levelText;
+											td2.innerHTML = obj.orgName;
+											//td3.innerHTML = "删除";
+											//  td3.innerHTML = "NIHAO";
+											td3.innerHTML += "<span><a href='#' onclick='deleteOrg(\""
+													+ obj.orgId
+													+ "\")'>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></span>";
+											//td3.innerHTML += "<span><a href='#' onclick='updateOrgPage(\""+ obj.orgId + "\")'>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+											td3.innerHTML += "<span><a href='${pageContext.request.contextPath}/organizationManager/updateOrgPage.do?orgId="+obj.orgId+"' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+											//tree.insertNewNext(obj.parent,obj.id,obj.item);
+											 */
+										}
+									});
+								}//没有子机构的显示		end
+								
+								else//else 有子机构		elsestart
+								{
+									//清理table.		for循环	tree.insertNewChild添加子节点
+									//clearRowsSMS();
+									//var table = document.getElementById("contactTable");//在pageNext方法中会清理table
+									
+									dataAll = dataObj;
+									pageFunction();//加载page的所需数据  在if之前已经加载过。此处可以省去重复加载
+									pageNow = 0;
+									pageNext();
+									
+									for ( var i = 0; i < dataObj.length; i++) {
+										var obj = dataObj[i]; //获取一个对象
+										var orgId = obj.orgId;
+										var orgName = obj.orgName;
+									
+										/* //  alert("parent"+id);
+										// alert("selef"+orgId); 
+										
+										var tr = table.insertRow(table.rows.length);
+										var td1 = tr.insertCell(0);
+										var td2 = tr.insertCell(1);
+										var td3 = tr.insertCell(2);
+									// 	var td4 = tr.insertCell(3); 
+
+										//   td1.innerHTML = obj.orgId;拼装一下需要显示的 机构号码
+										var levelText = "";
+										if (obj.level1 != null) {
+											//alert(obj.level1);
+											levelText = levelText + obj.level1;
+										}
+										if (obj.level2 != null
+												&& obj.level2 != undefined
+												&& obj.level2 != "") {
+											levelText = levelText + "|"
+													+ obj.level2;
+										}
+										if (obj.level3 != null
+												&& obj.level3 != undefined
+												&& obj.level3 != "") {
+											levelText = levelText + "|"
+													+ obj.level3;
+										}
+										if (obj.level4 != null
+												&& obj.level4 != undefined
+												&& obj.level4 != "") {
+											levelText = levelText + "|"
+													+ obj.level4;
+										}
+										if (obj.level5 != null
+												&& obj.level5 != undefined
+												&& obj.level5 != "") {
+											levelText = levelText + "|"
+													+ obj.level5;
+										}
+										if (obj.level6 != null
+												&& obj.level6 != undefined
+												&& obj.level6 != "") {
+											levelText = levelText + "|"
+													+ obj.level6;
+										}
+										if (obj.level7 != null
+												&& obj.level7 != undefined
+												&& obj.level7 != "") {
+											levelText = levelText + "|"
+													+ obj.level7;
+										}
+
+										//td1.innerHTML = obj.orgId;
+										//$(td1).attr("style","width:10px;margin-right:10px;");
+										// td1.innerHTML +="<input type='checkbox' name='chkbox' value=\'"+obj.orgId+"\' />"; 
+										
+										td1.innerHTML = levelText;
+										td2.innerHTML = obj.orgName;
+										//td3.innerHTML = "删除";
+										//  td3.innerHTML = "NIHAO";
+										td3.innerHTML += "<span><a href='#' onclick='deleteOrg(\""
+												+ obj.orgId
+												+ "\")'>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></span>";
+										//td3.innerHTML += "<span><a href='#' onclick='updateOrgPage(\""+ obj.orgId + "\")'>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+										td3.innerHTML += "<span><a href='${pageContext.request.contextPath}/organizationManager/updateOrgPage.do?orgId="+obj.orgId+"' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+										//tree.insertNewNext(obj.parent,obj.id,obj.item);
+										
+											 
+										//处罚上面的事件以后，添加 子节点 #重要
+										 */
+										tree.insertNewChild(id, orgId, orgName);
+
+									}
+								}//else 有子机构		elseend
+						
+
+					}
+				});
+	} else {//  tree	 不是全新的状态，只new table，不new tree
+		$
+				.ajax({
+					type : "POST",
+					/*  url: "http://localhost:8080/myspring/organizationManager/queryOrgLevel.do", */
+					url : "organizationManager/queryOrgLevel.do",
+					data : "id=" + id,
+					success : function(msg) {
+						//    alert( "Data Saved: " + msg );
+						var dataObj = eval('(' + msg + ')');
+						
+						dataAll = dataObj;
+						pageFunction();//加载page的所需数据 
+						pageNow = 0;
+						pageNext();
+						
+						//清理table
+						/* clearRowsSMS();
+						var table = document.getElementById("contactTable");
+
+						for ( var i = 0; i < dataObj.length; i++) {
+							var obj = dataObj[i]; //获取一个对象
+							var orgId = obj.orgId;
+							var orgName = obj.orgName;
+
+							//  alert("parent"+id);
+							// alert("selef"+orgId); 
+							 
+							var tr = table.insertRow(table.rows.length);
+							var td1 = tr.insertCell(0);
+							var td2 = tr.insertCell(1);
+							var td3 = tr.insertCell(2);
+
+							//   td1.innerHTML = obj.orgId;拼装一下需要显示的 机构号码
+							var levelText = "";
+							if (obj.level1 != null) {
+								//alert(obj.level1);
+								levelText = levelText + obj.level1;
+							}
+							if (obj.level2 != null
+									&& obj.level2 != undefined
+									&& obj.level2 != "") {
+								levelText = levelText + "|"
+										+ obj.level2;
+							}
+							if (obj.level3 != null
+									&& obj.level3 != undefined
+									&& obj.level3 != "") {
+								levelText = levelText + "|"
+										+ obj.level3;
+							}
+							if (obj.level4 != null
+									&& obj.level4 != undefined
+									&& obj.level4 != "") {
+								levelText = levelText + "|"
+										+ obj.level4;
+							}
+							if (obj.level5 != null
+									&& obj.level5 != undefined
+									&& obj.level5 != "") {
+								levelText = levelText + "|"
+										+ obj.level5;
+							}
+							if (obj.level6 != null
+									&& obj.level6 != undefined
+									&& obj.level6 != "") {
+								levelText = levelText + "|"
+										+ obj.level6;
+							}
+							if (obj.level7 != null
+									&& obj.level7 != undefined
+									&& obj.level7 != "") {
+								levelText = levelText + "|"
+										+ obj.level7;
+							}
+
+							//td1.innerHTML = obj.orgId;
+							td1.innerHTML = levelText;
+							td2.innerHTML = obj.orgName;
+							//td3.innerHTML = "删除";
+							//  td3.innerHTML = "NIHAO";
+							td3.innerHTML += "<span><a href='#' onclick='deleteOrg(\""
+									+ obj.orgId
+									+ "\")'>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></span>";
+							//td3.innerHTML += "<span><a href='#' onclick='updateOrgPage(\""+ obj.orgId+ "\")'>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+							//td3.innerHTML += "<span><a href='updateOrgPage.do?orgId="+obj.orgId+"' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+							td3.innerHTML += "<span><a href='${pageContext.request.contextPath}/organizationManager/updateOrgPage.do?orgId="+obj.orgId+"' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+							//tree.insertNewNext(obj.parent,obj.id,obj.item);
+
+							//处罚上面的事件以后，添加 子节点 #重要
+							// tree.insertNewChild(id,orgId,orgName);
+							
+						} */
+
+					}
+				});
+
+	}
+	
+}
+
+//清除Table
+function clearRowsSMS() {
+	//var tableLen = document.getElementById('contactTable').rows.length;
+	
+	 var opanel = document.getElementById("contactTable");
+
+	 var pchildren = opanel.childNodes;
+	 //清空表中的行和列
+	 
+		 for(var a=0; a<pchildren.length; a++){
+			  opanel.removeChild(pchildren[a]);
+		 }
+	 
+	 
+	/* if (tableLen > 1) {
+		  for ( var i = 0; i < tableLen - 1; i++) {
+			document.getElementById('contactTable').deleteRow(
+					tableLen-i-1);
+		}  
+	     for(var int = 2;int < tableLen;int++) {
+		    table.deleteRow(2);
+	    } 
+		//document.getElementById('contactTable').outerHTML = "";
+		
+	   
+		} */
+}
+
+//alert("dbclick "+id+" Item " + tree.getItemText(id) + " was selected");
+//tree.insertNewChild(, '0', "全国"); //id全  tree.getItemText(id)	全国 （也就是要显示的标签内容）
+//tree.enableTreeLines(true);
+
+/* 这里是数据的操作 */
+
+//删除
+function deleteOrg(orgId) {
+	var table = document.getElementById("contactTable");
+
+	if (orgId != null && orgId != undefined && orgId != "") {
+		//alert("确定删除？");
+
+		$.ajax({
+			type : "POST",
+			/*  url: "http://localhost:8080/myspring/organizationManager/queryOrgLevel.do", */
+			url : "${pageContext.request.contextPath}/organizationManager/queryOrgLevel.do",
+			data : "id=" + orgId,
+			success : function(msg) {
+				var dataObj = eval('(' + msg + ')');
+				if (dataObj == "") {
+					//alert("ajax");查询，发现下一个等级，没有数据。执行删除操作
+					var a = window.confirm('确定删除');
+					if (a == 1) {//a==1表示点击了window.confirm的确定
+						$.ajax({
+							type : "POST",
+							url : "${pageContext.request.contextPath}/organizationManager/deleteOrg.do",
+							data : "orgId=" + orgId,
+							success : function(msg) {
+								//考虑怎么删除节点，不刷新页面？？
+								window.location.reload();
+							}
+						});
+					} else {
+						//刚才点击了 window.confirm的取消
+					}
+				} else {
+					//alert("nothing");否则（表示有数据）什么也不做
+					alert("该机构下有子机构，禁止删除");
+				}
+			}
+		});
+
+	}
+	//alert(orgId+"删除"); 
+
+}
+
+//修改页面
+/*
+function updateOrgPage(orgId) {
+	// alert(orgId+"修改");  
+	
+	window.location.href="updateOrgPage.do ?orgId=\'"+orgId+"\'}"; 
+	/* $.ajax({
+		type : "POST",
+		url : "updateOrgPage.do",
+		data : "orgId=" + orgId,
+		success : function(msg) {
+			$("#updateOrgPage").html(msg);
+			//$().html +="<span><a href='#' onclick='updateOrgPage(\""+obj.orgId+"\")'>返回</a></span>"
+		}
+	});
+} */
+
+//添加	把下一个页面拿到当前页面。已经废弃不用
+/* function addFunction() {
+	var treeid = tree.getSelectedItemId();
+	if (treeid == "" || treeid == undefined) {
+		//alert("您没有选中要添加的等级");  默认选中全国
+		treeid = 0;
+	}
+	$.ajax({
+		type : "POST",
+		//url : "${pageContext.request.contextPath}/organizationManager/addOrgPage.do",
+		url:"${pageContext.request.contextPath}/organizationManager/addOrg.do",
+		data : "orgId=" + treeid,
+		success : function(msg) {
+			//$("#addDiv").html(msg);	
+		}
+	});
+
+} */
+
+
+/* 添加验证*/ 
+function nameMsg() {
+	var span = document.getElementById("span1");
+	var name = document.getElementById("orgName").value;
+	name = name.replace(/(^\s*)(\s*$)/g, "");
+	span.innerHTML = "";
+	if (name == "") {
+		msg = '名称不能为空';
+		span.innerHTML = msg;
+		span.style.color = '#ff0000';
+		span.style.fontSize = '12px';
+
+	}
+	if (name.length > 15) {
+		msg = '长度限制为15';
+		span.innerHTML = msg;
+		span.style.color = '#ff0000';
+		span.style.fontSize = '12px';
+	}
+}
+
+
+//添加ajax带着数据
+function addOrg() {
+	//alert(123);
+	var textuser = document.getElementById("orgName").value;
+	textuser = textuser.replace(/(^\s*)(\s*$)/g,"");
+	if(textuser == ""){
+		alert("名称不能为空");//		把提示的弹窗去掉。用户体验好些。return false
+		return false;
+	}else if(textuser.length > 15){
+		alert("长度限制为15");
+	    return false;
+	}else{
+		
+		var treeid = tree.getSelectedItemId();
+		
+		var orgName = $("#orgName").val().replace(/(^\s*)(\s*$)/g,"");
+		//alert(treeid+"---"+orgName );
+		if (treeid == "" || treeid == undefined) {
+			//alert("您没有选中要添加的等级");  默认选中全国
+			treeid = 0;
+		}
+		//发送ajax请求，判断选中的是不是 第7和等级。如果不是，才去添加，否则，提示用户。已经添加到最大等级
+		//判断是否第7级 	start
+		$.ajax({//发送Ajax请求，得到一个org
+			type:"POST",
+			url:"${pageContext.request.contextPath}/organizationManager/queryOrgById.do",
+			data:"id="+treeid,
+			success:function(msg){
+				var dataObj = eval('(' + msg + ')');
+				var obj = dataObj[0];
+				//alert(dataObj[0]+"123" + "orgId is "+orgId +" level7 is start"+obj.level7+"end");
+
+				if (obj.level7 == null || obj.level7.replace(/(^\s*)(\s*$)/g,"") =="") {
+					//level7 null，不是第七个层级，可以添加
+					$.ajax({
+						type : "POST",
+						url : "${pageContext.request.contextPath}/organizationManager/addOrg.do",
+						data:{"orgId":treeid,"orgName":orgName},
+						success : function(msg) {
+							//$("#addDiv").html(msg);
+							alert("添加成功");
+							window.location.reload();
+						}
+					});
+					
+				}else{
+					alert("最多支持7层，已经添加到最大层级");
+					
+				}
+
+			}
+		});//判断是否第7级 	start
+		
+		return true;	
+	}
+}
+
+/*
+*orgUploadPage机构导入跳转
+*/
+function orgUploadPage(){
+	window.location.href="${pageContext.request.contextPath}/organizationManager/orgUploadPage.do";
+}
+
+/*
+*页面加载完毕。执行tree.clickFunc()方法。查询全国数据
+*/
+
+function onload(){
+	
+	$.ajax({
+		type : "POST",
+		/* url : "${pageContext.request.contextPath}/organizationManager/queryOrgRoot.do", */
+		url : "organizationManager/queryOrgRoot.do",
+		success : function(msg) {
+			var dataObj = eval('(' + msg + ')');
+			var orgId = dataObj[0].orgId;
+			var orgName = dataObj[0].orgName;
+			//alert(orgId+"---"+orgName);
+			//alert("dbclick "+id+" Item " + tree.getItemText(id) + " was selected");
+			tree.insertNewChild('root',orgId,orgName);  //id全  tree.getItemText(id)	全国 （也就是要显示的标签内容）
+			tree.enableTreeLines(true);
+			clickFunc(orgId);
+		}
+	});	
+}
+/*
+*  初始化数据
+*  pageNow =1	当前页
+*  pageCount	总页
+*/
+function pageFunction(){
+	//alert(dataAll+"count is "+count);
+	count = dataAll.length;
+	pageCount = Math.ceil(count/pageSize);
+	// alert(count);
+	$("#pageNow").html("1");
+	$("#pageCount").html(pageCount);
+	if(pageNow<=1){
+		$("#uppage").html("");
+		$("#nextpage").html("下一页");
+	}
+	if(pageCount==1 || pageCount ==0){
+		$("#uppage").html("");			//总页为1或者0，就隐藏上一页下一页标签
+		$("#nextpage").html("");
+	}
+}
+
+/*
+* javaScript	上一页 			pageUp
+* pageNow		当前页
+* start 		当前页的第一条 first  organization（机构）
+* end			最后一条		  last	organization
+*/
+function pageUp(){
+	if (pageNow <= 2) { //如果pageNow小于等于1，set pageNow = 1;上一页的<a>标签，隐藏。
+	    pageNow = 1;
+	    $("#uppage").html("");
+	    $("#nextpage").html("下一页");
+	} else {
+	    pageNow = pageNow - 1;
+	    $("#uppage").html("上一页");
+	    $("#nextpage").html("下一页");
+	}
+	if (pageCount == 1 || pageCount == 0) {
+	    $("#uppage").html(""); //总页为1或者0，就隐藏上一页下一页标签
+	    $("#nextpage").html("");
+	}
+	$("#pageNow").html(pageNow);
+	//pageNow 从3变成2的话，所需数据11 到20
+	var start = (pageNow - 1) * pageSize; //dataAll[20] 即 dataAll[start]	第21条数据
+	var end = pageNow * pageSize; // dataAll[29] for循环时候，i<end	第30条数据
+	if (end >= count){
+		end=count;
+	}
+	
+	var table = document.getElementById("contactTable");
+	clearRowsSMS();
+	for (var i = start; i < end; i++) {
+	    var obj = dataAll[i]; //获取一个对象
+	    var orgId = obj.orgId;
+	    var orgName = obj.orgName;
+
+	    /*  alert("parent"+id);
+					 alert("selef"+orgId); 
+					 */
+	    var tr = table.insertRow(table.rows.length);
+	    var td1 = tr.insertCell(0);
+	    var td2 = tr.insertCell(1);
+	    var td3 = tr.insertCell(2);
+	    /* 	var td4 = tr.insertCell(3); */
+
+	    //   td1.innerHTML = obj.orgId;拼装一下需要显示的 机构号码
+	    var levelText = "";
+	    if (obj.level1 != null) {
+	        //alert(obj.level1);
+	        levelText = levelText + obj.level1;
+	    }
+	    if (obj.level2 != null && obj.level2 != undefined && obj.level2 != "") {
+	        levelText = levelText + "|" + obj.level2;
+	    }
+	    if (obj.level3 != null && obj.level3 != undefined && obj.level3 != "") {
+	        levelText = levelText + "|" + obj.level3;
+	    }
+	    if (obj.level4 != null && obj.level4 != undefined && obj.level4 != "") {
+	        levelText = levelText + "|" + obj.level4;
+	    }
+	    if (obj.level5 != null && obj.level5 != undefined && obj.level5 != "") {
+	        levelText = levelText + "|" + obj.level5;
+	    }
+	    if (obj.level6 != null && obj.level6 != undefined && obj.level6 != "") {
+	        levelText = levelText + "|" + obj.level6;
+	    }
+	    if (obj.level7 != null && obj.level7 != undefined && obj.level7 != "") {
+	        levelText = levelText + "|" + obj.level7;
+	    }
+
+	    //td1.innerHTML = obj.orgId;
+	    //$(td1).attr("style","width:10px;margin-right:10px;");
+	    /* td1.innerHTML +="<input type='checkbox' name='chkbox' value=\'"+obj.orgId+"\' />"; */
+
+	    td1.innerHTML = levelText;
+	    td2.innerHTML = orgName;
+	    //td3.innerHTML = "删除";
+	    //  td3.innerHTML = "NIHAO";
+	    td3.innerHTML += "<span><a href='#' onclick='deleteOrg(\"" + orgId + "\")'>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></span>";
+	    //td3.innerHTML += "<span><a href='#' onclick='updateOrgPage(\""+ obj.orgId + "\")'>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+	    td3.innerHTML += "<span><a href='${pageContext.request.contextPath}/organizationManager/updateOrgPage.do?orgId=" + orgId + "' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+	    //tree.insertNewNext(obj.parent,obj.id,obj.item);
+	}
+}
+
+/*
+ *  pageNext	下一页
+ */
+
+function pageNext(){
+	//alert("start"+pageCount+"end");
+	if(pageNow<1){
+		pageNow = 1;	//set pageNow设为1，uppage上一页标签隐藏
+		$("#uppage").html("");
+		$("#nextpage").html("下一页");
+	}else{//pageNow 为 >=1的任意数字
+		if(pageNow<pageCount){
+			pageNow = pageNow +1;//小于总页，就+1，标签不做任何操作
+			if(pageNow == pageCount){//+1后，如果等于 pageCount了，隐藏下一页标签
+				$("#nextpage").html("");
+				$("#uppage").html("上一页");
+			}else{					//+1后，依然小于总页。
+				$("#uppage").html("上一页");
+				$("#nextpage").html("下一页");
+				
+			}
+		}else {//等于总页，或者大于总页
+			pageNow = pageCount;
+			$("#nextpage").html("");
+			$("#uppage").html("上一页");
+		}
+	}
+	
+	if(pageCount==1 || pageCount ==0){
+		$("#uppage").html("");			//总页为1或者0，就隐藏上一页下一页标签
+		$("#nextpage").html("");
+	}
+	$("#pageNow").html(pageNow);
+	
+	//上面执行完毕，pageNow从1变成了2，所需数据从11 到20个
+	var start = (pageNow-1)*pageSize;	//其实start是 +1，但是dataAll是json数据，下标从0算。dataAll[start+1-1].orgName
+	var end = pageNow*pageSize;
+	if(end>=count){
+		end = count;
+	}
+	//alert("start is "+start +" end is "+end + dataAll[start].orgName+" 最后一个orgName是：" +dataAll[end-1].orgName);
+	var table = document.getElementById("contactTable");
+	clearRowsSMS();
+	
+	if(count>0){
+		for ( var i = start; i < end; i++) {
+			var obj = dataAll[i]; //获取一个对象
+			var orgId = obj.orgId;
+			var orgName = obj.orgName;
+
+			/*  alert("parent"+id);
+			 alert("selef"+orgId); 
+			 */
+			var tr = table.insertRow(table.rows.length);
+			var td1 = tr.insertCell(0);
+			var td2 = tr.insertCell(1);
+			var td3 = tr.insertCell(2);
+		/* 	var td4 = tr.insertCell(3); */
+
+			//   td1.innerHTML = obj.orgId;拼装一下需要显示的 机构号码
+			var levelText = "";
+			if (obj.level1 != null) {
+				//alert(obj.level1);
+				levelText = levelText + obj.level1;
+			}
+			if (obj.level2 != null
+					&& obj.level2 != undefined
+					&& obj.level2 != "") {
+				levelText = levelText + "|"
+						+ obj.level2;
+			}
+			if (obj.level3 != null
+					&& obj.level3 != undefined
+					&& obj.level3 != "") {
+				levelText = levelText + "|"
+						+ obj.level3;
+			}
+			if (obj.level4 != null
+					&& obj.level4 != undefined
+					&& obj.level4 != "") {
+				levelText = levelText + "|"
+						+ obj.level4;
+			}
+			if (obj.level5 != null
+					&& obj.level5 != undefined
+					&& obj.level5 != "") {
+				levelText = levelText + "|"
+						+ obj.level5;
+			}
+			if (obj.level6 != null
+					&& obj.level6 != undefined
+					&& obj.level6 != "") {
+				levelText = levelText + "|"
+						+ obj.level6;
+			}
+			if (obj.level7 != null
+					&& obj.level7 != undefined
+					&& obj.level7 != "") {
+				levelText = levelText + "|"
+						+ obj.level7;
+			}
+
+			//td1.innerHTML = obj.orgId;
+			//$(td1).attr("style","width:10px;margin-right:10px;");
+			/* td1.innerHTML +="<input type='checkbox' name='chkbox' value=\'"+obj.orgId+"\' />"; */
+			
+			td1.innerHTML = levelText;
+			td2.innerHTML = orgName;
+			//td3.innerHTML = "删除";
+			//  td3.innerHTML = "NIHAO";
+			td3.innerHTML += "<span><a href='#' onclick='deleteOrg(\""
+					+ orgId
+					+ "\")'>&nbsp;&nbsp;&nbsp;&nbsp;删除</a></span>";
+			//td3.innerHTML += "<span><a href='#' onclick='updateOrgPage(\""+ obj.orgId + "\")'>&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+			td3.innerHTML += "<span><a href='${pageContext.request.contextPath}/organizationManager/updateOrgPage.do?orgId="+orgId+"' >&nbsp;&nbsp;&nbsp;&nbsp;修改</a></span>";
+			//tree.insertNewNext(obj.parent,obj.id,obj.item);
+
+
+		}
+	}
+	
+	
+	
+}
+
+/*
+ *  page_jump()		分页跳转
+ */
+
+function page_jump(){
+	var page_jump = $("#page_jump");
+	pageVal = page_jump.val().trim();;
+	if(checkIsInteger(pageVal)){
+		//如果是数字，判断是否超过最大页
+		
+		//alert(page_jump);
+		if(pageVal>pageCount){
+			//alert("输入值是"+pageVal+"超过最大页");
+			alert("您输入的值超过最大页");
+			page_jump.attr("value","");			//清除刚才输入的数据，并获取焦点
+			page_jump.focus();
+		}else if(pageVal == 0){
+			alert("请输入正整数");
+			page_jump.attr("value","");
+			page_jump.focus();
+		}else{
+			//alert("输入值是"+pageVal);
+			pageNow = pageVal - 1;
+			pageNext();
+		}
+	}else{
+		//alert("输入值是"+pageVal+"只能输入数字，且为正整数");
+		alert("只能输入数字，且为正整数");
+		page_jump.attr("value","");
+		page_jump.focus();
+	}
+	
+	
+}
+
+
+
+
+
+//机构导入移到另一个orgUpload.jsp页面，此方法暂时抛弃
+/* function fileCheck() {
+	var fileName = document.getElementById("file");
+	var filetext = fileName.value;
+
+	var span = document.getElementById("spanFile");
+	span.innerHTML = "";
+
+	//alert(filetext);
+	if (filetext == '') {
+
+		msg = '请上传要导入的文件';
+		span.innerHTML = msg;
+		span.style.color = '#ff0000';
+		span.style.fontSize = '12px';
+
+		return false; //提示没有选择要导入的文件
+
+	} else {
+		var result = /\.[^\.]+/.exec(filetext); //获取文件后缀名
+		if (result.toString().toLowerCase() == '.csv') { //toString不可省去
+			return true;
+		} else {
+			//alert("请选择CSV格式文件导入");
+
+			msg = '请选择CSV格式文件导入';
+			span.innerHTML = msg;
+			span.style.color = '#ff0000';
+			span.style.fontSize = '12px';
+
+			return false;
+		}
+	} 
+}
+*/
+
+function orgUpload() {
+	//机构导入，弹出 导入窗口
+	if(window.ActiveXObject){ //IE   
+		//alert("ie");
+	   window.showModalDialog("${pageContext.request.contextPath}/organizationManager/orgUploadPage.do", window, "dialogWidth:630px;status:no;dialogHeight:440px");  
+	  
+	}else{  //非IE   
+	    //alert("qita");
+	   var w = window.open("${pageContext.request.contextPath}/organizationManager/orgUploadPage.do",'newwindow','height=440,width=630,top=150,left=300,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');  
+	   w.focus();
+	} 
+	
+	
+	//window.showModalDialog("orgUploadPage.do", "dialogWidth:800px;dialogHeight=400px;status:no");
+}
+
+
+
+
+/* 添加机构验证 */
+function nameMsg(){
+var span = document.getElementById("span1");
+var name = document.getElementById("orgName").value;
+name = name.replace(/(^\s*)(\s*$)/g,"");
+span.innerHTML = "";
+	if(name == ""){
+		msg = '名称不能为空';
+		span.innerHTML = msg;
+		span.style.color='#ff0000';
+	    span.style.fontSize='12px';
+	  
+	}
+	if(name.length > 15){
+		msg = '长度限制为15';
+		span.innerHTML = msg;
+		span.style.color='#ff0000';
+	    span.style.fontSize='12px';
+	}
+} 
+
+
+/*function checkPage_jump
+ *验证跳转的文本框输入值 格式
+ */
+	// 检查是否为数字
+	function checkIsInteger(str){
+			if (str == ""){
+			 return false;
+			}
+			if (str.search(/^[0-9]+$/) < 0){
+			 return false;
+			}
+			else{
+			 return true;
+			}
+	}
+		
+		
+		/* function selectAll() {
+			//选中所有
+			var box = document.getElementsByName("chkbox");
+			var box_length = box.length;
+			for (i = 0; i < box_length; i++) {
+				box[i].checked = true;
+			}
+
+		}
+
+		function unselectAll() {
+			//取消选中所有
+			var box = document.getElementsByName("chkbox");
+			var box_length = box.length;
+			for (i = 0; i < box_length; i++) {
+				box[i].checked = false;
+			}
+		} */
+		
+	    /*
+		 *批量删除点击 firstCheckBox，选中所有	
+		 */
+		
+		/* function chkfirstbox() {
+			//第一个 checkbox执行的方法。
+			var box = document.getElementById("chkfirstbox");
+			if (box.checked == true) {
+				selectAll();
+			}
+			if (box.checked == false) {
+				unselectAll();
+			}
+		} */
+
+		
+		/* function deleteSelected(){
+			//删除选中
+			var box = document.getElementsByName("chkbox");
+			var box_length = box.length;
+			//alert(box.length);
+			var chkstr = "";
+			for (i = 0; i < box_length; i++) {
+
+				if (box[i].checked == true) {
+					chkstr += box[i].value + ",";
+				}
+			}
+			//alert(chkstr);
+			chkstr = chkstr.substring(0, chkstr.length - 1);
+
+			//发送ajax请求，到control，把chkstr发过去
+
+				 $.ajax({
+					   type: "POST",
+					  
+					   url: "${pageContext.request.contextPath}/organizationManager/deleteXXX.do", 					  
+					   data: "ids="+chkstr,
+					   success: function(msg){
+						   window.location.reload();
+					   }
+				}); 
+
+			//control里面处理
+			
+			String ids = request.getParameter("ids");
+			for (int i = 0; i<ids.split(",").length; i++){
+				user.setId(Integer.parseInt(ids.split(",")[i]));
+				userService.delete(user);
+			
+			}
+			 
+
+			alert(chkstr);
+			//alert("chkstr is:"+chkstr+"   长度是:" +chkstr.toString().length);
+			window.location.reload();
+
+		} */
+		
+		
+		/*
+			隐藏tree
+		*/
+		
+		function clearCitySel(){
+			var cityObj = $("#citySel");	
+			cityObj.attr("value","");	//清楚文本框
+		}
+		function showMenu(){
+			//点击文本框，以后，把div的样式设置到input的下面
+			var cityObj = $("#citySel");
+			var cityOffset = $("#citySel").offset();
+			$("#hidenDiv").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+			$("body").bind("mousedown", onBodyDown);	//	为body元素的 鼠标点击  绑定onBodyDown处理函数。
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "hidenDiv" || $(event.target).parents("#hidenDiv").length>0)) {
+				hideMenu();
+			}//onBodyDown让div 那个tree隐藏
+		}
+		function hideMenu() {
+			$("#hidenDiv").fadeOut("fast");//fadeOut([speed],[easing],[fn])通过不透明度的变化来实现所有匹配元素的淡出效果
+											//speed:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值
+			$("body").unbind("mousedown", onBodyDown);	//unbind 从每一个匹配的元素中删除绑定的事件
+		}
+		
+		function hideMenuClearName(){
+			hideMenu();
+			clearCitySel();
+		}
+		function putTreeName(){
+			var cityValue = tree.getSelectedItemText();
+			if(cityValue == 0){
+				cityValue = "请选择机构";
+			}
+			var citySel = $("#citySel").attr("value",cityValue);
+			hideMenu();
+		}
+	</script>
